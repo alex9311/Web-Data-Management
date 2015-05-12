@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<people id="1">
+
+	<person id="2">
+		<email id="3"> m@home</email>
+		<name id="4">
+			<first id="5">Mary</first>
+			<last id="6">Jones</last>
+		</name>
+	</person>
+
+	<person id="7">
+		<name id="8">
+			<first id="9">Bob</first>
+			<last id="10">Lang</last>
+		</name>
+	</person>
+
+	<person id="11">
+		<email id="12"> a@home</email>
+		<email id="13"> a@work</email>
+		<name id="14">
+			<first id="15">Al</first>
+			<last id="16">Hart</last>
+		</name>
+	</person>
+	
+</people>
