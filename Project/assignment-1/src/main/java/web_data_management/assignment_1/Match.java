@@ -3,21 +3,57 @@ package web_data_management.assignment_1;
 import java.util.List;
 import java.util.Map;
 
-class Match {
+public class Match {
 	
-	int pre;
-	State state;
-	Match parent;
-	Map<PatternNode, List<Match>> children;
-	TPEStack stack;
+	private int start;
+	private State state;
+	private Match parent;
+	private Map<PatternNode, List<Match>> children;
+	private TPEStack stack;
 	
 	public Match(int currentPre, Match parent, TPEStack tpeStack) {
-		pre = currentPre;
-		this.parent = parent;
-		stack = tpeStack;
+		setStart(currentPre);
+		this.setParent(parent);
+		setStack(tpeStack);
 	}
 
-	int getStatus() {
-		return 1;
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public Match getParent() {
+		return parent;
+	}
+
+	public void setParent(Match parent) {
+		this.parent = parent;
+	}
+
+	public Map<PatternNode, List<Match>> getChildren() {
+		return children;
+	}
+
+	public void setChildren(Map<PatternNode, List<Match>> children) {
+		this.children = children;
+	}
+
+	public TPEStack getStack() {
+		return stack;
+	}
+
+	public void setStack(TPEStack stack) {
+		this.stack = stack;
 	}
 }

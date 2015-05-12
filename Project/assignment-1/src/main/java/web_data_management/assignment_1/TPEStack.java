@@ -3,25 +3,25 @@ package web_data_management.assignment_1;
 import java.util.List;
 import java.util.Stack;
 
-class TPEStack {
+public class TPEStack {
 	private PatternNode patternNode;
-	Stack<Match> matches;
+	private Stack<Match> matches;
 	TPEStack spar;
 
-	List<TPEStack> getDescendantStacks() {
+	public List<TPEStack> getDescendantStacks() {
 		return null;
 	}
 
 	// gets the stacks for all descendants of p
-	void push(Match m) {
+	public void push(Match m) {
 		matches.push(m);
 	}
 
-	Match top() {
+	public Match top() {
 		return matches.peek();
 	}
 
-	Match pop() {
+	public Match pop() {
 		return matches.pop();
 	}
 
