@@ -12,7 +12,7 @@ public class ReadXMLFile {
 			SAXParser saxParser = factory.newSAXParser();
 
 			Node queryResultRootNode = new Node("root", null);
-			TreeQuery query = new TreeQuery("people/*");
+			TreeQuery query = new TreeQuery("name/*");
 			StackHandler stackHandler = new StackHandler(queryResultRootNode, query);
 
 			saxParser.parse("D:\\Users\\Repositories\\Web-Data-Management\\Project\\assignment-1\\xml_doc_d.xml", stackHandler);

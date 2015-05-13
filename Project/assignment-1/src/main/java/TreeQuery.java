@@ -30,20 +30,21 @@ public class TreeQuery {
 			}
 			else if (StringUtils.equals(queryStack.peek(), "*")) {
 				parentStack.push(queryStack.peek());
+				return true;
 			}
 		}
 		
 		for (Node predecessor : parent.getPredecessors()) {
 			if (!parentStack.empty()) {
-				if (StringUtils.equals(parentStack.peek(), "*") || StringUtils.equals(parentStack.peek(), predecessor.getName())) {
-					for (String string : queryStack) {
-						if (StringUtils.equals(string, childNodeName)) {
-							parentStack.push(queryStack.pop());
-							return true;
-						}
-						else if (StringUtils.equals(string, "*")) {
-							parentStack.push(queryStack.peek());
-						}
+				if (StringUtils.equals(parentStack.peek(), "*") || StringUtils.equals(parentStack.peek(), predecessor.getName())
+						|| StringUtils.equals(parentStack.peek(), parent.getName())) {
+					if (StringUtils.equals(queryStack.peek(), childNodeName)) {
+						parentStack.push(queryStack.pop());
+						return true;
+					}
+					else if (StringUtils.equals(queryStack.peek(), "*")) {
+						parentStack.push(queryStack.peek());
+						return true;
 					}
 				}
 			}
@@ -53,8 +54,11 @@ public class TreeQuery {
 	}
 	
 	public void closingTag(String tag) {
-		if (parentStack.peek().equals(tag)) {
+		if (StringUtils.equals(parentStack.peek(), tag)) {
 			queryStack.push(parentStack.pop());
+		}
+		else if (StringUtils.equals(parentStack.peek(), "*")) {
+			parentStack.pop();
 		}
 	}
 }
