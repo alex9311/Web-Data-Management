@@ -3,9 +3,9 @@ package web_data_management.assignment_1;
 import java.util.List;
 import java.util.Stack;
 
-import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 public class StackEval extends DefaultHandler {
 
@@ -26,14 +26,14 @@ public class StackEval extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		List<TreePatternQueryEvaluationStack> descendantStacks = rootStack.getDescendantStacks();
 		for (TreePatternQueryEvaluationStack tpeStack : descendantStacks) {
-			if(qName.equals(tpeStack.getPatternNode().getName()) && 
-					tpeStack.getParentStack().top().getState() == State.OPEN) {
-				Match m = new Match(currentPre, tpeStack.getParentStack().top(), tpeStack);
-				// create a match satisfying the ancestor conditions
-				// of query node s.p
-				tpeStack.pushMatch(m);
-				preOfOpenNodes.push(currentPre);
-			}
+//			if(qName.equals(tpeStack.getPatternNode().getName()) && 
+//					tpeStack.getParentStack().top().getState() == State.OPEN) {
+//				Match m = new Match(currentPre, tpeStack.getParentStack().top(), tpeStack);
+//				// create a match satisfying the ancestor conditions
+//				// of query node s.p
+//				tpeStack.pushMatch(m);
+//				preOfOpenNodes.push(currentPre);
+//			}
 			currentPre ++;
 		}
 
@@ -42,11 +42,11 @@ public class StackEval extends DefaultHandler {
 			// similarly look for query nodes possibly matched
 			// by the attributes of the currently started element
 			for (TreePatternQueryEvaluationStack decendantStack : descendantStacks) {
-				if (attributes.getLocalName(i).equals(decendantStack.getPatternNode().getName()) &&
-						decendantStack.getParentStack().top().getState() == State.OPEN) {
-					Match ma = new Match(currentPre, decendantStack.getParentStack().top(), decendantStack);
-					decendantStack.pushMatch(ma);
-				}
+//				if (attributes.getLocalName(i).equals(decendantStack.getPatternNode().getName()) &&
+//						decendantStack.getParentStack().top().getState() == State.OPEN) {
+//					Match ma = new Match(currentPre, decendantStack.getParentStack().top(), decendantStack);
+//					decendantStack.pushMatch(ma);
+//				}
 			}
 			currentPre ++;
 		}
@@ -61,23 +61,23 @@ public class StackEval extends DefaultHandler {
 			// now look for Match objects having this pre number:
 			List<TreePatternQueryEvaluationStack> descendantStacks = rootStack.getDescendantStacks();
 			for (TreePatternQueryEvaluationStack decendantStack : descendantStacks) {
-				if (decendantStack.getPatternNode().getName().equals(qName) &&
-						decendantStack.top().getState() == State.OPEN && 
-						decendantStack.top().getStart() == preOflastOpen) {
-					// all descendants of this Match have been traversed by now.
-					Match m = decendantStack.pop();
-					// check if m has child matches for all children
-					// of its pattern node
-					for (PatternNode pChild : decendantStack.getPatternNode().getChildren()) {
-						// pChild is a child of the query node for which m was created
-						if (m.getChildren().get(pChild) == null) {
-							// m lacks a child Match for the pattern node pChild
-							// we remove m from its Stack, detach it from its parent etc.
-							remove(m, decendantStack);
-						}
-					}
-					//			m.close();
-				}
+//				if (decendantStack.getPatternNode().getName().equals(qName) &&
+//						decendantStack.top().getState() == State.OPEN && 
+//						decendantStack.top().getStart() == preOflastOpen) {
+//					// all descendants of this Match have been traversed by now.
+//					Match m = decendantStack.pop();
+//					// check if m has child matches for all children
+//					// of its pattern node
+//					for (PatternNode pChild : decendantStack.getPatternNode().getChildren()) {
+//						// pChild is a child of the query node for which m was created
+//						if (m.getChildren().get(pChild) == null) {
+//							// m lacks a child Match for the pattern node pChild
+//							// we remove m from its Stack, detach it from its parent etc.
+//							remove(m, decendantStack);
+//						}
+//					}
+//					//			m.close();
+//				}
 			}
 		}
 	}

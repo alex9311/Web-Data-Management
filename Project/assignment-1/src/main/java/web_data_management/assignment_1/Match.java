@@ -6,7 +6,6 @@ import java.util.Map;
 public class Match {
 	
 	private int start;
-	private State state;
 	private Match parent;
 	private Map<PatternNode, List<Match>> children;
 	private TreePatternQueryEvaluationStack stack;
@@ -15,14 +14,6 @@ public class Match {
 		setStart(currentPre);
 		this.setParent(parent);
 		setStack(tpeStack);
-	}
-
-	public State getState() {
-		return state;
-	}
-
-	public void setState(State state) {
-		this.state = state;
 	}
 
 	public int getStart() {
