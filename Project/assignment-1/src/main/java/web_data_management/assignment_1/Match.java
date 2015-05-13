@@ -9,9 +9,9 @@ public class Match {
 	private State state;
 	private Match parent;
 	private Map<PatternNode, List<Match>> children;
-	private TPEStack stack;
+	private TreePatternQueryEvaluationStack stack;
 	
-	public Match(int currentPre, Match parent, TPEStack tpeStack) {
+	public Match(int currentPre, Match parent, TreePatternQueryEvaluationStack tpeStack) {
 		setStart(currentPre);
 		this.setParent(parent);
 		setStack(tpeStack);
@@ -49,11 +49,11 @@ public class Match {
 		this.children = children;
 	}
 
-	public TPEStack getStack() {
+	public TreePatternQueryEvaluationStack getStack() {
 		return stack;
 	}
 
-	public void setStack(TPEStack stack) {
+	public void setStack(TreePatternQueryEvaluationStack stack) {
 		this.stack = stack;
 	}
 }
