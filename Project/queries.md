@@ -191,12 +191,25 @@ role.
 8. For each movie that has at least two actors, list the title and first two actors, and an empty "et-al" element if the movie has additional actors. For instance:
 
    ```
-<result>
-<title>Unforgiven</title>
-<actor>Clint Eastwood as William ’Bill’ Munny</actor>
-<actor>Gene Hackman as Little Bill Daggett</actor>
-<et-al/>
-</result>
+let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+    
+for $movie in $ms//movie[count(actor) >= 2]
+return 
+        <movie>
+            {$movie/title}
+            {for $actor in $movie/actor[1,2]
+                let $actor_id := data($actor/attribute::id)
+                return
+                    <actor>{string-join(($as//artist[attribute::id = $actor_id]/first_name/node(),
+                                         $as//artist[attribute::id = $actor_id]/last_name/node(),
+                                         'as',
+                                          data($actor/attribute::role)), ' ')}</actor>
+            }
+            {if (count($movie/actor) > 2) then
+              <et-al/> else ( )}
+       </movie>
+
   ```
 
 9. List the titles and years of all movies directed by Clint Eastwood after 1990, in alphabetic order.
