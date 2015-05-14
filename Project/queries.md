@@ -80,21 +80,24 @@ let $ms := doc("movies/movies_alone.xml"),
 
 for $movie in $ms/movies/movie[year > 2002]
     return <movie> { ($movie/title, $movie/year) } </movie>
-```
+   ```
 
 2. Create a flat list of all the title-role pairs, with each pair enclosed in a “result” element. Here is an example of the expected result structure:
 
-```
-<results>
-  <result>
-<title>Heat</title>
-  <role>Lt. Vincent Hanna</role>
-</result>
-<result>
-  <title>Heat</title>
-  <role>Neil McCauley</role>
-</result>
-</results>
+  ```
+let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+
+return
+    <results>
+    { for $actor in $ms//actor
+        return 
+            <result>
+                {$actor/../title}
+                <role>{data($actor/attribute::role)}</role>
+            </result>
+    }
+    </results>
 ```
 
 3. Give the title of movies where the director is also one of the actors.
@@ -111,7 +114,7 @@ plays a role. The format of the result should be:
 <title>Lost in Translation</title>
 </actor>
 
-```
+   ```
 
 6. Give the title of each movie, along with the name of its director. Note: this is a join!
 
@@ -130,6 +133,6 @@ role.
 <et-al/>
 </result>
 
-```
+   ```
 
 9. List the titles and years of all movies directed by Clint Eastwood after 1990, in alphabetic order.
