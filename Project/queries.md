@@ -44,32 +44,32 @@
 9. Titles of the movies published more than 5 years ago.
 
 	movies: `/movies//movie[year<2010]/title/node()`<br>
-	movies_ref:
+	movies_ref: `/movies//movie[year<2010]/title/node()`
 	
 10. What was the role of Clint Eastwood in Unforgiven?
 
 	movies: `/movies/movie[title="Unforgiven"]/actor[fist_name="Clint", last_name="Eastwood"]/role/node()`<br>
-	movies_ref:
+	movies_ref: `string(/movies/movie[title="Unforgiven"]/actor[@id = /movies/artist[fist_name="Clint", last_name="Eastwood"]/@id]/@role)`
 	
 11. What is the last movie of the document?
 
 	movies: `/movies/movie[last()]/title/node()`<br>
-	movies_ref:
+	movies_ref: `/movies/movie[last()]/title/node()`
 	
 12. Title of the film that immediately precedes Marie Antoinette in the document?
 
 	movies: `/movies/movie[title="Marie Antoinette"]/preceding::movie[1]/title/node()`<br>
-	movies_ref:
+	movies_ref: `/movies/movie[title="Marie Antoinette"]/preceding::movie[1]/title/node()`
 	
 13. Get the movies whose title contains a “V”.
 
 	movies: `/movies/movie[contains(title, 'V')]/title/node()` <br>
-	movies_ref:
+	movies_ref: `/movies/movie[contains(title, 'V')]/title/node()`
 	
 14. Get the movies whose cast consists of exactly three actors.
 
 	movies: `/movies/movie[count(actor) = 3]/title/node()`<br>
-	movies_ref:
+	movies_ref: `/movies/movie[count(actor) = 3]/title/node()`
 	
 ###Exercises 5.4.2 - Xquery
 
