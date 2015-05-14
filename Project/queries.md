@@ -117,6 +117,20 @@ return
   ```
 4. Show the movies, grouped by genre. Hint: function distinct-values() removes the duplicates
 from a sequence. It returns atomic values.
+  ```
+  let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+    
+for $genre in distinct-values($ms//genre)
+    let $movies := $ms//movie[genre = $genre]
+    return 
+        <genre>
+        {$genre}{
+            for $movie in $movies
+                return $movie/title
+        }
+        </genre>
+  ```
 
 5. For each distinct actor’s id in movies_alone.xml, show the titles of the movies where this actor
 plays a role. The format of the result should be:
@@ -126,8 +140,7 @@ plays a role. The format of the result should be:
 <title>Match Point</title>
 <title>Lost in Translation</title>
 </actor>
-
-   ```
+  ```
 
 6. Give the title of each movie, along with the name of its director. Note: this is a join!
 
@@ -145,7 +158,6 @@ role.
 <actor>Gene Hackman as Little Bill Daggett</actor>
 <et-al/>
 </result>
-
-   ```
+  ```
 
 9. List the titles and years of all movies directed by Clint Eastwood after 1990, in alphabetic order.
