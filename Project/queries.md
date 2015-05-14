@@ -23,7 +23,10 @@
 5. Who is the director of Heat?
 
 	movies: `string-join((/movies/movie[title="Heat"]/director/first_name/node(),/movies/movie[title="Heat"]/director/last_name/node()),' ')` <br>
-	movies_ref: 
+	movies_ref: `string-join((
+//artist[@id = /movies/movie[title="Heat"]/director/@id]/first_name/node(),
+//artist[@id = /movies/movie[title="Heat"]/director/@id]/last_name/node()),
+' ')`
 
 6. Title of the movies featuring Kirsten Dunst.
 
