@@ -74,6 +74,15 @@
 ###Exercises 5.4.2 - Xquery
 
 1. List the movies published after 2002, including their title and year.
+    ```
+let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+
+let $movies_after_2002 := $ms/movies/movie[year > 2002]
+
+for $movie in $movies_after_2002
+    return <movie> { ($movie/title, $movie/year) } </movie>
+```
 
 2. Create a flat list of all the title-role pairs, with each pair enclosed in a “result” element. Here is an example of the expected result structure:
 
@@ -98,14 +107,13 @@ from a sequence. It returns atomic values.
 5. For each distinct actor’s id in movies_alone.xml, show the titles of the movies where this actor
 plays a role. The format of the result should be:
 
-```
+   ```
 <actor>16,
 <title>Match Point</title>
 <title>Lost in Translation</title>
 </actor>
 
 ```
-
 
 6. Give the title of each movie, along with the name of its director. Note: this is a join!
 
@@ -116,7 +124,7 @@ role.
 
 8. For each movie that has at least two actors, list the title and first two actors, and an empty "et-al" element if the movie has additional actors. For instance:
 
-```
+   ```
 <result>
 <title>Unforgiven</title>
 <actor>Clint Eastwood as William ’Bill’ Munny</actor>
@@ -125,6 +133,5 @@ role.
 </result>
 
 ```
-
 
 9. List the titles and years of all movies directed by Clint Eastwood after 1990, in alphabetic order.
