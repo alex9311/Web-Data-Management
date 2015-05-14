@@ -212,3 +212,18 @@ return
   ```
 
 9. List the titles and years of all movies directed by Clint Eastwood after 1990, in alphabetic order.
+
+  ```
+  let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+    
+let $eastwood_id := data($as//artist[first_name='Clint', last_name='Eastwood']/attribute::id)
+let $movies := $ms//director[attribute::id = $eastwood_id]/..
+for $movie in $movies
+order by $movie/title
+return
+    <movie>
+        { $movie/title }
+        { $movie/year }
+    </movie>
+  ```
