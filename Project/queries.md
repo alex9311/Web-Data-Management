@@ -23,25 +23,23 @@
 5. Who is the director of Heat?
 
 	movies: `string-join((/movies/movie[title="Heat"]/director/first_name/node(),/movies/movie[title="Heat"]/director/last_name/node()),' ')` <br>
-	movies_ref: `string-join((
-/movies/artist[@id = /movies/movie[title="Heat"]/director/@id]/first_name/node(),
-/movies/artist[@id = /movies/movie[title="Heat"]/director/@id]/last_name/node()),
-' ')`
+	movies_ref: `string-join((/movies/artist[@id = /movies/movie[title="Heat"]/director/@id]/first_name/node(),
+/movies/artist[@id = /movies/movie[title="Heat"]/director/@id]/last_name/node()),' ')`
 
 6. Title of the movies featuring Kirsten Dunst.
 
 	movies: `/movies/movie/actor[first_name="Kirsten", last_name="Dunst"]/../title/node()`<br>
-	movies_ref: '/movies/movie/actor[@id = //artist[first_name="Kirsten", last_name="Dunst"]/@id]/../title/node()'
+	movies_ref: `/movies/movie/actor[@id = //artist[first_name="Kirsten", last_name="Dunst"]/@id]/../title/node()`
 	
 7. Which movies have a summary?
 
 	movies: `/movies//movie[exists(summary)]/title/node()`<br>
-	movies_ref: '/movies//movie[exists(summary)]/title/node()'
+	movies_ref: `/movies//movie[exists(summary)]/title/node()`
 	
 8. Which movies do not have a summary?
 
 	movies: `/movies//movie[not(exists(summary))]/title/node()`<br>
-	movies_ref:
+	movies_ref: `/movies//movie[not(exists(summary))]/title/node()`
 	
 9. Titles of the movies published more than 5 years ago.
 
