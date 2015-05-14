@@ -135,10 +135,18 @@ for $genre in distinct-values($ms//genre)
 plays a role. The format of the result should be:
 
    ```
-<actor>16,
-<title>Match Point</title>
-<title>Lost in Translation</title>
-</actor>
+	let $ms := doc("movies/movies_alone.xml"),
+	$as := doc("movies/artists_alone.xml")
+	
+	for $actor_id in distinct-values(data($ms//actor/attribute::id))
+	    let $movies := $ms//movie[actor/attribute::id = $actor_id]
+	    return 
+	        <actor>
+	            {$actor_id},{
+	                for $movie in $movies
+	                   return $movie/title
+	            }
+	        </actor>
   ```
 
 6. Give the title of each movie, along with the name of its director.
