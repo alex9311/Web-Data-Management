@@ -2,36 +2,74 @@
 
 1. All title elements
 	
-	`/movies//title`
+	movies: `/movies//title`
+	movies_ref: `/movies//title`
 
 2. All movie titles (i.e., the textual value of title elements).
 	
-	`/movies//title/node()`
+	movies: `/movies//title/node()`
+	movies_ref: `/movies//title/node()`
 	
 3. Titles of the movies published after 2000.
 
-	`/movies/movie[year>2000]/title/node()`
+	movies: `/movies/movie[year>2000]/title/node()`
+	movies_ref: `/movies/movie[year>2000]/title/node()`
 
 4. Summary of “Spider-Man”.
 
-	`/movies/movie[title="Spider-Man"]/summary/node()`
+	movies: `/movies/movie[title="Spider-Man"]/summary/node()`
+	movies_ref: `/movies/movie[title="Spider-Man"]/summary/node()`
 
 5. Who is the director of Heat?
 
-	`string-join((/movies/movie[title="Heat"]/director/first_name/node(),/movies/movie[title="Heat"]/director/last_name/node()),' ')`
+	movies: `string-join((/movies/movie[title="Heat"]/director/first_name/node(),/movies/movie[title="Heat"]/director/last_name/node()),' ')`
+	movies_ref: 
 
 6. Title of the movies featuring Kirsten Dunst.
 
+	movies:
+	movies_ref:
+	
 7. Which movies have a summary?
 
+	movies:
+	movies_ref:
+	
 8. Which movies do not have a summary?
+
+	movies:
+	movies_ref:
+	
 9. Titles of the movies published more than 5 years ago.
+
+	movies:
+	movies_ref:
+	
 10. What was the role of Clint Eastwood in Unforgiven?
+
+	movies:
+	movies_ref:
+	
 11. What is the last movie of the document?
+
+	movies:
+	movies_ref:
+	
 12. Title of the film that immediately precedes Marie Antoinette in the document?
+
+	movies:
+	movies_ref:
+	
 13. Get the movies whose title contains a “V”.
+
+	movies:
+	movies_ref:
+	
 14. Get the movies whose cast consists of exactly three actors.
 
+	movies:
+	movies_ref:
+	
 ###Exercises 5.4.2 - Xquery
 
 1. List the movies published after 2002, including their title and year.
