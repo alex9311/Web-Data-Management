@@ -78,9 +78,7 @@
 let $ms := doc("movies/movies_alone.xml"),
     $as := doc("movies/artists_alone.xml")
 
-let $movies_after_2002 := $ms/movies/movie[year > 2002]
-
-for $movie in $movies_after_2002
+for $movie in $ms/movies/movie[year > 2002]
     return <movie> { ($movie/title, $movie/year) } </movie>
 ```
 
