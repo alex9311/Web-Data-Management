@@ -36,7 +36,7 @@
 7. Which movies have a summary?
 
 	movies: `/movies//movie[exists(summary)]/title/node()`<br>
-	movies_ref:
+	movies_ref: '/movies//movie[exists(summary)]/title/node()'
 	
 8. Which movies do not have a summary?
 
