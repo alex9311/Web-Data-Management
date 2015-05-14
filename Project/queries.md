@@ -27,47 +27,47 @@
 
 6. Title of the movies featuring Kirsten Dunst.
 
-	movies: <br>
+	movies: `/movies/movie/actor[first_name="Kirsten", last_name="Dunst"]/../title/node()`<br>
 	movies_ref:
 	
 7. Which movies have a summary?
 
-	movies: <br>
+	movies: `/movies//movie[exists(summary)]/title/node()`<br>
 	movies_ref:
 	
 8. Which movies do not have a summary?
 
-	movies: <br>
+	movies: `/movies//movie[not(exists(summary))]/title/node()`<br>
 	movies_ref:
 	
 9. Titles of the movies published more than 5 years ago.
 
-	movies: <br>
+	movies: `/movies//movie[year<2010]/title/node()`<br>
 	movies_ref:
 	
 10. What was the role of Clint Eastwood in Unforgiven?
 
-	movies: <br>
+	movies: `/movies/movie[title="Unforgiven"]/actor[fist_name="Clint", last_name="Eastwood"]/role/node()`<br>
 	movies_ref:
 	
 11. What is the last movie of the document?
 
-	movies: <br>
+	movies: `/movies/movie[last()]/title/node()`<br>
 	movies_ref:
 	
 12. Title of the film that immediately precedes Marie Antoinette in the document?
 
-	movies: <br>
+	movies: `/movies/movie[title="Marie Antoinette"]/preceding::movie[1]/title/node()`<br>
 	movies_ref:
 	
 13. Get the movies whose title contains a “V”.
 
-	movies: <br>
+	movies: `/movies/movie[contains(title, 'V')]/title/node()` <br>
 	movies_ref:
 	
 14. Get the movies whose cast consists of exactly three actors.
 
-	movies: <br>
+	movies: `/movies/movie[count(actor) = 3]/title/node()`<br>
 	movies_ref:
 	
 ###Exercises 5.4.2 - Xquery
