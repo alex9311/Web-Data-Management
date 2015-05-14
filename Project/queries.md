@@ -115,8 +115,7 @@ return
 	            then $movie/title/node()
 	            else ()
   ```
-4. Show the movies, grouped by genre. Hint: function distinct-values() removes the duplicates
-from a sequence. It returns atomic values.
+4. Show the movies, grouped by genre.
   ```
   let $ms := doc("movies/movies_alone.xml"),
     $as := doc("movies/artists_alone.xml")
@@ -142,9 +141,23 @@ plays a role. The format of the result should be:
 </actor>
   ```
 
-6. Give the title of each movie, along with the name of its director. Note: this is a join!
-
-
+6. Give the title of each movie, along with the name of its director.
+  ```
+  let $ms := doc("movies/movies_alone.xml"),
+    $as := doc("movies/artists_alone.xml")
+    
+for $movie in $ms//movie
+    let $director_id := data($movie/director/attribute::id)
+    let $director := $as//artist[attribute::id = $director_id]
+    return
+        <movie> {
+        $movie/title,
+        if (exists($director))
+        then <director>{string-join(($director/first_name/node(), $director/last_name/node()), " ")}</director>
+        else ()
+        } </movie>
+  ```
+  
 7.  Give the title of each movie, and a nested element <actors> giving the list of actors with their
 role.
 
