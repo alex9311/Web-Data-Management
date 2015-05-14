@@ -98,7 +98,7 @@ return
             </result>
     }
     </results>
-```
+  ```
 
 3. Give the title of movies where the director is also one of the actors.
 
@@ -131,10 +131,9 @@ for $genre in distinct-values($ms//genre)
         </genre>
   ```
 
-5.1 For each distinct actor’s id in movies_alone.xml, show the titles of the movies where this actor
+5. For each distinct actor’s id in movies_alone.xml, show the titles of the movies where this actor
 plays a role. The format of the result should be:
-
-   ```
+  ```
 	let $ms := doc("movies/movies_alone.xml"),
 	$as := doc("movies/artists_alone.xml")
 	
@@ -148,9 +147,9 @@ plays a role. The format of the result should be:
 	            }
 	        </actor>
   ```
-5.2 Variant: show only the actors which play a role in at least two movies (hint: function count()
+Variant: show only the actors which play a role in at least two movies (hint: function count()
 returns the number of nodes in a sequence).
-   ```
+  ```
    	let $ms := doc("movies/movies_alone.xml"),
 	$as := doc("movies/artists_alone.xml")
 	
@@ -166,9 +165,9 @@ returns the number of nodes in a sequence).
 	                }
 	            </actor>
 	        else()
-   ```
-
+  ```
 6. Give the title of each movie, along with the name of its director.
+  
   ```
   let $ms := doc("movies/movies_alone.xml"),
     $as := doc("movies/artists_alone.xml")
