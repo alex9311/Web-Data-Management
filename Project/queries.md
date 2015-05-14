@@ -102,6 +102,19 @@ return
 
 3. Give the title of movies where the director is also one of the actors.
 
+  ```
+	let $ms := doc("movies/movies_alone.xml"),
+	$as := doc("movies/artists_alone.xml")
+	
+	for $movie in $ms//movie
+	    let $director_id := data($movie/director/attribute::id)
+	    for $actor in $movie/actor
+	        let $actor_id := data($actor/attribute::id)            
+	        return
+	            if ($director_id = $actor_id)
+	            then $movie/title/node()
+	            else ()
+  ```
 4. Show the movies, grouped by genre. Hint: function distinct-values() removes the duplicates
 from a sequence. It returns atomic values.
 
