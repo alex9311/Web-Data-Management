@@ -187,6 +187,26 @@ for $movie in $ms//movie
 7.  Give the title of each movie, and a nested element <actors> giving the list of actors with their
 role.
 
+  ```
+	let $ms := doc("movies/movies_alone.xml"),
+	$as := doc("movies/artists_alone.xml")
+	
+	for $movie in $ms//movie
+	return 
+	   <movie>
+	        {$movie/title}
+	        <actors>
+	        {for $actor in $movie/actor
+	            let $actor_id := data($actor/attribute::id)
+	            return
+	                <actor>{string-join(($as//artist[attribute::id = $actor_id]/first_name/node(),
+	                                     $as//artist[attribute::id = $actor_id]/last_name/node(),
+	                                     'as',
+	                                      data($actor/attribute::role)), ' ')}</actor>
+	        }
+	        </actors>
+	   </movie>
+  ```
 
 8. For each movie that has at least two actors, list the title and first two actors, and an empty "et-al" element if the movie has additional actors. For instance:
 
