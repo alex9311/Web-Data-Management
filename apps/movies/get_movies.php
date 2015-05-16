@@ -2,21 +2,56 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
-	$query = 'bla';
-	
 	$title = $_POST["title"];
 	$genre = $_POST["genre"];
 	$director = $_POST["director"];
 	$actor = $_POST["actor"];
 	$year = $_POST["year"];
 	$keywords = $_POST["keywords"];
-	if ($title == "" && $director == "" && $actor == "") {
-		$title = "*";
+	
+	echo "<b>Query: </b>".$director."<br><br>";
+
+	$query = 'http://localhost:8080/exist/rest/db/movies?_howmany=100&_query=/movies/movie';
+	$query .= '[';
+	if ($title != "") {
+		$query .= 'contains(title,"'.$title.'")';
 	}
-	if ($keywords == ""&& $director == "" && $actor == "") {
-		$keywords = "*";
+	
+	if ($genre != "" && $title != "") {
+		$query .= 'and genre = "'.$genre.'"';
 	}
-	$query = 'http://localhost:8080/exist/rest/db/movies?_howmany=100&_query=/movies/movie[contains(title,"'.$title.'") or genre = "'.$genre.'" or year = "'.$year.'" or contains(summary,"'.$keywords.'")]/director[contains(last_name,"'.$director.'") or contains(first_name,"'.$director.'")]/../actor[contains(last_name,"'.$actor.'") or contains(first_name,"'.$actor.'")]/../node()';
+	else if ($genre != "") {
+		$query .= 'genre = "'.$genre.'"';
+	}
+	
+	if ($year != "" && ($genre != "" || $title != "")) {
+		$query .= 'and year = "'.$year.'"';
+	}
+	else if ($year != "") {
+		$query .= 'year = "'.$year.'"';
+	}
+	
+	if ($keywords != "" && ($year != "" || $genre != "" || $title != "")) {
+		$query .= 'and contains(summary,"'.$keywords.'")';
+	}
+	else if ($keywords != "") {
+		$query .= 'contains(summary,"'.$keywords.'")';
+	}
+	
+	if ($director != "" && ($keywords != "" || $year != "" || $genre != "" || $title != "")) {
+		$query .= 'and (contains(director/last_name,"'.$director.'") or contains(director/first_name,"'.$director.'"))';
+	}
+	else if ($director != "") {
+		$query .= 'contains(director/last_name,"'.$director.'") or contains(director/first_name,"'.$director.'")';
+	}
+	
+	if ($actor != ""  && ($director != "" || $keywords != "" || $year != "" || $genre != "" || $title != "")) {
+		$query .= 'and (contains(actor/last_name,"'.$actor.'") or contains(actor/first_name,"'.$actor.'"))';
+	}
+	else if ($actor != "") {
+		$query .= 'contains(actor/last_name,"'.$actor.'") or contains(actor/first_name,"'.$actor.'")';
+	}
+	$query .= ']/node()';
 
 
 	echo "<b>Query: </b>".$query."<br><br>";
