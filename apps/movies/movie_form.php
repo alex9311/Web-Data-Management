@@ -9,8 +9,8 @@
 
 <form action="get_movies.php" method="post">
 	Movie Tile: <input type="text" name="title"><br>
-	Genre: <input type="text" name="genre"><br>
-<select>
+	Genre:
+<select name="genre">
 	<option value=""></option>
 	<?php
 		foreach($genres->genre as $genre){
