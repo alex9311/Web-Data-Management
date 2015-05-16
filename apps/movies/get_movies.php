@@ -11,45 +11,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
 	echo "<b>Query: </b>".$director."<br><br>";
 
-	$query = 'http://localhost:8080/exist/rest/db/movies?_howmany=100&_query=/movies/movie';
+	$query = 'http://localhost:8080/exist/rest/db/movies?_howmany=100&_query=/movies';
 	$query .= '[';
 	if ($title != "") {
-		$query .= 'contains(title,"'.$title.'")';
+		$query .= 'contains(movie/title,"'.$title.'")';
 	}
 	
 	if ($genre != "" && $title != "") {
-		$query .= 'and genre = "'.$genre.'"';
+		$query .= 'and movie/genre = "'.$genre.'"';
 	}
 	else if ($genre != "") {
-		$query .= 'genre = "'.$genre.'"';
+		$query .= 'movie/genre = "'.$genre.'"';
 	}
 	
 	if ($year != "" && ($genre != "" || $title != "")) {
-		$query .= 'and year = "'.$year.'"';
+		$query .= 'and movie/year = "'.$year.'"';
 	}
 	else if ($year != "") {
-		$query .= 'year = "'.$year.'"';
+		$query .= 'movie/year = "'.$year.'"';
 	}
 	
 	if ($keywords != "" && ($year != "" || $genre != "" || $title != "")) {
-		$query .= 'and contains(summary,"'.$keywords.'")';
+		$query .= 'and contains(movie/summary,"'.$keywords.'")';
 	}
 	else if ($keywords != "") {
-		$query .= 'contains(summary,"'.$keywords.'")';
+		$query .= 'contains(movie/summary,"'.$keywords.'")';
 	}
 	
 	if ($director != "" && ($keywords != "" || $year != "" || $genre != "" || $title != "")) {
-		$query .= 'and (contains(director/last_name,"'.$director.'") or contains(director/first_name,"'.$director.'"))';
+		$query .= 'and (contains(movie/director/last_name,"'.$director.'") or contains(movie/director/first_name,"'.$director.'"))';
 	}
 	else if ($director != "") {
-		$query .= 'contains(director/last_name,"'.$director.'") or contains(director/first_name,"'.$director.'")';
+		$query .= 'contains(movie/director/last_name,"'.$director.'") or contains(movie/director/first_name,"'.$director.'")';
 	}
 	
 	if ($actor != ""  && ($director != "" || $keywords != "" || $year != "" || $genre != "" || $title != "")) {
-		$query .= 'and (contains(actor/last_name,"'.$actor.'") or contains(actor/first_name,"'.$actor.'"))';
+		$query .= 'and (contains(movie/actor/last_name,"'.$actor.'") or contains(movie/actor/first_name,"'.$actor.'"))';
 	}
 	else if ($actor != "") {
-		$query .= 'contains(actor/last_name,"'.$actor.'") or contains(actor/first_name,"'.$actor.'")';
+		$query .= 'contains(movie/actor/last_name,"'.$actor.'") or contains(movie/actor/first_name,"'.$actor.'")';
 	}
 	$query .= ']/node()';
 
@@ -65,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function print_movie_list($movies_xml){
 	print_r($movies_xml);
-	foreach
 }
 
 ?>
