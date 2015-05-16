@@ -58,9 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$response = file_get_contents($query);
 	$xml = simplexml_load_string($response);
 	echo "<b>Response in array format:</b> <br>";
-	print_r($xml);
+	print_movie_list($xml);
 
 	echo '<br><br><a href="movie_form.php"> Try another query!</a>';
+}
+
+function print_movie_list($movies_xml){
+	print_r($movies_xml);
+	foreach
 }
 
 ?>
