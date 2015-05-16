@@ -2,7 +2,7 @@
 ####To get this project working (with exist 1.4)
 Clone this repo into your localhost web folder.
 
-`git clone git@github.com:alex9311-Data-Management.git web_data`
+`git clone https://github.com/alex9311/Web-Data-Management.git`
 
 Then navigate to 
 
