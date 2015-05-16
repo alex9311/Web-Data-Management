@@ -19,8 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
 	$acts = simplexml_load_string(file_get_contents($contents_query));
 	
-	foreach($acts as $act){
-		echo $act."<br>";
+	foreach($acts->ACT as $act){
+		$title = $act->TITLE;
+		print_r($title);
+	}
+	
+	foreach($acts->ACT as $act){
+		foreach($act as $scene) {
+			$title = $scene->TITLE;
+			print_r($title);
+		}
 	}
 
 	echo "<p><b>List of Characters </b></p>";
