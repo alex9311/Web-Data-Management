@@ -58,13 +58,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$response = file_get_contents($query);
 	$xml = simplexml_load_string($response);
 	echo "<b>Response in array format:</b> <br>";
-	print_movie_list($xml);
+	print_xhtml_doc($xml);
 
 	echo '<br><br><a href="movie_form.php"> Try another query!</a>';
 }
 
+function print_xhtml_doc($movies_xml){
+	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
+
+	echo'<head><title>Movie Results List</title></head>';
+	echo '<body>';
+	print_movie_list($movies_xml);
+	print_js_function();
+	echo'</body></html>';
+}
+
 function print_movie_list($movies_xml){
-	print_r($movies_xml);
+	$i = 1;
+	foreach($movies_xml->movie as $movie){
+		echo '<div id="movie'.$i.'_title">';
+		echo '<a href="#" onclick="return summaryToggle();">'.(string)$movie->title."</a></br>";
+		echo '</div>';
+		echo '<div id="movie'.$i.'_summary">';
+		echo '</div>';
+	}
+}
+
+function print_js_function(){
+echo '
+<script type="text/javascript">;
+	function summaryToggle(){
+		console.log("test test");
+	}
+</script>
+';
 }
 
 ?>
+
