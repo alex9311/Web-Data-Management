@@ -13,6 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	echo "<h2> Play Summary </h2>";
 
 	echo "<p><b> Table of Contents </b></p>";
+	$contents_query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_howmany=100&_query=//PLAY[TITLE="'.$play_title.'"]//ACT';
+	
+	echo $contents_query;
+	
+	$acts = simplexml_load_string(file_get_contents($contents_query));
+	
+	foreach($acts as $act){
+		echo $act."<br>";
+	}
 
 	echo "<p><b>List of Characters </b></p>";
 	foreach($characters as $character){
