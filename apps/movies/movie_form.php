@@ -2,6 +2,11 @@
 <?php
 	$genre_response = file_get_contents('http://localhost:8080/exist/rest/db/movies?_query=/movies//genre');
   	$genres = simplexml_load_string($genre_response);
+	$unique_genres = [];
+	foreach($genres->genre as $genre){
+		array_push($unique_genres,(string)$genre);
+	}
+	$unique_genres = array_unique($unique_genres);
 ?>
 
 <html>
@@ -13,7 +18,7 @@
 <select name="genre">
 	<option value=""></option>
 	<?php
-		foreach($genres->genre as $genre){
+		foreach($unique_genres as $genre){
 			echo '<option value="'.$genre.'">'.$genre.'</option>';
 		}
 	?>
