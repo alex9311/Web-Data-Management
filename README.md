@@ -8,4 +8,4 @@ Then navigate to
 
 `http://localhost/web_data/`
 
-after starting up your exist server on port 8000. You should see our fully functional (albeit simplistic) web application.
+after starting up your exist server on port 8080. You should see our fully functional (albeit simplistic) web application.
