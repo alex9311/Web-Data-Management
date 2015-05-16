@@ -7,16 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$title = $_POST["title"];
 	$genre = $_POST["genre"];
 	$director = $_POST["director"];
-	echo "<b>director: </b>".$director."<br><br>";
-	if ($title != "") {
-		$query = 'http://localhost:8080/exist/rest/db/movies?_query=/movies/movie[contains(title,"'.$title.'")]/node()';
+	$actor = $_POST["actor"];
+	$year = $_POST["year"];
+	$keywords = $_POST["keywords"];
+	if ($title == "" && $actor == "" && $director == "") {
+		$title = "*";
 	}
-	else if ($genre != "") {
-		$query = 'http://localhost:8080/exist/rest/db/movies?_query=/movies/movie[genre = "'.$genre.'"]/node()';
+	if ($keywords == "" && $actor == "" && $director == "") {
+		$keywords = "*";
 	}
-	else if ($director != "") {
-		$query = 'http://localhost:8080/exist/rest/db/movies?_query=/movies/movie/director[contains(last_name,"'.$director.'") or contains(first_name,"'.$director.'")]/../node()';
-	}
+	$query = 'http://localhost:8080/exist/rest/db/movies?_query=/movies/movie[contains(title,"'.$title.'") or genre = "'.$genre.'" or year = "'.$year.'" or contains(summary,"'.$keywords.'")]/director[contains(last_name,"'.$director.'") or contains(first_name,"'.$director.'")]/../actor[contains(last_name,"'.$actor.'") or contains(first_name,"'.$actor.'")]/../node()';
 
 
 	echo "<b>Query: </b>".$query."<br><br>";

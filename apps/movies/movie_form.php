@@ -19,9 +19,9 @@
 	?>
 </select><br>
 	Director: <input type="text" name="director"><br>
-	Actor: <input type="text" name="email"><br>
-	Year: <input type="text" name="email"><br>
-	Key Words: <input type="text" name="email"><br>
+	Actor: <input type="text" name="actor"><br>
+	Year: <input type="text" name="year"><br>
+	Key Words: <input type="text" name="keywords"><br>
 <input type="submit">
 </form>
 
