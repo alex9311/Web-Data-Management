@@ -12,14 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function print_xhtml_doc($movies_xml){
-	$output = "";
 	$output .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 	$output .= '<html xmlns="http://www.w3.org/1999/xhtml">';
 
 	$output .='<head><title>Movie Results List</title></head>';
 	$output .= '<body>';
 	$output .= print_movie_list($movies_xml);
-	$output .= print_js_function();
+	$output .= print_toggle_summary_function();
 	$output .= '<br><a href="movie_form.php"> Try another query!</a>';
 	$output .='</body></html>';
 	return $output;
@@ -47,12 +46,11 @@ function print_movie_list($movies_xml){
 	return $output;
 }
 
-function print_js_function(){
+function print_toggle_summary_function(){
 return '
 <script type="text/javascript">
 	function summaryToggle(movie_id,summary){
 		var e = document.getElementById("movie"+movie_id+"_description");
-		console.log(e);
 		if(e.style.display == "block")
 			e.style.display = "none";
 		else
