@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$year = $_POST["year"];
 	$keywords = $_POST["keywords"];
 	
-	echo "<b>Query: </b>".$director."<br><br>";
 
 	$query = 'http://localhost:8080/exist/rest/db/movies?_howmany=100&_query=/movies/movie';
 	$query .= '[';
@@ -76,42 +75,77 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$query .= ']';
 
 
-	echo "<b>Query: </b>".$query."<br><br>";
+	//echo "<b>Query: </b>".$query."<br><br>";
 	$response = file_get_contents($query);
 	$xml = simplexml_load_string($response);
-	echo "<b>Response in array format:</b> <br>";
-	print_xhtml_doc($xml);
+	$html= (print_xhtml_doc($xml));
+	echo tidy_html_output($html);
 
-	echo '<br><br><a href="movie_form.php"> Try another query!</a>';
+
+
+
+}
+
+function tidy_html_output($html){
+	$config = array(
+           'indent'         => true,
+           'output-xhtml'   => true,
+           'wrap'           => 200
+	);
+
+	$tidy = new tidy;
+	$tidy->parseString($html, $config, 'utf8');
+	$tidy->cleanRepair();
+	return $tidy;
+
 }
 
 function print_xhtml_doc($movies_xml){
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
+	$output = "";
+	$output .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+	$output .= '<html xmlns="http://www.w3.org/1999/xhtml">';
 
-	echo'<head><title>Movie Results List</title></head>';
-	echo '<body>';
-	print_movie_list($movies_xml);
-	print_js_function();
-	echo'</body></html>';
+	$output .='<head><title>Movie Results List</title></head>';
+	$output .= '<body>';
+	$output .= print_movie_list($movies_xml);
+	$output .= print_js_function();
+	$output .= '<br><a href="movie_form.php"> Try another query!</a>';
+	$output .='</body></html>';
+	return $output;
 }
 
 function print_movie_list($movies_xml){
 	$i = 1;
+	$output = "";
 	foreach($movies_xml->movie as $movie){
-		echo '<div id="movie'.$i.'_title">';
-		echo '<a href="#" onclick="return summaryToggle();">'.(string)$movie->title."</a></br>";
-		echo '</div>';
-		echo '<div id="movie'.$i.'_summary">';
-		echo '</div>';
+		$output .= '<div id="movie'.$i.'">';
+			$output .= '<div id="movie'.$i.'_title">';
+				$output .= '<a href="#" onclick="return summaryToggle('.$i.');">'.(string)$movie->title."</a></br>";
+			$output .= '</div>';
+			$output .= '<div id="movie'.$i.'_description" style="display:none">';
+				$output .= '<div id="movie'.$i.'_genre">';
+					$output .= (string)$movie->genre;
+				$output .= '</div>';
+				$output .= '<div id="movie'.$i.'_summary">';
+					$output .= (string)$movie->summary;
+				$output .= '</div>';
+			$output .= '</div>';
+		$output .= '</div>';
+		$i=$i+1;
 	}
+	return $output;
 }
 
 function print_js_function(){
-echo '
-<script type="text/javascript">;
-	function summaryToggle(){
-		console.log("test test");
+return '
+<script type="text/javascript">
+	function summaryToggle(movie_id,summary){
+		var e = document.getElementById("movie"+movie_id+"_description");
+		console.log(e);
+		if(e.style.display == "block")
+			e.style.display = "none";
+		else
+			e.style.display = "block";
 	}
 </script>
 ';
