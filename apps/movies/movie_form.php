@@ -1,34 +1,26 @@
-<h2>Movie Query Machine</h2>
-<?php
-	$genre_response = file_get_contents('http://localhost:8080/exist/rest/db/movies?_query=/movies//genre');
-  	$genres = simplexml_load_string($genre_response);
-	$unique_genres = [];
-	foreach($genres->genre as $genre){
-		array_push($unique_genres,(string)$genre);
-	}
-	$unique_genres = array_unique($unique_genres);
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+<head>
+<?php include "helpers.php";?>
+<link rel="stylesheet" type="text/css" href="style_movie.css"/>
 
-<html>
+</head>
 <body>
-
-<form action="get_movies.php" method="post">
-	Movie Tile: <input type="text" name="title"><br>
-	Genre:
-<select name="genre">
-	<option value=""></option>
-	<?php
-		foreach($unique_genres as $genre){
-			echo '<option value="'.$genre.'">'.$genre.'</option>';
-		}
-	?>
-</select><br>
-	Director: <input type="text" name="director"><br>
-	Actor: <input type="text" name="actor"><br>
-	Year: <input type="text" name="year"><br>
-	Key Words: <input type="text" name="keywords"><br>
-<input type="submit">
-</form>
+	<h2 style="text-align:center;">Movie Query Machine</h2>
+	<div class="input_form">
+		<form action="list_movies.php" method="post">
+			Movie Tile: <input type="text" name="title"/>
+			Genre:
+				<select name="genre">
+					<?php echo get_unique_genres_dropdown_options();?>
+				</select>
+			Director:	<input type="text" name="director"/>
+			Actor: 		<input type="text" name="actor"/>
+			Year:	 	<input type="text" name="year"/>
+			Key Words: 	<input type="text" name="keywords"/>
+			<input type="submit"/>
+		</form>
+	</div>
 
 </body>
 </html>
