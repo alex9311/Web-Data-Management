@@ -9,7 +9,7 @@
 
 <form action="get_movies.php" method="post">
 	Movie Tile: <input type="text" name="title"><br>
-	Genre:
+	Genre: <input type="text" name="genre"><br>
 <select>
 	<option value=""></option>
 	<?php
@@ -18,7 +18,7 @@
 		}
 	?>
 </select><br>
-	Director: <input type="text" name="email"><br>
+	Director: <input type="text" name="director"><br>
 	Actor: <input type="text" name="email"><br>
 	Year: <input type="text" name="email"><br>
 	Key Words: <input type="text" name="email"><br>
