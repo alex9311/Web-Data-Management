@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 	echo "<b>Query: </b>".$query."<br><br>";
-	$response = file_get_contents('http://localhost:8080/exist/rest/db/movies?_query=/movies/movie[title="'.$title.'"]/node()');
+	$response = file_get_contents($query);
 	$xml = simplexml_load_string($response);
 	echo "<b>Response in array format:</b> <br>";
 	print_r($xml);
