@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	else if ($actor != "") {
 		$query .= 'contains(actor/last_name,"'.$actor.'") or contains(actor/first_name,"'.$actor.'")';
 	}
-	$query .= ']/node()';
+	$query .= ']';
 
 
 	echo "<b>Query: </b>".$query."<br><br>";
