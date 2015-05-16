@@ -1,3 +1,7 @@
+<?php
+$response = file_get_contents('http://localhost:8080/exist/rest/db/movies/movies.xml');
+echo $response
+?>
 <html>
 <body>
 
