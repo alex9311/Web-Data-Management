@@ -43,8 +43,20 @@ function print_movie_description($movie,$i){
 	$output = '<div class="movie_description" id="movie'.$i.'_description" style="display:none">';
 	$output .= print_movie_description_item($movie, $i, "genre", "Genre");
 	$output .= print_movie_description_item($movie, $i, "year", "Year");
+	$output .= print_movie_description_list($movie, $i, "actor", "Actor(s)");
+	$output .= print_movie_description_list($movie, $i, "director", "Director(s)");
 	$output .= print_movie_description_item($movie, $i, "summary", "Summary");
 	$output .= '</div>';
+	return $output;
+}
+
+function print_movie_description_list($movie, $i, $id_name, $name){
+	$output = "";
+	$output = '<div id="movie'.$i.'_'.$id_name.'_list"><b>'.$name.": </b>";
+	foreach($movie->$id_name as $person){
+		$output .= $person->first_name.' '.$person->last_name.', ';
+	}
+	$output = rtrim($output, ", ")."</div>";
 	return $output;
 }
 
