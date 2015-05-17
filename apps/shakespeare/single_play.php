@@ -17,7 +17,7 @@ function print_xhtml_doc($title){
 	$output .= write_table_of_contents($title);
 	$output .= write_character_list($title);
 	$output .= print_charlist_toggle_function();
-	$output .= '<br><a href="movie_form.php"> Try another query!</a>';
+	$output .= '<br><a href="select_play.php">Select new play</a>';
 	$output .='</body></html>';
 	return $output;
 }

@@ -21,6 +21,9 @@
 			<input type="submit"/>
 		</form>
 	</div>
+	<br>
+	<div style="text-align:center"><a href="../../index.html">Back to Home Screen</a></div>
+
 
 </body>
 </html>

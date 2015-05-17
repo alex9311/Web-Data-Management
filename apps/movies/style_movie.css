@@ -1,14 +1,24 @@
 .input_form {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 700px;
-    clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 700px;
+	clear: both;
 }
+
 .input_form input {
-    width: 100%;
-    clear: both;
+	width: 100%;
+	clear: both;
 }
+
 .input_form select {
-    width: 100%;
-    clear: both;
+	width: 100%;
+	clear: both;
+}
+
+.movie {
+	padding-left:15px;
+}
+
+.movie_description {
+	padding-left:25px;
 }
