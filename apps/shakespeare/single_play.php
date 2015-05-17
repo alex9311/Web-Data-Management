@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function print_xhtml_doc($title){
-	$output .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+	$output = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 	$output .= '<html xmlns="http://www.w3.org/1999/xhtml">';
 	$output .='<head><title>'.$title.'</title><link rel="stylesheet" type="text/css" href="style_plays.css"/></head>';
 	$output .= '<body>';
@@ -36,19 +36,26 @@ function write_character_list($title){
 }
 
 function write_table_of_contents($title){
-	$table_of_contents .= "<h4> Table of Contents </h4>";
+	$table_of_contents = "<h4> Table of Contents </h4>";
 
 	$contents_query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_howmany=100&_query=//PLAY[TITLE="'.$title.'"]//ACT';		
 	$acts = simplexml_load_string(file_get_contents($contents_query));
 
-	$i = 0;	
+	$i = 0;
 	foreach($acts->ACT as $act){
 		$table_of_contents .= '<div class="act">'.$act->TITLE;
-		foreach($act->SCENE as $scene){
+		
+		$act_title = $act->TITLE;
+		
+		$scene_query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_howmany=100&_query=//PLAY[TITLE="'.$title.'"]//ACT[TITLE = "'.$act_title.'"]//SCENE/TITLE';
+		
+		$scenes = simplexml_load_string(file_get_contents($scene_query));
+		
+		foreach($scenes as $scene){
 			$table_of_contents .= '<div class="scene">';
-			$table_of_contents .= '<a href="#" onclick="return charlistToggle('.$i.');">'.$scene->TITLE.'</a>';
+			$table_of_contents .= '<a href="#" onclick="return charlistToggle('.$i.');">'.$scene.'</a>';
 			$table_of_contents .= '<div id="char_list'.$i.'" style="display:none">';
-			$table_of_contents .= get_characters_for_scene((string)$act->TITLE,(string)$scene->TITLE);
+			$table_of_contents .= get_characters_for_scene($title, (string)$act->TITLE,$scene);
 			$table_of_contents .= "</div>";
 			$table_of_contents .= "</div>";
 			$i = $i + 1;
@@ -58,8 +65,9 @@ function write_table_of_contents($title){
 	return $table_of_contents;
 }
 
-function get_characters_for_scene($scene_title,$act_title){
-	return '<div class="character"> some character in act: '.$act_title.', scene: '.$scene_title.'</div>';
+function get_characters_for_scene($play_title,$act_title,$scene_title){
+	$contents_query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_howmany=100&_query=//PLAY[TITLE="'.$play_title.'"]//ACT[TITLE = "'.$act_title.'"]//SCENE[TITLE = "'.$scene_title.'"]';
+	return '<div class="character"> some character in act: '.$contents_query.', scene: '.$scene_title.'</div>';
 }
 
 function print_charlist_toggle_function(){

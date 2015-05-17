@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function print_xhtml_doc($movies_xml){
-	$output .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+	$output = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 	$output .= '<html xmlns="http://www.w3.org/1999/xhtml">';
 	$output .='<head><title>Movie Results List</title><link rel="stylesheet" type="text/css" href="style_movie.css"/></head>';
 	$output .= '<body>';
@@ -40,7 +40,7 @@ function print_movie_list($movies_xml){
 }
 
 function print_movie_description($movie,$i){
-	$output .= '<div class="movie_description" id="movie'.$i.'_description" style="display:none">';
+	$output = '<div class="movie_description" id="movie'.$i.'_description" style="display:none">';
 	$output .= print_movie_description_item($movie, $i, "genre", "Genre");
 	$output .= print_movie_description_item($movie, $i, "year", "Year");
 	$output .= print_movie_description_item($movie, $i, "summary", "Summary");
@@ -49,7 +49,7 @@ function print_movie_description($movie,$i){
 }
 
 function print_movie_description_item($movie,$i,$id_name, $name){
-	$output .= '<div id="movie'.$i.'_'.$id_name.'"><b>'.$name.': </b>';
+	$output = '<div id="movie'.$i.'_'.$id_name.'"><b>'.$name.': </b>';
 	$output .= (string)$movie->$id_name.'</div>';
 	return $output;
 }
