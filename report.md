@@ -37,5 +37,11 @@ Below is a screenshot of our application's query result page with two movies, on
 ![movie list screenshot](resources/movie_list_screenshot.png)
 
 ###Shakespeare Opera Omnia Project 
+This project is done based on the data included in eXist-db of a few of Shakespeare's plays. The data includes all of the spoken lines, stage directions, and act/scene structure. There were three requirements listed for this project:
 
+1. Show the part of a given character, for a given act and/or a given scene.
+2. show the table of contents of the play, along with the organization in acts and scenes, and the characters present in each scene.
+3. Show a full summary of the play, including the author, list of characters, stages require- ments, etc.
+
+Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it.
 ###MusicXML Project
