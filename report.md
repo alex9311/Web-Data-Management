@@ -33,7 +33,7 @@ We ensured that the file output page was XHTML standard approved by running it t
 ##### Showing Full Description of the Movie On Click
 We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery query. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
 
-Below is a screenshot of our application's query result page with two movies, one of which has been expanded out by the user clicking the title.
+Below is a screenshot of our application's query result page with two movies, one of which has been expanded out by the user clicking the title. The description can be toggled to be shown or hidden for any individual movie by clicking the title.
 ![movie list screenshot](resources/movie_list_screenshot.png)
 
 ###Shakespeare Opera Omnia Project 
