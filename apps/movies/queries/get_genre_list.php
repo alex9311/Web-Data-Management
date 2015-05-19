@@ -11,7 +11,7 @@ function get_genre_list(){
 				}
 			</select>
 XQUERY;
-	$query.= trim(str_replace(array("\r", "\n","\t"), '', $xquery));
-	return file_get_contents($query);
+	$url_safe_query = $query.trim(str_replace(array("\r", "\n","\t"), '', $xquery));
+	return file_get_contents($url_safe_query);
 }
 ?>

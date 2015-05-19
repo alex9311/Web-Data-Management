@@ -4,7 +4,9 @@
 function get_movie_list($post_array){
 	$params_query = build_movie_query($post_array);
 
-	$query = 'http://localhost:8080/exist/rest/db?_query=let$movies:= doc("movies/movies.xml")/movies/movie'.$params_query.' ';
+	$query = 'http://localhost:8080/exist/rest/db?_query=';
+	$query .= 'let$movies:= doc("movies/movies.xml")/movies/movie';
+	$query .= $params_query;
 	$query .= get_xquery();
 	
 	$url_safe_query.= trim(str_replace(array("\r", "\n","\t"), '', $query));
