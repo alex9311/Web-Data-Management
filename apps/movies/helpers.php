@@ -1,4 +1,5 @@
 <?php
+include "queries/get_genre_list.php";
 
 function tidy_html_output($html){
 	$config = array(
@@ -14,19 +15,13 @@ function tidy_html_output($html){
 }
 
 function get_unique_genres_dropdown_options(){
-	$genre_response = file_get_contents('http://localhost:8080/exist/rest/db/movies?_query=/movies//genre');
+	$genre_response = get_genre_list(); 
   	$genres = simplexml_load_string($genre_response);
-	$unique_genres = [];
-	foreach($genres->genre as $genre){
-		array_push($unique_genres,(string)$genre);
-	}
-	$unique_genres = array_unique($unique_genres);
-	$dropdown_options = '<option value=""></option>';
-	foreach($unique_genres as $genre){
+	$dropdown_options = "";
+	foreach($genres as $genre){
 		$dropdown_options .= '<option value="'.$genre.'">'.$genre.'</option>';
 	}
 	return $dropdown_options;
 }
-
 ?>
 

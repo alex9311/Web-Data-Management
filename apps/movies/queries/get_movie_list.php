@@ -1,6 +1,6 @@
 <?php
 
-function get_movie($post_array){
+function get_movie_list($post_array){
 		$title = $post_array["title"];
 		$genre = $post_array["genre"];
 		$dir = $post_array["director"];
@@ -73,8 +73,6 @@ function get_movie($post_array){
 		}
 		$query .= ']';
 
-
-		//echo "<b>Query: </b>".$query."<br><br>";
 		$response = file_get_contents($query);
 		return $response;
 	}

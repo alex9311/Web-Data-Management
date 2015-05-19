@@ -1,10 +1,10 @@
 <?php
-include "query_movies.php";
+include "queries/get_movie_list.php";
 include "helpers.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$post_array = $_POST;
-	$response = get_movie($_POST);
+	$response = get_movie_list($_POST);
 
 	$xml = simplexml_load_string($response);
 	$html= (print_xhtml_doc($xml));
