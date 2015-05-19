@@ -10,10 +10,7 @@
 	<div class="input_form">
 		<form action="list_movies.php" method="post">
 			Movie Tile: <input type="text" name="title"/>
-			Genre:
-				<select name="genre">
-					<?php echo get_unique_genres_dropdown_options();?>
-				</select>
+			Genre: <?php echo get_unique_genres_dropdown_options();?>
 			Director:	<input type="text" name="director"/>
 			Actor: 		<input type="text" name="actor"/>
 			Year:	 	<input type="text" name="year"/>

@@ -16,12 +16,9 @@ function tidy_html_output($html){
 
 function get_unique_genres_dropdown_options(){
 	$genre_response = get_genre_list(); 
-  	$genres = simplexml_load_string($genre_response);
-	$dropdown_options = "";
-	foreach($genres as $genre){
-		$dropdown_options .= '<option value="'.$genre.'">'.$genre.'</option>';
-	}
-	return $dropdown_options;
+	$allowed_tags = "<option></option><select></select>";
+	return strip_tags($genre_response,$allowed_tags);
 }
+
 ?>
 
