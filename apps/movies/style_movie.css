@@ -22,3 +22,9 @@
 .movie_description {
 	padding-left:25px;
 }
+
+.link{
+    color: #000000; /* Change this with links color*/
+    cursor: pointer;
+    text-decoration: underline;
+}
