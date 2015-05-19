@@ -1,7 +1,5 @@
 ##Web Data Management Assignment 1 Writeup
-Alex Simes - 4415299
-
-Peter van Buul - 
+Alex Simes  and Peter van Buul
 
 ###Introduction
 We chose to do the exercises from Chapter 5 of the textbook. This chapter included two sets of questions to practice xQuery and xPath queries. Our solutions to these questions can be found in this repo [here](xpath_xquery_questions/queries.md).
@@ -24,7 +22,7 @@ To allow the user to build their own query, we built an html form with all of th
 The form is sent through a POST request to a [PHP script](apps/movies/list_movies.php). This script calls a function which builds an xQuery query based on the parameters. We will discuss this function in the section below.
 
 ##### Displaying the List of Movies in XHTML
-As mentioned in the previous section, the user search parameters are passed to [a function](apps/movies/queries/get_movie_list.php). There are two main pieces to the xQuery derived from these parameters. First, in the build_movie_query() function we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson"
+As mentioned in the previous section, the user search parameters are passed to [a function](apps/movies/queries/get_movie_list.php). There are two main pieces to the xQuery derived from these parameters. First, in the build_movie_query() function we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson" the following xPath statement is generated:
 
 `/movies/movie[genre = "Crime"and (contains(actor/last_name,"Johansson") or contains(actor/first_name,"Johansson"))]`
 
