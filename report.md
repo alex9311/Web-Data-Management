@@ -15,7 +15,7 @@ This project was our first experience with using xQuery and xPath in practice. W
 The requirements of this project were three-fold:
   
 1. There must be a form that allows the user to search for movies based on (fragment of) the title, list of genres, director and actors names, years, and key-words that can be matched against the summary of the movie.
-2. when the user submits the form, the application retrieves the relevant movies from the XML repository, and displays the list of these movies in XHTML;
+2. When the user submits the form, the application retrieves the relevant movies from the XML repository, and displays the list of these movies in XHTML.
 3. in the previous list, each movie title should be a link that allows to display the full description of the movie.
 
 #####Including the User Query
@@ -28,7 +28,9 @@ As mentioned in the previous section, the user search parameters are passed to [
 
 `/movies/movie[genre = "Crime"and (contains(actor/last_name,"Johansson") or contains(actor/first_name,"Johansson"))]`
 
-This xPath query is used in an xQuery query which formats the relevant movies into something we can pop into our small static html wrapper. This query can be seen in the get_xquery() function, in [the same file](apps/movies/queries/get_movie_list.php) as linked above.
+This xPath query is used in an xQuery query which formats the relevant movies into something we can pop into our small static html wrapper. The wrapper included things like the DOCTYPE declaration, includes, and `<html>`,`<head>`, and `<body>` tags. This query can be seen in the get_xquery() function, in [the same file](apps/movies/queries/get_movie_list.php) as linked above.
+
+We ensured that the file output page was XHTML standard approved by running it through [W3 markup validation service](https://validator.w3.org/).
 
 ##### Showing Full Description of the Movie On Click
 We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery query. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
