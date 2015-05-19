@@ -3,13 +3,13 @@ Alex Simes - 4415299
 
 Peter van Buul - 
 
-####Introduction
+###Introduction
 We chose to do the exercises from Chapter 5 of the textbook. This chapter included two sets of questions to practice xQuery and xPath queries. Our solutions to these questions can be found in this repo [here](xpath_xquery_questions/queries.md).
 
 Below, we will detail our work in solving the three larger assignments in this chapter. For each, we will discuss our process and final structure.
 
 
-####Movie Database Project
+###Movie Database Project
 This project was our first experience with using xQuery and xPath in practice. We decided to use the REST API to query our movie collection in eXist-db for this project. We found that quickly being able to test queries directly in the browser sped up our development. We used PHP to handle POST/GET requests and to connect our query results to the static parts of the webpage. 
 
 The requirements of this project were three-fold:
@@ -33,6 +33,6 @@ This xPath query is used in an xQuery query which formats the relevant movies in
 ##### Showing Full Description of the Movie On Click
 We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery query. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
 
-####Shakespeare Opera Omnia Project 
+###Shakespeare Opera Omnia Project 
 
-####MusicXML Project
+###MusicXML Project
