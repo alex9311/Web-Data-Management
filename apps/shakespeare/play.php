@@ -3,7 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="style_plays.css"/>
 		<script src="toggle_speakers.js" type="text/javascript"></script>
-		<?php include "helpers.php"; ?>
+		<?php require_once("helpers.php"); ?>
 		<?php include "queries/get_play_form.php"; ?>
 		<?php include "queries/get_play_list.php"; ?>
 	</head>

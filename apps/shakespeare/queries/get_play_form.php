@@ -1,5 +1,5 @@
 <?php
-include "query_helpers.php";
+require_once("query_helpers.php");
 function get_play_form(){
 	$query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_query=';
 	$xquery = <<<'XQUERY'

@@ -1,5 +1,5 @@
 <?php
-include "query_helpers.php";
+require_once("query_helpers.php");
 function get_speaker_part($title,$act,$scene,$speaker){
 	$query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_query=';
 	$query .= 'let $scene := //PLAY [TITLE = "'.$title.'"]/ACT['.$act.']/SCENE['.$scene.'],';

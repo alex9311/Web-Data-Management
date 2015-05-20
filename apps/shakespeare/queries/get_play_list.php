@@ -1,4 +1,5 @@
 <?php
+require_once("query_helpers.php");
 function get_play_list($title){
 	$query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_query=';
 	$query .= ' let $plays := //PLAY [TITLE = "'.$title.'"]';
@@ -24,7 +25,6 @@ function get_play_list($title){
     </div>
 
 XQUERY;
-	$url_safe_query = $query.trim(str_replace(array("\r", "\n","\t"), '', $xquery));
-	return remove_outer_xquery_tags(file_get_contents($url_safe_query));
+	return execute_query($query.$xquery);
 }
 ?>
