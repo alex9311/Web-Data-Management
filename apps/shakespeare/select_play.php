@@ -2,8 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	<head></head>
 	<body>
-		<?php include "queries/get_play_list.php"; ?>
+		<?php include "queries/get_play_form.php"; ?>
 		<?php include "single_play.php"; ?>
+		<link rel="stylesheet" type="text/css" href="style_plays.css"/>
+		<script src="toggle_speakers.js"></script>
 		<h2>Play Viewer</h2>
 		<?php echo get_play_form();?>
 		<div id="play_container">

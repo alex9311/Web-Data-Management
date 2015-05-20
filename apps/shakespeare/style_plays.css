@@ -5,3 +5,13 @@
 .scene {
     padding-left: 20px;
 }
+
+.speaker {
+    padding-left: 35px;
+}
+
+.link{
+    color: #000000; /* Change this with links color*/
+    cursor: pointer;
+    text-decoration: underline;
+}
