@@ -1,4 +1,5 @@
 <?php
+include "query_helpers.php";
 function get_speaker_part($title,$act,$scene,$speaker){
 	$query = 'http://localhost:8080/exist/rest/db/shakespeare/plays?_query=';
 	$query .= 'let $scene := //PLAY [TITLE = "'.$title.'"]/ACT['.$act.']/SCENE['.$scene.'],';
@@ -13,13 +14,14 @@ function get_speaker_part($title,$act,$scene,$speaker){
 			{for $speech in $scene/SPEECH return 
 				if ($speech/SPEAKER=$speaker)
 				then
-					<div class="speech primary" style="background-color:rgb(51, 204, 255)">{$speech/*}</div>
+					<div class="speech" style="background-color:rgb(51, 204, 255)">
+					{$speech/SPEAKER/node()}: {$speech/LINE}</div>
 				else
-					<div class="speech secondary">{$speech/*}</div>
+					<div class="speech">
+					{$speech/SPEAKER/node()}: {$speech/LINE}</div>
 				}
 		</div>
 XQUERY;
-	$url_safe_query = $query.trim(str_replace(array("\r", "\n","\t"), '', $xquery));
-	return file_get_contents($url_safe_query);
+	return execute_query($query.$xquery);
 }
 ?>

@@ -13,5 +13,6 @@ function tidy_html_output($html){
 	return $tidy;
 }
 
+
 ?>
 
