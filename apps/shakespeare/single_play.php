@@ -1,19 +1,14 @@
 <?php
 include "helpers.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$play_title = $_POST["play"];
-	
+function print_play_xhtml($play_title){
 	$html= (print_xhtml_doc($play_title));
 	echo tidy_html_output($html);
 }
 
 function print_xhtml_doc($title){
-	$output = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-	$output .= '<html xmlns="http://www.w3.org/1999/xhtml">';
-	$output .='<head><title>'.$title.'</title><link rel="stylesheet" type="text/css" href="style_plays.css"/></head>';
-	$output .= '<body>';
-	$output .= "<h2>".$title."</h2>";
+	$output = "<h2>".$title."</h2>";
+	$output .= '<link rel="stylesheet" type="text/css" href="style_plays.css"/>';
 	$output .= write_table_of_contents($title);
 	$output .= write_character_list($title);
 	$output .= print_charlist_toggle_function();
