@@ -17,7 +17,7 @@
 	$connConfig = array(
 		'protocol'=>'http',
 		'user'=>'admin',
-		'password'=>'',
+		'password'=>'alex',
 		'host'=>'localhost',
 		'port'=>'8080',
 		'path'=>'/exist/xmlrpc'

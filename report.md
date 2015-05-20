@@ -43,5 +43,6 @@ This project is done based on the data included in eXist-db of a few of Shakespe
 2. show the table of contents of the play, along with the organization in acts and scenes, and the characters present in each scene.
 3. Show a full summary of the play, including the author, list of characters, stages require- ments, etc.
 
-Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it.
+Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorperate all of the requirements.
+![app diagram](resources/app_diagram.png)
 ###MusicXML Project
