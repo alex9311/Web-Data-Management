@@ -1,14 +1,15 @@
 <?php
 function get_score_form(){
-	$query = 'http://localhost:8080/exist/rest/db/music?_query=';
+	$query = 'http://localhost:8080/exist/rest/db?_query=';
 	$xquery = <<<'XQUERY'
 		let $score := //score-partwise 
 		return  
 			<form class="select_score_form" method="post">
 				<select name="score">
 					<option value=""/>
-					{for $title in distinct-values($score/movement-title) return 
-						<option value ="{$title}"> {$title}</option>
+					{for $title in collection("/music") return 
+                                            let $doc_name := document-uri($title) return
+						<option value ="{$doc_name}"> {$doc_name}</option>
 					}
 				</select>
 				<input type="submit" value="Select musicXML"/>

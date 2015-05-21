@@ -11,15 +11,15 @@
 </form>
 <?php
 include "get_score_form.php";
-include "get_lyrics_list.php";
+include "/test_lily/convert.php";
 echo get_score_form();
 ?>
 
 <div id="music_container">
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $movement_title = $_POST["score"];
+        $document_title = str_replace('/db/music/', '', $_POST["score"]);
         
-        echo get_lyrics_list($movement_title);
+        echo convert($document_title);
     }
 ?>
 </div>
