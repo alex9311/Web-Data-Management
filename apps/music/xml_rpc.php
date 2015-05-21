@@ -11,7 +11,7 @@
 </form>
 <?php
 include "get_score_form.php";
-include "/test_lily/convert.php";
+include "convert.php";
 echo get_score_form();
 ?>
 
