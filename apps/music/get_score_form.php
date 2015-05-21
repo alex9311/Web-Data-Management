@@ -8,7 +8,7 @@ function get_score_form(){
 				<select name="score">
 					<option value=""/>
 					{for $title in collection("/music") return 
-                                            let $doc_name := document-uri($title) return
+                                            let $doc_name := substring-after(document-uri($title), '/db/music/') return
 						<option value ="{$doc_name}"> {$doc_name}</option>
 					}
 				</select>

@@ -17,7 +17,7 @@ echo get_score_form();
 
 <div id="music_container">
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $document_title = str_replace('/db/music/', '', $_POST["score"]);
+        $document_title = $_POST["score"];
         
         echo convert($document_title);
     }
