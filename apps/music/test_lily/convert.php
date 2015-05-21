@@ -7,23 +7,10 @@ function convert($music_file_name){
     fwrite($myfile, $txt);
 
     fclose($myfile);
-
-    $musically2ly = fopen('musicxml2lystart.bat', "w");
     
-    fwrite($musically2ly, 'musicxml2ly '.$music_file_name);
+    shell_exec('LilyPond.app/Contents/Resources/bin/musicxml2ly '.$music_file_name);
     
-    fclose($musically2ly);
-
-    $out = [];
-    $returnval = [];
-    
-    echo exec("musicxml2lystart.bat", $out, $returnval);
-
-    
-    print_r($returnval);
-    print_r($out);
-    
-    shell_exec('lilypond '.substr($music_file_name,0,-3)."ly");
+    shell_exec('LilyPond.app/Contents/Resources/bin/lilypond '.substr($music_file_name,0,-3)."ly");
     
     echo "finished converting";
 }
