@@ -6,7 +6,7 @@ function get_play_list($title){
 	$xquery = <<<'XQUERY'
   return
     <div id="play_wrapper">
-    <h3>{$plays/TITLE/node()}</h3>
+    <h4>Table of Contents</h4>
     { for $act at $actno in $plays/ACT return
       <div class="act">
         {$act/TITLE/node()}

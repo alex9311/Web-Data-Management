@@ -9,6 +9,7 @@
 	<h2 style="text-align:center;">Movie Query Machine</h2>
 	<div class="input_form">
 		<form action="list_movies.php" method="post">
+			<fieldset>
 			Movie Tile: <input type="text" name="title"/>
 			Genre: <?php echo get_unique_genres_dropdown_options();?>
 			Director:	<input type="text" name="director"/>
@@ -16,6 +17,7 @@
 			Year:	 	<input type="text" name="year"/>
 			Key Words: 	<input type="text" name="keywords"/>
 			<input type="submit"/>
+			</fieldset>
 		</form>
 	</div>
 	<br>

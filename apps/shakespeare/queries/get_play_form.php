@@ -5,7 +5,8 @@ function get_play_form(){
 	$xquery = <<<'XQUERY'
 		let $plays := //PLAY 
 		return  
-			<form class="select_play_form" method="post">
+			<form action= "" class="select_play_form" method="post">
+				<fieldset>
 				<select name="play">
 					<option value=""/>
 					{for $title in distinct-values($plays/TITLE) return 
@@ -13,6 +14,7 @@ function get_play_form(){
 					}
 				</select>
 				<input type="submit"/>
+				</fieldset>
 			</form>
 XQUERY;
 	return execute_query($query.$xquery);
