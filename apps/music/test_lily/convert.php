@@ -1,5 +1,6 @@
 <?php
 function convert($music_file_name){
+	echo $music_file_name;
     $myfile = fopen($music_file_name, "w") or die("Unable to open file!");
 
     $txt = file_get_contents('http://localhost:8080/exist/rest/db/music/'.$music_file_name);

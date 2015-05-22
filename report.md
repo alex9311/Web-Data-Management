@@ -45,4 +45,10 @@ This project is done based on the data included in eXist-db of a few of Shakespe
 
 Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorperate all of the requirements.
 ![app diagram](resources/app_diagram.png)
+
+
+#####How Did We Do It?
+The technology we used in this project is similar to that in the first project. We used xQuery expressions to generate large HTML blocks that contained the information we needed to display. This application consists of four main queries. 
+
+
 ###MusicXML Project
