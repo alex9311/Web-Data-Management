@@ -52,3 +52,7 @@ The technology we used in this project is similar to that in the first project. 
 
 
 ###MusicXML Project
+
+For the MusicXML Project the first requirement was that musicXML files could be added to the exist database. For this we decided to use the xml rpc tool that is provided with exist-db. After installing this library and it's prerequisists we where able to insert new xml files into the exist database.
+
+The seccond requirement was that the scores should be visible, for this musicxml2ly and lilypont where used. In order to convert the musicXML the musicxml2ly command is called in a shell that creates a ".ly" file on the system. After this file is created the lilypond command is called in a shell to create a pdf, this pdf is then opened in the browsor.

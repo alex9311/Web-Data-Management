@@ -12,7 +12,7 @@ function get_score_form(){
 						<option value ="{$doc_name}"> {$doc_name}</option>
 					}
 				</select>
-				<input type="submit" value="Select musicXML"/>
+				<input type="submit" value="Show score pdf"/>
 			</form>
 XQUERY;
 	$url_safe_query = $query.trim(str_replace(array("\r", "\n","\t"), '', $xquery));
