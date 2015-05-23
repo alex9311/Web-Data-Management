@@ -14,7 +14,7 @@ function convert($music_file_name){
 
 	shell_exec('lilypond '.$file_name.".ly");
 
-	$file = $file_name.".pdf";
+	$file = $file_name."pdf";
 	$filename = 'score.pdf';
 	header('Content-type: application/pdf');
 	header('Content-Disposition: inline; filename="' . $filename . '"');
