@@ -50,8 +50,6 @@ if ($uploadOk == 0) {
             'path'=>'/exist/xmlrpc'
         );
         $conn = new \ExistDB\Client($connConfig);
-	
-	$conn->createCollection('music');	
 
 	$catalogAsSingleNode = simplexml_load_file($target_file);
 	$conn->storeDocument(
