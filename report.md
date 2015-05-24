@@ -22,7 +22,7 @@ To allow the user to run their own search query, we built an HTML form with all 
 Upon submit, the form data is sent through a POST request to a [PHP script](apps/movies/list_movies.php). This script calls a function which builds an xQuery expression based on the parameters. We will discuss this function in the section below.
 
 ##### Displaying the List of Movies in XHTML
-As mentioned in the previous section, the user search parameters are passed to [a function](apps/movies/queries/get_movie_list.php) through a POST request. This function contructs the query in two parts. First, in the build_movie_query() function, we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson" the following xPath statement is generated:
+As mentioned in the previous section, the user search parameters are passed to [a function](apps/movies/queries/get_movie_list.php) through a POST request. This function constructs the query in two parts. First, in the build_movie_query() function, we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson" the following xPath statement is generated:
 
 `/movies/movie[genre = "Crime"and (contains(actor/last_name,"Johansson") or contains(actor/first_name,"Johansson"))]`
 
@@ -41,9 +41,9 @@ This project is done based on the data included in eXist-db of a few of Shakespe
 
 1. Show the part of a given character, for a given act and/or a given scene.
 2. show the table of contents of the play, along with the organization in acts and scenes, and the characters present in each scene.
-3. Show a full summary of the play, including the author, list of characters, stages require- ments, etc.
+3. Show a full summary of the play, including the author, list of characters, stages requirements, etc.
 
-Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorperate all of the requirements.
+Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorporate all of the requirements.
 
 ![app diagram](resources/app_diagram.png)
 
@@ -52,7 +52,7 @@ Part of the challenge here was to design a user-friendly way of showing all of t
 The techniques we used in this project are similar to what we used in the first project. First, we used xPath expressions to select the correct xml nodes we needed. Then, we used xQuery expressions to generate large formatted XHTML blocks that contained the information we needed to display. This application consists of four main queries.
 
 ######The Play Form Query 
-This query creates the form the user uses to select a play he or she would like to see the details of. This was a query similar to the genre dropdown query in the movie application. Here however, we generated the full html form in xQuery. You can see the query [here](apps/shakespeare/queries/get_play_form.php). We simply look for all of the distince play titles in the shakespeare/plays collection and wrap those results in the needed `<form>`, `<select>`, `<option>`, and `<fieldset>` tags.
+This query creates the form the user uses to select a play he or she would like to see the details of. This was a query similar to the genre dropdown query in the movie application. Here however, we generated the full html form in xQuery. You can see the query [here](apps/shakespeare/queries/get_play_form.php). We simply look for all of the distinct play titles in the shakespeare/plays collection and wrap those results in the needed `<form>`, `<select>`, `<option>`, and `<fieldset>` tags.
 
 ######Character List Query
 The character list query takes a play title a returns a list of characters (or PERSONA) that have parts in the play. This was query was needed to complete our full summary view of the play. You can see the query [here](apps/shakespeare/queries/get_character_list.php)
@@ -65,14 +65,17 @@ Below is a screenshot of our main view, which includes the results from the char
 ![main view](resources/shakespeare_main_view.png)
 
 ######The Character Part Query
-This query is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot below.
+(This query)[apps/shakespeare/queries/get_speaker_part.php] is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
 
 ![hamlet-part](resources/hamlet_part.png)
 
 We thought this would be much more useful than showing only the lines of one character in a scene. 
 
+#####XHTML Validation
+As in the first project, we used the [W3 markup validation tool](https://validator.w3.org/) to make sure our pages were XHTML valid. Both the main play view page and the character view page are xhtml valid, as indicated by the icons at the bottom of the pages. 
+
 ###MusicXML Project
 
-For the MusicXML Project the first requirement was that musicXML files could be added to the exist database. For this we decided to use the xml rpc tool that is provided refered to in the exist-db documentation. In order to use this tool the pear extrenal php package manager and the XML_RPC2 package need to be installed. With this installed files can be uploaded to the exist db, more specifically the music collection that is precreated in the exist-db. The part that we are not so happy with about this solution is that in order to be able to get a file the file first has to be uploaded to the server itself.
+For the MusicXML Project, the first requirement was that musicXML files could be added to the exist database. For this, we decided to use the xml rpc tool that is provided referred to in the exist-db documentation. In order to use this tool, the pear external php package manager and the XML_RPC2 package need to be installed. With this installed, files can be uploaded to the exist db, more specifically the music collection that is precreated in the exist-db. The part that we are not so happy with about this solution is that in order to be able to get a file the file first has to be uploaded to the server itself.
 
-The seccond requirement was that the scores should be visible, for this musicxml2ly and lilypont have been used. In order to convert the musicXML the musicxml2ly command is called in a shell that creates a ".ly" file on the system. After this file is created the lilypond command is called in a shell to create a pdf, this pdf is then opened in the browsor. An not so pretty side effect of this is that bot the .ly and the .pdf file are generated on the server. Due to the constraints of running shell commands only a linux server with ownership permission on the file system can be used to host the MusicXML project.
+The second requirement was that the scores should be visible. For this, musicxml2ly and lilypont have been used. In order to convert the musicXML the musicxml2ly command is called in a shell that creates a ".ly" file on the system. After this file is created, the lilypond command is called in a shell to create a pdf, this pdf is then opened in the browser. A not-so-pretty side effect of this is that both the .ly and the .pdf file are generated on the server. Due to the constraints of running shell commands only a linux server with ownership permission on the file system can be used to host the MusicXML project.
