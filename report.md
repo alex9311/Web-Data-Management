@@ -65,7 +65,7 @@ Below is a screenshot of our main view, which includes the results from the char
 ![main view](resources/shakespeare_main_view.png)
 
 ######The Character Part Query
-(This query)[apps/shakespeare/queries/get_speaker_part.php] is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
+[This query](apps/shakespeare/queries/get_speaker_part.php) is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
 
 ![hamlet-part](resources/hamlet_part.png)
 
