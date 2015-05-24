@@ -1,5 +1,5 @@
 ##Web Data Management Assignment 1 Writeup
-Alex Simes  and Peter van Buul
+Alex Simes (4415299)  and Peter van Buul (1512269)
 
 ###Introduction
 We choose to do the exercises from Chapter 5 of the textbook. This chapter included two sets of questions to practice xQuery and xPath queries. Our solutions to these questions can be found in this repo [here](https://github.com/alex9311/Web-Data-Management/blob/master/xpath_xquery_questions/queries.md).
