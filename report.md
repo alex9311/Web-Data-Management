@@ -8,7 +8,7 @@ Below, we will detail our work in solving the three larger assignments in this c
 
 
 ###Movie Database Project
-This project was our first experience with using xQuery and xPath in practice. We decided to use the REST API to query our movie collection in eXist-db for this project. We found that quickly being able to test queries directly in the browser sped up our development. We used PHP to handle POST/GET requests to connect our query results to the static parts of our web application. Our query results were formatted in a way such that they could easily be dropped into a web page body.
+This project was our first experience with using xQuery and xPath in practice. We decided to use the REST API to query our movie collection in eXist-db for this project. We used PHP to handle POST/GET requests to bring our query results into the static parts of our web application. Rather than storing our queries in eXist and calling them from the PHP code with parameters, we kept the entire query expressions in our PHP code. We did this so the application could be set on top of any eXist database with the needed collections, rather than requiring the eXist DB to also store the queries we needed. This makes our application easier to deploy on new systems. Our query results were formatted in a way such that they could easily be dropped into a web page body. We will elaborate more on this formatting below.
 
 The requirements of this project were three-fold:
   
@@ -26,12 +26,12 @@ As mentioned in the previous section, the user search parameters are passed to [
 
 `/movies/movie[genre = "Crime"and (contains(actor/last_name,"Johansson") or contains(actor/first_name,"Johansson"))]`
 
-This xPath query is used in an xQuery expression which formats the relevant movies into something we can pop into our small static html wrapper. The wrapper includes things like the DOCTYPE declaration, includes, and `<html>`,`<head>`, and `<body>` tags. This xPath expression can be seen in the get_xquery() function, in [the same file](apps/movies/queries/get_movie_list.php) as linked above.
+This xPath query is used in an xQuery expression which formats the relevant movies into something we can pop into our small static html wrapper. The wrapper includes things like the DOCTYPE declaration, includes, and `<html>`,`<head>`, and `<body>` tags. The xQuery expression wraps the returned information in the appropriate `<div>` tags and labels. The complete expression can be seen in the get_xquery() function [here](apps/movies/queries/get_movie_list.php).
 
 We ensured that the file output page was XHTML standard approved by running it through [W3 markup validation service](https://validator.w3.org/).
 
 ##### Showing Full Description of the Movie On Click
-We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery query. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
+We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery expression. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
 
 Below is a screenshot of our application's query result page with two movies, one of which has been expanded out by the user clicking the title. The description can be toggled to be shown or hidden for any individual movie by clicking the title.
 ![movie list screenshot](resources/movie_list_screenshot.png)
@@ -44,12 +44,32 @@ This project is done based on the data included in eXist-db of a few of Shakespe
 3. Show a full summary of the play, including the author, list of characters, stages require- ments, etc.
 
 Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorperate all of the requirements.
+
 ![app diagram](resources/app_diagram.png)
 
 
 #####How Did We Do It?
-The technology we used in this project is similar to that in the first project. We used xQuery expressions to generate large HTML blocks that contained the information we needed to display. This application consists of four main queries. 
+The techniques we used in this project are similar to what we used in the first project. First, we used xPath expressions to select the correct xml nodes we needed. Then, we used xQuery expressions to generate large formatted XHTML blocks that contained the information we needed to display. This application consists of four main queries.
 
+######The Play Form Query 
+This query creates the form the user uses to select a play he or she would like to see the details of. This was a query similar to the genre dropdown query in the movie application. Here however, we generated the full html form in xQuery. You can see the query [here](apps/shakespeare/queries/get_play_form.php). We simply look for all of the distince play titles in the shakespeare/plays collection and wrap those results in the needed `<form>`, `<select>`, `<option>`, and `<fieldset>` tags.
+
+######Character List Query
+The character list query takes a play title a returns a list of characters (or PERSONA) that have parts in the play. This was query was needed to complete our full summary view of the play. You can see the query [here](apps/shakespeare/queries/get_character_list.php)
+
+######The Play List Query
+This is the main query of our application, and can be seen [here](apps/shakespeare/queries/get_play_list.php). Given a play title, we return a table of contents type view. All of the acts and scenes are shown. Similar to the movie view in the previous application, a scene can be clicked to show the characters that exist. This toggle effect is again achieved using a small javascript onclick function and the style attribute `style="display:none"`. Once the characters are shown for a given scene, a link can be clicked for each to show that character's parts in the scene. 
+
+Below is a screenshot of our main view, which includes the results from the character list query and the play list query. In the screen shot, Act 1 Scene 4 has been expanded out to show the character list and the links to view their parts in the scene.
+
+![main view](resources/shakespeare_main_view.png)
+
+######The Character Part Query
+This query is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot below.
+
+![hamlet-part](resources/hamlet_part.png)
+
+We thought this would be much more useful than showing only the lines of one character in a scene. 
 
 ###MusicXML Project
 
