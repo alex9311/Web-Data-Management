@@ -34,7 +34,8 @@ We ensured that the file output page was XHTML standard approved by running it t
 We used a small Javascript function that toggles the html `style="display:none"` attribute. We added the attribute and the onclick that calls the javascript function in our xQuery expression. One issue we ran into was that we were unable to add an `href="#"` to make the title clickable in xQuery, so we formatted that with css afterwards. 
 
 Below is a screenshot of our application's query result page with two movies, one of which has been expanded out by the user clicking the title. The description can be toggled to be shown or hidden for any individual movie by clicking the title.
-![movie list screenshot](resources/movie_list_screenshot.png)
+
+<img src="resources/movie_list_screenshot.png" style="width:4.5in"></img>
 
 ###Shakespeare Opera Omnia Project 
 This project is done based on the data included in eXist-db of a few of Shakespeare's plays. The data includes all of the spoken lines, stage directions, and act/scene structure. There were three requirements listed for this project:
@@ -45,8 +46,7 @@ This project is done based on the data included in eXist-db of a few of Shakespe
 
 Part of the challenge here was to design a user-friendly way of showing all of this data. This is why we started designing what we wanted our final application structure to be before developing it. Below is the a diagram of the application flow we decided to use to incorporate all of the requirements.
 
-![app diagram](resources/app_diagram.png)
-
+<img src="resources/app_diagram.png" style="width:7.5in"></img>
 
 #####How Did We Do It?
 The techniques we used in this project are similar to what we used in the first project. First, we used xPath expressions to select the correct xml nodes we needed. Then, we used xQuery expressions to generate large formatted XHTML blocks that contained the information we needed to display. This application consists of four main queries.
@@ -62,12 +62,12 @@ This is the main query of our application, and can be seen [here](https://github
 
 Below is a screenshot of our main view, which includes the results from the character list query and the play list query. In the screen shot, Act 1 Scene 4 has been expanded out to show the character list and the links to view their parts in the scene.
 
-![main view](resources/shakespeare_main_view.png)
+<img src="resources/shakespeare_main_view.png" style="width:7.5in"></img>
 
 ######The Character Part Query
 [This query](https://github.com/alex9311/Web-Data-Management/blob/master/apps/shakespeare/queries/get_speaker_part.php) is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
 
-![hamlet-part](resources/hamlet_part.png)
+<img src="resources/hamlet_part.png" style="width:7.5in"></img>
 
 We thought this would be much more useful than showing only the lines of one character in a scene. 
 
@@ -80,20 +80,20 @@ As in the first project, we used the [W3 markup validation tool](https://validat
 
 The last project of the assignment was the MusicXML project. The two requirements for this where to be able to add MusicXML files to the exist database and to be able to extract those to show the score on demand.
 
-#####Uploading musicXML files
+#####Uploading musicXML Files
 
 The first requirement of the musicXML project was that musicXML files could be added to the exist database. For this, we decided to use the xml rpc tool that is provided referred to in the exist-db documentation. In order to use this tool, the pear external php package manager and the XML_RPC2 package need to be installed. With this installed, files can be uploaded to the exist db, these files are added to the music collection in the exist db. If this collection is not present at the time of uploading the collection is created. The part that we are not so happy with about this solution is that in order to be able to get a file the file first has to be uploaded to the server itself. The code for uploading can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/upload.php).
 
-#####Getting the musicXML files
+#####Getting the MusicXML Files
 
-After a file has been uploaded the file can be selected in a dropdown. This dropdown is created by listing all files in the music collection from exist. An XQuery is used to generated this dropdown in a smililar way as has been done to select the genre and a play. This query can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/get_score_form.php).
+After a file has been uploaded, the file can be selected in a dropdown. This dropdown is created by listing all files in the music collection from exist. An XQuery is used to generated this dropdown in a smililar way as has been done to select the genre and play in our previous applications. This query can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/get_score_form.php).
 
-#####Converting musicXML files
+#####Converting musicXML Files
 
-The second requirement was that the scores should be displayed. The first step in displaying the score is generating it, for this, musicxml2ly and lilypont have been used. In order to convert the musicXML the musicxml2ly command is called in a shell that creates a ".ly" file on the system. After this file is created, the lilypond command is called in a shell to create a pdf that contains the score of the selected musicXML. A not-so-pretty side effect of this is that both the .ly and the .pdf file are generated on the server. Due to the constraints of running shell commands only a linux server with ownership permission on the file system can be used to host the MusicXML project.
+The second requirement was that the scores should be displayed. The first step in displaying the score is generating it. For this, musicxml2ly and lilypont have been used. In order to convert the musicXML, the musicxml2ly command is called in a shell that creates a ".ly" file on the system. After this file is created, the lilypond command is called in a shell to create a pdf that contains the score of the selected musicXML. A not-so-pretty side effect of this is that both the .ly and the .pdf file are generated on the server. Due to the constraints of running shell commands only a linux server with ownership permission on the file system can be used to host the MusicXML project.
 
 #####Showing the score
 
-Lastly the score that was generated by lilypond should be displayed in the browsor. For this the php function readFile is used, by defining a header and then calling the readFile function the selected score is displayed in the browsor. The code used for conversion and showing the pdf can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/test_lily/convert.php).
+Lastly, the score that was generated by lilypond should be displayed in the browser. For this, the php function readFile is used. By defining a header and then calling the readFile function, the selected score is displayed in the browsor. The code used for conversion and showing the pdf can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/test_lily/convert.php). Below, we show an example of the output PDF file.
+<img src="resources/Sanctus.PNG" style="width:7.5in"></img>
 
-![score in browsor](resources/Sanctus.PNG)
