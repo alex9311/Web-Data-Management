@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 include 'lib/Client.class.php';
 include 'lib/Query.class.php';
 include 'lib/ResultSet.class.php';
@@ -44,7 +46,7 @@ if ($uploadOk == 0) {
         $connConfig = array(
             'protocol'=>'http',
             'user'=>'admin',
-            'password'=>'',
+            'password'=>'alex',
             'host'=>'localhost',
             'port'=>'8080',
             'path'=>'/exist/xmlrpc'

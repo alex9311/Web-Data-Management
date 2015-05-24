@@ -15,10 +15,10 @@ function get_speaker_part($title,$act,$scene,$speaker){
 				if ($speech/SPEAKER=$speaker)
 				then
 					<div class="speech" style="background-color:rgb(51, 204, 255)">
-					{$speech/SPEAKER/node()}: {$speech/LINE}</div>
+					{$speech/SPEAKER/node()}: { for $line in $speech/LINE return concat($line/node()," ")}</div>
 				else
 					<div class="speech">
-					{$speech/SPEAKER/node()}: {$speech/LINE}</div>
+					{$speech/SPEAKER/node()}: { for $line in $speech/LINE return  concat($line/node()," ")}</div>
 				}
 		</div>
 XQUERY;
