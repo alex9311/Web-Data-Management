@@ -2,7 +2,7 @@
 Alex Simes (4415299)  and Peter van Buul (1512269)
 
 ###Introduction
-We choose to do the exercises from Chapter 5 of the textbook. This chapter included two sets of questions to practice xQuery and xPath queries. Our solutions to these questions can be found in this repo [here](https://github.com/alex9311/Web-Data-Management/blob/master/xpath_xquery_questions/queries.md).
+We choose to do the exercises from Chapter 5 of the textbook. This chapter included two sets of questions to practice xQuery and xPath queries. Our solutions to these questions can be found in this repo [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/xpath_xquery_questions/queries.md).
 
 Below, we will detail our work in solving the three larger assignments in this chapter. For each, we will discuss our process and final structure.
 
@@ -17,16 +17,16 @@ The requirements of this project were three-fold:
 3. in the previous list, each movie title should be a link that allows to display the full description of the movie.
 
 #####Including the User Query
-To allow the user to run their own search query, we built an HTML form with all of the needed fields. We had fun creating an xQuery query to fill the form's genre dropdown box with a list of genres found in the collection. You can see that code [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/movies/queries/get_genre_list.php). Our query returns the unique list of genres wrapped in `<select>` and `<option>` tags so it can easily be dropped into the form.
+To allow the user to run their own search query, we built an HTML form with all of the needed fields. We had fun creating an xQuery query to fill the form's genre dropdown box with a list of genres found in the collection. You can see that code [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/movies/queries/get_genre_list.php). Our query returns the unique list of genres wrapped in `<select>` and `<option>` tags so it can easily be dropped into the form.
 
-Upon submit, the form data is sent through a POST request to a [PHP script](https://github.com/alex9311/Web-Data-Management/blob/master/apps/movies/list_movies.php). This script calls a function which builds an xQuery expression based on the parameters. We will discuss this function in the section below.
+Upon submit, the form data is sent through a POST request to a [PHP script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/movies/list_movies.php). This script calls a function which builds an xQuery expression based on the parameters. We will discuss this function in the section below.
 
 ##### Displaying the List of Movies in XHTML
-As mentioned in the previous section, the user search parameters are passed to [a function](https://github.com/alex9311/Web-Data-Management/blob/master/apps/movies/queries/get_movie_list.php) through a POST request. This function constructs the query in two parts. First, in the build_movie_query() function, we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson" the following xPath statement is generated:
+As mentioned in the previous section, the user search parameters are passed to [a function](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/movies/queries/get_movie_list.php) through a POST request. This function constructs the query in two parts. First, in the build_movie_query() function, we take all the search parameters and create an xPath query to show only relevant movies. For example, if the user selects a genre "Drama" and an actor "Johansson" the following xPath statement is generated:
 
 `/movies/movie[genre = "Crime"and (contains(actor/last_name,"Johansson") or contains(actor/first_name,"Johansson"))]`
 
-This xPath query is used in an xQuery expression which formats the relevant movies into something we can pop into our small static html wrapper. The wrapper includes things like the DOCTYPE declaration, includes, and `<html>`,`<head>`, and `<body>` tags. The xQuery expression wraps the returned information in the appropriate `<div>` tags and labels. The complete expression can be seen in the get_xquery() function [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/movies/queries/get_movie_list.php).
+This xPath query is used in an xQuery expression which formats the relevant movies into something we can pop into our small static html wrapper. The wrapper includes things like the DOCTYPE declaration, includes, and `<html>`,`<head>`, and `<body>` tags. The xQuery expression wraps the returned information in the appropriate `<div>` tags and labels. The complete expression can be seen in the get_xquery() function [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/movies/queries/get_movie_list.php).
 
 We ensured that the file output page was XHTML standard approved by running it through [W3 markup validation service](https://validator.w3.org/).
 
@@ -52,20 +52,20 @@ Part of the challenge here was to design a user-friendly way of showing all of t
 The techniques we used in this project are similar to what we used in the first project. First, we used xPath expressions to select the correct xml nodes we needed. Then, we used xQuery expressions to generate large formatted XHTML blocks that contained the information we needed to display. This application consists of four main queries.
 
 ######The Play Form Query 
-This query creates the form the user uses to select a play he or she would like to see the details of. This was a query similar to the genre dropdown query in the movie application. Here however, we generated the full html form in xQuery. You can see the query [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/shakespeare/queries/get_play_form.php). We simply look for all of the distinct play titles in the shakespeare/plays collection and wrap those results in the needed `<form>`, `<select>`, `<option>`, and `<fieldset>` tags.
+This query creates the form the user uses to select a play he or she would like to see the details of. This was a query similar to the genre dropdown query in the movie application. Here however, we generated the full html form in xQuery. You can see the query [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/shakespeare/queries/get_play_form.php). We simply look for all of the distinct play titles in the shakespeare/plays collection and wrap those results in the needed `<form>`, `<select>`, `<option>`, and `<fieldset>` tags.
 
 ######Character List Query
-The character list query takes a play title a returns a list of characters (or PERSONA) that have parts in the play. This was query was needed to complete our full summary view of the play. You can see the query [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/shakespeare/queries/get_character_list.php)
+The character list query takes a play title a returns a list of characters (or PERSONA) that have parts in the play. This was query was needed to complete our full summary view of the play. You can see the query [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/shakespeare/queries/get_character_list.php)
 
 ######The Play List Query
-This is the main query of our application, and can be seen [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/shakespeare/queries/get_play_list.php). Given a play title, we return a table of contents type view. All of the acts and scenes are shown. Similar to the movie view in the previous application, a scene can be clicked to show the characters that exist. This toggle effect is again achieved using a small javascript onclick function and the style attribute `style="display:none"`. Once the characters are shown for a given scene, a link can be clicked for each to show that character's parts in the scene. 
+This is the main query of our application, and can be seen [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/shakespeare/queries/get_play_list.php). Given a play title, we return a table of contents type view. All of the acts and scenes are shown. Similar to the movie view in the previous application, a scene can be clicked to show the characters that exist. This toggle effect is again achieved using a small javascript onclick function and the style attribute `style="display:none"`. Once the characters are shown for a given scene, a link can be clicked for each to show that character's parts in the scene. 
 
 Below is a screenshot of our main view, which includes the results from the character list query and the play list query. In the screen shot, Act 1 Scene 4 has been expanded out to show the character list and the links to view their parts in the scene.
 
 <img src="resources/shakespeare_main_view.png" style="width:7.5in"></img>
 
 ######The Character Part Query
-[This query](https://github.com/alex9311/Web-Data-Management/blob/master/apps/shakespeare/queries/get_speaker_part.php) is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
+[This query](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/shakespeare/queries/get_speaker_part.php) is used when the user wants to view a character's parts in a given scene. As mentioned before, this is called when a user clicks on the link next to the character name, as shown in the screen shot above. In the character part view, we still showed all speaking parts for the given scene but highlighted the desired character's parts in blue. This is shown in the screen shot of the output below.
 
 <img src="resources/hamlet_part.png" style="width:7.5in"></img>
 
@@ -82,11 +82,11 @@ The last project of the assignment was the MusicXML project. The two requirement
 
 #####Uploading musicXML Files
 
-The first requirement of the musicXML project was that musicXML files could be added to the exist database. For this, we decided to use the xml rpc tool that is provided referred to in the exist-db documentation. In order to use this tool, the pear external php package manager and the XML_RPC2 package need to be installed. With this installed, files can be uploaded to the exist db, these files are added to the music collection in the exist db. If this collection is not present at the time of uploading the collection is created. The part that we are not so happy with about this solution is that in order to be able to get a file the file first has to be uploaded to the server itself. The code for uploading can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/upload.php).
+The first requirement of the musicXML project was that musicXML files could be added to the exist database. For this, we decided to use the xml rpc tool that is provided referred to in the exist-db documentation. In order to use this tool, the pear external php package manager and the XML_RPC2 package need to be installed. With this installed, files can be uploaded to the exist db, these files are added to the music collection in the exist db. If this collection is not present at the time of uploading the collection is created. The part that we are not so happy with about this solution is that in order to be able to get a file the file first has to be uploaded to the server itself. The code for uploading can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/music/upload.php).
 
 #####Getting the MusicXML Files
 
-After a file has been uploaded, the file can be selected in a dropdown. This dropdown is created by listing all files in the music collection from exist. An XQuery is used to generated this dropdown in a smililar way as has been done to select the genre and play in our previous applications. This query can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/get_score_form.php).
+After a file has been uploaded, the file can be selected in a dropdown. This dropdown is created by listing all files in the music collection from exist. An XQuery is used to generated this dropdown in a smililar way as has been done to select the genre and play in our previous applications. This query can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/music/get_score_form.php).
 
 #####Converting musicXML Files
 
@@ -94,6 +94,6 @@ The second requirement was that the scores should be displayed. The first step i
 
 #####Showing the score
 
-Lastly, the score that was generated by lilypond should be displayed in the browser. For this, the php function readFile is used. By defining a header and then calling the readFile function, the selected score is displayed in the browsor. The code used for conversion and showing the pdf can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/apps/music/test_lily/convert.php). Below, we show an example of the output PDF file.
+Lastly, the score that was generated by lilypond should be displayed in the browser. For this, the php function readFile is used. By defining a header and then calling the readFile function, the selected score is displayed in the browsor. The code used for conversion and showing the pdf can be found [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment1/apps/music/test_lily/convert.php). Below, we show an example of the output PDF file.
 <img src="resources/Sanctus.PNG" style="width:7.5in"></img>
 
