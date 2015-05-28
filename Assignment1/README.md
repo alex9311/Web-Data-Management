@@ -1,4 +1,4 @@
-# Web-Data-Management
+# Web Data Management - Assignment 1
 ####To get this project working (with exist 1.4)
 Clone this repo into your localhost web folder.
 
