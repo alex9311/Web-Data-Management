@@ -1,0 +1,12 @@
+{
+  "views" : {
+    "actors" : {
+      "map" : "function(doc){           
+           for (i in doc.actors) {    
+             actor = doc.actors[i];
+          emit({"fn": actor.first_name, "ln": actor.last_name}, doc.title) ;         
+         }           
+       }"
+    }
+  }
+}

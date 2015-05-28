@@ -1,0 +1,9 @@
+{
+  "views" : {
+    "foo" : {
+      "map" : "function(doc){ 
+          emit(doc.title, doc.director)
+          }"
+    }
+  }
+}
