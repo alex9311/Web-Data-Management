@@ -1,7 +1,9 @@
 ##Exercises 20.1.1
+All views are saved in _design/examples Design Document and given individual view names.
+<img src="resources/create_view.png" style="width:2.5in"></img>
 
 #####1. Give all titles.
-Function:
+Map Function (saved with view name "titles"):
 ```
 function(doc){
 	emit(doc.title, doc.title);
