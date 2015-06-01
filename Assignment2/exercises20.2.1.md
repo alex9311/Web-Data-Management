@@ -1,6 +1,32 @@
 ##Exercises 20.1.1
 
 #####1. Give all titles.
+Function:
+```
+function(doc){
+	emit(doc.title, doc.title);
+}
+```
+View:
+<img src="resources/ex1.png" style="width:7.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/titles
+```
+
+cURL request response:
+
+```
+{"total_rows":5,"offset":0,"rows":[
+{"id":"ahv","key":"A History of Violence","value":"A History of Violence"},
+{"id":"ma","key":"Marie Antoinette","value":"Marie Antoinette"},
+{"id":"sm","key":"Spider-Man","value":"Spider-Man"},
+{"id":"tsn","key":"The Social network","value":"The Social network"},
+{"id":"un","key":"Unforgiven","value":"Unforgiven"}
+]}
+```
 
 #####2. Titles of the movies published after 2000.
 
