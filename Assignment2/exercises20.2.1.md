@@ -8,7 +8,7 @@ function(doc){
 }
 ```
 View:
-<img src="resources/ex1.png" style="width:7.5in"></img>
+<img src="resources/ex1.png" style="width:3.5in"></img>
 
 cURL request:
 
