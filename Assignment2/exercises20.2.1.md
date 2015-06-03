@@ -46,7 +46,7 @@ function (key, values) {
 }
 ```
 View (with reduction):
-<img src="resources/ex2.png" style="width:3.5in"></img>
+<img src="resources/ex2.PNG" style="width:3.5in"></img>
 
 cURL request:
 
