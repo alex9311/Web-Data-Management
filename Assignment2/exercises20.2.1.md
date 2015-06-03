@@ -144,7 +144,7 @@ cURL request response:
 ]}
 ```
 #####6. What was the role of Clint Eastwood in Unforgiven?
-Map and Reduce Functions (saved with view name "directors"):
+Map and Reduce Functions (saved with view name "actors_unforgiven"):
 ```
 function(doc) {
 	if (doc.title == "Unforgiven") {
@@ -203,6 +203,48 @@ cURL request response:
 ]}
 ```
 #####8. Create a flat list of all the title-role pairs. (Hint: recall that you can emit several pairs in a MAP function.)
+Map and Reduce Functions (saved with view name "title-role_pairs"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+	        emit(doc.title, actor.role);
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex8.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/title-role_pairs?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"A History of Violence","value":[
+		"Carl Fogarty","Eddie Stall","Richie Cusack","Tom Stall"
+	]},
+	{"key":"Marie Antoinette","value":[
+		"Louis XVI","Marie Antoinette"
+	]},
+	{"key":"Spider-Man","value":["
+		Green Goblin / Norman Osborn","Mary Jane Watson","Spider-Man / Peter Parker"
+	]},
+	{"key":"The Social network","value":[
+		"Eduardo Saverin ","Erica Albright","Mark Zuckerberg","Sean Parker"
+	]},
+	{"key":"Unforgiven","value":[
+		"Little Bill Dagget","Ned Logan","William Munny"
+	]}
+]}
+```
 
 #####9. Get a movie given its title.
 Map Function (saved with view name "movie_by_title"):
