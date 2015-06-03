@@ -343,10 +343,52 @@ cURL request response:
 {"rows":[
 	{"key":"Unforgiven","value":["Clint Eastwood"]}
 ]}
-
 ```
-
 
 #####13. Show the directors, along with the list of their films.
 
 #####14. Show the actors, along with the list of directors of the film they played in.
+Map and Reduce Functions (saved with view name "actor_director_list"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+		director_name = doc.director.first_name + " " + doc.director.last_name
+		actor_name = actor.first_name + " " + actor.last_name
+		emit(actor_name, director_name);
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex14.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/actor_director_list?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Andrew Garfield","value":["David Fincher"]},
+	{"key":"Clint Eastwood","value":["Clint Eastwood"]},
+	{"key":"Ed Harris","value":["David Cronenberg"]},
+	{"key":"Gene Hackman","value":["Clint Eastwood"]},
+	{"key":"Jason Schwartzman","value":["Sofia Coppola"]},
+	{"key":"Jesse Eisenberg","value":["David Fincher"]},
+	{"key":"Justin Timberlake","value":["David Fincher"]},
+	{"key":"Kirsten Dunst","value":["Sam Raimi","Sofia Coppola"]},
+	{"key":"Maria Bello","value":["David Cronenberg"]},
+	{"key":"Morgan Freeman","value":["Clint Eastwood"]},
+	{"key":"Rooney Mara","value":["David Fincher"]},
+	{"key":"Tobey Maguire","value":["Sam Raimi"]},
+	{"key":"Vigo Mortensen","value":["David Cronenberg"]},
+	{"key":"Willem Dafoe","value":["Sam Raimi"]},
+	{"key":"William Hurt","value":["David Cronenberg"]}
+]}
+```
