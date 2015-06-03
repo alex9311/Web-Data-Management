@@ -152,6 +152,36 @@ cURL request response:
 #####10. Get the movies featuring an actor’s name.
 
 #####11. Get the title of movies published a given year or in a year range.
+Map Function (saved with view name "movies_by_title"):
+```
+function(doc){
+	emit(doc.year, doc.title);
+
+}
+```
+View:
+<img src="resources/ex11.png" style="width:3.5in"></img>
+
+cURL request and response (single year):
+
+```
+curl $COUCHDB/movies/_design/examples/_view/movie_by_year?key=\"2002\"
+	{"total_rows":5,"offset":1,"rows":[
+		{"id":"sm","key":"2002","value":"Spider-Man"}
+	]}
+```
+
+cURL request and response (year range):
+
+```
+curl $COUCHDB/movies/_design/examples/_view/movie_by_year?start_key=\"2002\"\&end_key=\"2010\"
+	{"total_rows":5,"offset":1,"rows":[
+		{"id":"sm","key":"2002","value":"Spider-Man"},
+		{"id":"ahv","key":"2005","value":"A History of Violence"},
+		{"id":"ma","key":"2006","value":"Marie Antoinette"},
+		{"id":"tsn","key":"2010","value":"The Social network"}
+	]}
+```
 
 #####12. Show the movies where the director is also an actor.
 
