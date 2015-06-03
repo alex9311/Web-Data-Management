@@ -312,6 +312,40 @@ curl $COUCHDB/movies/_design/examples/_view/movie_by_year?start_key=\"2002\"\&en
 ```
 
 #####12. Show the movies where the director is also an actor.
+Map and Reduce Functions (saved with view name "director_is_also_actor"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+		director_name = doc.director.first_name + " " + doc.director.last_name
+		actor_name = actor.first_name + " " + actor.last_name
+		if(actor_name == director_name) {
+		        emit(doc.title, director_name);
+		}
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex12.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/director_is_also_actor?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Unforgiven","value":["Clint Eastwood"]}
+]}
+
+```
+
 
 #####13. Show the directors, along with the list of their films.
 
