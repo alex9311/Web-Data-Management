@@ -5,7 +5,7 @@ All views are saved in _design/examples Design Document and given individual vie
 #####1. Give all titles.
 Map and Reduce Functions (saved with view name "titles"):
 ```
-function(doc){
+function(doc) {
 	emit("1", doc.title);
 }
 
@@ -33,11 +33,43 @@ cURL request response:
 ```
 
 #####2. Titles of the movies published after 2000.
+Map and Reduce Functions (saved with view name "publish_year"):
+```
+function(doc) {
+        if(doc.year > 2000) {
+                emit(doc.year, doc.title);
+        }
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex2.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/publish_year?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"2002","value":["Spider-Man"]},
+	{"key":"2005","value":["A History of Violence"]},
+	{"key":"2006","value":["Marie Antoinette"]},
+	{"key":"2010","value":["The Social network"]}
+]}
+
+```
 
 #####3. Summary of “Spider-Man”.
 Map Function (saved with view name "summaries"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.title, doc.summary);
 }
 ```
@@ -58,12 +90,38 @@ cURL request response:
 ]}
 ```
 #####4. Who is the director of Heat?
+Map and Reduce Functions (saved with view name "directors"):
+```
+function(doc) {
+    emit(doc.title, doc.director.first_name + " " + doc.director.last_name)
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View:
+<img src="resources/ex4.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/directors?key=\"Heat\"
+```
+
+cURL request response:
+
+```
+{"rows":[
+
+]}
+```
 
 #####5. Title of the movies featuring Kirsten Dunst.
 Map Function (saved with view name "movies_by_actor"):
 ```
-function(doc){
-	for each (actor in doc.actors){
+function(doc) {
+	for each (actor in doc.actors) {
 		emit(actor.first_name+ " "+actor.last_name, doc.title);
 	}
 }
@@ -86,15 +144,45 @@ cURL request response:
 ]}
 ```
 #####6. What was the role of Clint Eastwood in Unforgiven?
+Map and Reduce Functions (saved with view name "actors_unforgiven"):
+```
+function(doc) {
+	if (doc.title == "Unforgiven") {
+		for each (actor in doc.actors) {
+		        emit(actor.first_name+ " "+actor.last_name, actor.role);
+		}
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View:
+<img src="resources/ex6.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+$COUCHDB/movies/_design/examples/_view/actors_unforgiven?group=true\&key=\"Clint%20Eastwood\"
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Clint Eastwood","value":["William Munny"]}
+]}
+```
 
 #####7. Get the movies whose cast consists of exactly three actors?
 Map and Reduce Functions (saved with view name "movies_num_actors"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.actors.length, doc.title);
 }
 
-function(key,values){
+function(key,values) {
 	return values;
 }
 ```
@@ -115,13 +203,54 @@ cURL request response:
 ]}
 ```
 #####8. Create a flat list of all the title-role pairs. (Hint: recall that you can emit several pairs in a MAP function.)
-
-#####9. Get a movie given its title. (Hint: create a view where movies are indexed by their title, then query the view.)
-Map Function (saved with view name "movies_by_title"):
+Map and Reduce Functions (saved with view name "title-role_pairs"):
 ```
-function(doc){
-	emit(doc.title, doc);
+function(doc) {
+	for each (actor in doc.actors) {
+	        emit(doc.title, actor.role);
+	}
+}
 
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex8.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/title-role_pairs?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"A History of Violence","value":[
+		"Carl Fogarty","Eddie Stall","Richie Cusack","Tom Stall"
+	]},
+	{"key":"Marie Antoinette","value":[
+		"Louis XVI","Marie Antoinette"
+	]},
+	{"key":"Spider-Man","value":["
+		Green Goblin / Norman Osborn","Mary Jane Watson","Spider-Man / Peter Parker"
+	]},
+	{"key":"The Social network","value":[
+		"Eduardo Saverin ","Erica Albright","Mark Zuckerberg","Sean Parker"
+	]},
+	{"key":"Unforgiven","value":[
+		"Little Bill Dagget","Ned Logan","William Munny"
+	]}
+]}
+```
+
+#####9. Get a movie given its title.
+Map Function (saved with view name "movie_by_title"):
+```
+function(doc) {
+	emit(doc.title, doc);
 }
 ```
 View (cut off):
@@ -152,11 +281,10 @@ cURL request response:
 #####10. Get the movies featuring an actor’s name.
 
 #####11. Get the title of movies published a given year or in a year range.
-Map Function (saved with view name "movies_by_title"):
+Map Function (saved with view name "movie_by_year"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.year, doc.title);
-
 }
 ```
 View:
@@ -184,7 +312,83 @@ curl $COUCHDB/movies/_design/examples/_view/movie_by_year?start_key=\"2002\"\&en
 ```
 
 #####12. Show the movies where the director is also an actor.
+Map and Reduce Functions (saved with view name "director_is_also_actor"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+		director_name = doc.director.first_name + " " + doc.director.last_name
+		actor_name = actor.first_name + " " + actor.last_name
+		if(actor_name == director_name) {
+		        emit(doc.title, director_name);
+		}
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex12.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/director_is_also_actor?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Unforgiven","value":["Clint Eastwood"]}
+]}
+```
 
 #####13. Show the directors, along with the list of their films.
 
 #####14. Show the actors, along with the list of directors of the film they played in.
+Map and Reduce Functions (saved with view name "actor_director_list"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+		director_name = doc.director.first_name + " " + doc.director.last_name
+		actor_name = actor.first_name + " " + actor.last_name
+		emit(actor_name, director_name);
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex14.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/actor_director_list?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Andrew Garfield","value":["David Fincher"]},
+	{"key":"Clint Eastwood","value":["Clint Eastwood"]},
+	{"key":"Ed Harris","value":["David Cronenberg"]},
+	{"key":"Gene Hackman","value":["Clint Eastwood"]},
+	{"key":"Jason Schwartzman","value":["Sofia Coppola"]},
+	{"key":"Jesse Eisenberg","value":["David Fincher"]},
+	{"key":"Justin Timberlake","value":["David Fincher"]},
+	{"key":"Kirsten Dunst","value":["Sam Raimi","Sofia Coppola"]},
+	{"key":"Maria Bello","value":["David Cronenberg"]},
+	{"key":"Morgan Freeman","value":["Clint Eastwood"]},
+	{"key":"Rooney Mara","value":["David Fincher"]},
+	{"key":"Tobey Maguire","value":["Sam Raimi"]},
+	{"key":"Vigo Mortensen","value":["David Cronenberg"]},
+	{"key":"Willem Dafoe","value":["Sam Raimi"]},
+	{"key":"William Hurt","value":["David Cronenberg"]}
+]}
+```
