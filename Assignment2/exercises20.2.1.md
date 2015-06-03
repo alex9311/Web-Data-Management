@@ -90,6 +90,32 @@ cURL request response:
 ]}
 ```
 #####4. Who is the director of Heat?
+Map and Reduce Functions (saved with view name "directors"):
+```
+function(doc){
+    emit(doc.title, doc.director.first_name + " " + doc.director.last_name)
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View:
+<img src="resources/ex4.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/directors?key=\"Heat\"
+```
+
+cURL request response:
+
+```
+{"rows":[
+
+]}
+```
 
 #####5. Title of the movies featuring Kirsten Dunst.
 Map Function (saved with view name "movies_by_actor"):
