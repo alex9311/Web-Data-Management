@@ -33,6 +33,38 @@ cURL request response:
 ```
 
 #####2. Titles of the movies published after 2000.
+Map and Reduce Functions (saved with view name "publish_year"):
+```
+function(doc) {
+        if(doc.year > 2000) {
+                emit(doc.year, doc.title);
+        }
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex2.png" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/publish_year?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"2002","value":["Spider-Man"]},
+	{"key":"2005","value":["A History of Violence"]},
+	{"key":"2006","value":["Marie Antoinette"]},
+	{"key":"2010","value":["The Social network"]}
+]}
+
+```
 
 #####3. Summary of “Spider-Man”.
 Map Function (saved with view name "summaries"):
