@@ -5,7 +5,7 @@ All views are saved in _design/examples Design Document and given individual vie
 #####1. Give all titles.
 Map and Reduce Functions (saved with view name "titles"):
 ```
-function(doc){
+function(doc) {
 	emit("1", doc.title);
 }
 
@@ -69,7 +69,7 @@ cURL request response:
 #####3. Summary of “Spider-Man”.
 Map Function (saved with view name "summaries"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.title, doc.summary);
 }
 ```
@@ -92,7 +92,7 @@ cURL request response:
 #####4. Who is the director of Heat?
 Map and Reduce Functions (saved with view name "directors"):
 ```
-function(doc){
+function(doc) {
     emit(doc.title, doc.director.first_name + " " + doc.director.last_name)
 }
 
@@ -120,8 +120,8 @@ cURL request response:
 #####5. Title of the movies featuring Kirsten Dunst.
 Map Function (saved with view name "movies_by_actor"):
 ```
-function(doc){
-	for each (actor in doc.actors){
+function(doc) {
+	for each (actor in doc.actors) {
 		emit(actor.first_name+ " "+actor.last_name, doc.title);
 	}
 }
@@ -144,15 +144,45 @@ cURL request response:
 ]}
 ```
 #####6. What was the role of Clint Eastwood in Unforgiven?
+Map and Reduce Functions (saved with view name "directors"):
+```
+function(doc) {
+	if (doc.title == "Unforgiven") {
+		for each (actor in doc.actors) {
+		        emit(actor.first_name+ " "+actor.last_name, actor.role);
+		}
+	}
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View:
+<img src="resources/ex6.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+$COUCHDB/movies/_design/examples/_view/actors_unforgiven?group=true\&key=\"Clint%20Eastwood\"
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Clint Eastwood","value":["William Munny"]}
+]}
+```
 
 #####7. Get the movies whose cast consists of exactly three actors?
 Map and Reduce Functions (saved with view name "movies_num_actors"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.actors.length, doc.title);
 }
 
-function(key,values){
+function(key,values) {
 	return values;
 }
 ```
@@ -177,9 +207,8 @@ cURL request response:
 #####9. Get a movie given its title.
 Map Function (saved with view name "movie_by_title"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.title, doc);
-
 }
 ```
 View (cut off):
@@ -212,9 +241,8 @@ cURL request response:
 #####11. Get the title of movies published a given year or in a year range.
 Map Function (saved with view name "movie_by_year"):
 ```
-function(doc){
+function(doc) {
 	emit(doc.year, doc.title);
-
 }
 ```
 View:
