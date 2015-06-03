@@ -116,8 +116,8 @@ cURL request response:
 ```
 #####8. Create a flat list of all the title-role pairs. (Hint: recall that you can emit several pairs in a MAP function.)
 
-#####9. Get a movie given its title. (Hint: create a view where movies are indexed by their title, then query the view.)
-Map Function (saved with view name "movies_by_title"):
+#####9. Get a movie given its title.
+Map Function (saved with view name "movie_by_title"):
 ```
 function(doc){
 	emit(doc.title, doc);
@@ -152,7 +152,7 @@ cURL request response:
 #####10. Get the movies featuring an actor’s name.
 
 #####11. Get the title of movies published a given year or in a year range.
-Map Function (saved with view name "movies_by_title"):
+Map Function (saved with view name "movie_by_year"):
 ```
 function(doc){
 	emit(doc.year, doc.title);
