@@ -363,7 +363,7 @@ function (key, values) {
 }
 ```
 View (with reduction):
-<img src="resources/ex13.PNG" style="width:3.5in"></img>
+<img src="resources/ex13.png" style="width:3.5in"></img>
 
 cURL request:
 
