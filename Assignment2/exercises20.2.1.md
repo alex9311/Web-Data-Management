@@ -28,7 +28,7 @@ cURL request response:
 {"rows":[
 	{"key":"1","value":
 		["Unforgiven","The Social network","Spider-Man","Marie Antoinette","A History of Violence"]
-	}
+		}
 ]}
 ```
 
@@ -36,9 +36,9 @@ cURL request response:
 Map and Reduce Functions (saved with view name "publish_year"):
 ```
 function(doc) {
-        if(doc.year > 2000) {
-                emit(doc.year, doc.title);
-        }
+	if(doc.year > 2000) {
+		emit(doc.year, doc.title);
+	}
 }
 
 function (key, values) {
@@ -93,7 +93,7 @@ cURL request response:
 Map and Reduce Functions (saved with view name "directors"):
 ```
 function(doc) {
-    emit(doc.title, doc.director.first_name + " " + doc.director.last_name)
+	emit(doc.title, doc.director.first_name + " " + doc.director.last_name)
 }
 
 function (key, values) {
@@ -112,9 +112,7 @@ curl $COUCHDB/movies/_design/examples/_view/directors?key=\"Heat\"
 cURL request response:
 
 ```
-{"rows":[
-
-]}
+{"rows":[ ]}
 ```
 
 #####5. Title of the movies featuring Kirsten Dunst.
@@ -149,7 +147,7 @@ Map and Reduce Functions (saved with view name "actors_unforgiven"):
 function(doc) {
 	if (doc.title == "Unforgiven") {
 		for each (actor in doc.actors) {
-		        emit(actor.first_name+ " "+actor.last_name, actor.role);
+			emit(actor.first_name+ " "+actor.last_name, actor.role);
 		}
 	}
 }
@@ -170,9 +168,7 @@ $COUCHDB/movies/_design/examples/_view/actors_unforgiven?group=true\&key=\"Clint
 cURL request response:
 
 ```
-{"rows":[
-	{"key":"Clint Eastwood","value":["William Munny"]}
-]}
+{"rows":[ {"key":"Clint Eastwood","value":["William Munny"]} ]}
 ```
 
 #####7. Get the movies whose cast consists of exactly three actors?
@@ -198,21 +194,17 @@ curl $COUCHDB/movies/_design/examples/_view/movies_num_actors?group=true\&key=3
 cURL request response:
 
 ```
-{"rows":[
-	{"key":3,"value":["Unforgiven","Spider-Man"]}
-]}
+{"rows":[ {"key":3,"value":["Unforgiven","Spider-Man"]} ]}
 ```
 #####8. Create a flat list of all the title-role pairs. (Hint: recall that you can emit several pairs in a MAP function.)
 Map and Reduce Functions (saved with view name "title-role_pairs"):
 ```
 function(doc) {
-	for each (actor in doc.actors) {
-	        emit(doc.title, actor.role);
-	}
+	for each (actor in doc.actors) { emit(doc.title, actor.role); }
 }
 
 function (key, values) {
-	return values; 
+	return values;
 }
 ```
 View (with reduction):
@@ -228,21 +220,11 @@ cURL request response:
 
 ```
 {"rows":[
-	{"key":"A History of Violence","value":[
-		"Carl Fogarty","Eddie Stall","Richie Cusack","Tom Stall"
-	]},
-	{"key":"Marie Antoinette","value":[
-		"Louis XVI","Marie Antoinette"
-	]},
-	{"key":"Spider-Man","value":["
-		Green Goblin / Norman Osborn","Mary Jane Watson","Spider-Man / Peter Parker"
-	]},
-	{"key":"The Social network","value":[
-		"Eduardo Saverin ","Erica Albright","Mark Zuckerberg","Sean Parker"
-	]},
-	{"key":"Unforgiven","value":[
-		"Little Bill Dagget","Ned Logan","William Munny"
-	]}
+	{"key":"A History of Violence","value":[ "Carl Fogarty","Eddie Stall","Richie Cusack","Tom Stall" ]},
+	{"key":"Marie Antoinette","value":[ "Louis XVI","Marie Antoinette" ]},
+	{"key":"Spider-Man","value":[" Green Goblin / Norman Osborn","Mary Jane Watson","Spider-Man / Peter Parker" ]},
+	{"key":"The Social network","value":[ "Eduardo Saverin ","Erica Albright","Mark Zuckerberg","Sean Parker" ]},
+	{"key":"Unforgiven","value":[ "Little Bill Dagget","Ned Logan","William Munny"]}
 ]}
 ```
 
@@ -268,8 +250,7 @@ cURL request response:
 {"total_rows":5,"offset":2,"rows":[
 	{"id":"sm","key":"Spider-Man","value"
 		{"_id":"sm", "_rev":"1-292f38855b99af0e98fd6ccd33939909", "title":"Spider-Man", "year":"2002", "genre":"Action", "summary":"On a school field trip, Peter Parker (Maguire) is  bitten by a genetically modified spider. He wakes  up the next morning with incredible powers. After  witnessing the death of his uncle (Robertson),  Parkers decides to put his new skills to use in  order to rid the city of evil, but someone else  has other plans. The Green Goblin (Dafoe) sees  Spider-Man as a threat and must dispose of him.", "country":"USA", 
-		"director":
-			{"last_name":"Raimi", "first_name":"Sam", "birth_date":"1959"},
+		"director": {"last_name":"Raimi", "first_name":"Sam", "birth_date":"1959"},
 		"actors":[
 			{ "first_name":"Tobey", "last_name":"Maguire", "birth_date":"1975", "role":"Spider-Man / Peter Parker"},
 			{"first_name":"Kirsten", "last_name":"Dunst", "birth_date":"1982", "role":"Mary Jane Watson"},
@@ -278,7 +259,32 @@ cURL request response:
 	}
 ]}
 ```
-#####10. Get the movies featuring an actor’s name.
+#####10. Get the movies featuring a specific actor
+Map Function (saved with view name "movies_by_actor"):
+```
+function(doc) {
+	for each (actor in doc.actors) {
+		emit(actor.first_name+ " "+actor.last_name, doc.title);
+	}
+}
+```
+View:
+<img src="resources/ex5.png" style="width:3.5in"></img>
+
+cURL request (example with Kirsten Dunst):
+
+```
+curl $COUCHDB/movies/_design/examples/_view/movies_by_actor?key=\"Kirsten%20Dunst\"
+```
+
+cURL request response:
+
+```
+{"total_rows":16,"offset":7,"rows":[
+	{"id":"ma","key":"Kirsten Dunst","value":"Marie Antoinette"},
+	{"id":"sm","key":"Kirsten Dunst","value":"Spider-Man"}
+]}
+```
 
 #####11. Get the title of movies published a given year or in a year range.
 Map Function (saved with view name "movie_by_year"):
@@ -319,7 +325,7 @@ function(doc) {
 		director_name = doc.director.first_name + " " + doc.director.last_name
 		actor_name = actor.first_name + " " + actor.last_name
 		if(actor_name == director_name) {
-		        emit(doc.title, director_name);
+			emit(doc.title, director_name);
 		}
 	}
 }
@@ -346,6 +352,36 @@ cURL request response:
 ```
 
 #####13. Show the directors, along with the list of their films.
+Map and Reduce Functions (saved with view name "director_movies"):
+```
+function(doc) {
+   emit(doc.director.first_name+" "+doc.director.last_name,doc.title)
+}
+
+function (key, values) {
+	return values; 
+}
+```
+View (with reduction):
+<img src="resources/ex13.PNG" style="width:3.5in"></img>
+
+cURL request:
+
+```
+curl $COUCHDB/movies/_design/examples/_view/director_movies?group=true
+```
+
+cURL request response:
+
+```
+{"rows":[
+	{"key":"Clint Eastwood","value":["Unforgiven"]},
+	{"key":"David Cronenberg","value":["A History of Violence"]},
+	{"key":"David Fincher","value":["The Social network"]},
+	{"key":"Sam Raimi","value":["Spider-Man"]},
+	{"key":"Sofia Coppola","value":["Marie Antoinette"]}
+]}
+```
 
 #####14. Show the actors, along with the list of directors of the film they played in.
 Map and Reduce Functions (saved with view name "actor_director_list"):
@@ -355,9 +391,9 @@ function(doc) {
 		director_name = doc.director.first_name + " " + doc.director.last_name
 		actor_name = actor.first_name + " " + actor.last_name
 		emit(actor_name, director_name);
+		}
 	}
-}
-
+	
 function (key, values) {
 	return values; 
 }
@@ -390,5 +426,5 @@ cURL request response:
 	{"key":"Vigo Mortensen","value":["David Cronenberg"]},
 	{"key":"Willem Dafoe","value":["Sam Raimi"]},
 	{"key":"William Hurt","value":["David Cronenberg"]}
-]}
+	]}
 ```
