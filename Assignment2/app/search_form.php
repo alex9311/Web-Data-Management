@@ -4,9 +4,9 @@
 <link rel="stylesheet" type="text/css" href="style_bib.css"/>
 </head>
 <body>
-	<h2 style="text-align:center;">Bib Search</h2>
+	<h2 style="text-align:center;">Seach DB</h2>
 	<div class="input_form">
-		<form action="search_bib.php" method="post">
+		<form action="handle_search.php" method="post">
 			<fieldset>
 			Tile: <input type="text" name="title"/>
 			Author:	<input type="text" name="author"/>
