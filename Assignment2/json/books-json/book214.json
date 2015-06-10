@@ -1,0 +1,8 @@
+{"_id": "mandelbrot77",
+ "type": "Book",
+ "title": "Fractal Geometry of Nature.",
+ "year": "1977",
+ "publisher": "W. H. Freeman",
+ "authors": ["Benoit Mandelbrot"],
+ "source": "DBLP"
+}

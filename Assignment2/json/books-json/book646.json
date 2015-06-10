@@ -1,0 +1,8 @@
+{"_id": "tanenbaum92",
+ "type": "Book",
+ "title": "Modern Operating Systems",
+ "year": "1992",
+ "publisher": "Prentice-Hall",
+ "authors": ["Andrew S. Tanenbaum"],
+ "source": "DBLP"
+}

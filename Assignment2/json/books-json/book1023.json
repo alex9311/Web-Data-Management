@@ -1,0 +1,8 @@
+{"_id": "perner02",
+ "type": "Book",
+ "title": "Data Mining on Multimedia Data",
+ "year": "2002",
+ "publisher": "Springer",
+ "authors": ["Petra Perner"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "meyer94",
+ "type": "Book",
+ "title": "An Object-Oriented Environment: Principles and Applications",
+ "year": "1994",
+ "publisher": "Prentice-Hall",
+ "authors": ["Bertrand Meyer"],
+ "source": "DBLP"
+}

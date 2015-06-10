@@ -1,0 +1,8 @@
+{"_id": "boudect01",
+ "type": "Book",
+ "title": "Network Calculus: A Theory of Deterministic Queuing Systems for the Internet",
+ "year": "2001",
+ "publisher": "Springer",
+ "authors": ["Jean-Yves Le Boudec", "Patrick Thiran"],
+ "source": "DBLP"
+}

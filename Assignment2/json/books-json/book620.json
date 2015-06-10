@@ -1,0 +1,8 @@
+{"_id": "hoare85",
+ "type": "Book",
+ "title": "Communicating Sequential Processes",
+ "year": "1985",
+ "publisher": "Prentice-Hall",
+ "authors": ["C. A. R. Hoare"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "meyer01",
+ "type": "Book",
+ "title": "The .NET Training Course",
+ "year": "2001",
+ "publisher": "Prentice-Hall",
+ "authors": ["Bertrand Meyer"],
+ "source": "DBLP"
+}

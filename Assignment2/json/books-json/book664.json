@@ -1,0 +1,8 @@
+{"_id": "bochmann79",
+ "type": "Book",
+ "title": "Architecture of Distributed Computer Systems",
+ "year": "1979",
+ "publisher": "Springer",
+ "authors": ["Gregor von Bochmann"],
+ "source": "DBLP"
+}

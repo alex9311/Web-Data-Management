@@ -1,0 +1,8 @@
+{"_id": "schumacher01",
+ "type": "Book",
+ "title": "Objective Coordination in Multi-Agent System Engineering - Design and Implementation",
+ "year": "2001",
+ "publisher": "Springer",
+ "authors": ["Michael Schumacher"],
+ "source": "DBLP"
+}

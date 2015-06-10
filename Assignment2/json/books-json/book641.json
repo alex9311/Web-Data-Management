@@ -1,0 +1,8 @@
+{"_id": "rodgers90",
+ "type": "Book",
+ "title": "UNIX Database Management Systems",
+ "year": "1990",
+ "publisher": "Yourdon Press / Prentice-Hall",
+ "authors": ["Ulka Rodgers"],
+ "source": "DBLP"
+}

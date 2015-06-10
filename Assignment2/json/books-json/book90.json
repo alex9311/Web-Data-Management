@@ -1,0 +1,8 @@
+{"_id": "knuth81",
+ "type": "Book",
+ "title": "The Art of Computer Programming, Volume II: Seminumerical Algorithms, 2nd Edition",
+ "year": "1981",
+ "publisher": "Addison-Wesley",
+ "authors": ["Donald E. Knuth"],
+ "source": "DBLP"
+}

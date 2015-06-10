@@ -1,0 +1,8 @@
+{"_id": "wirth77",
+ "type": "Book",
+ "title": "hrung",
+ "year": "1977",
+ "publisher": "Teubner",
+ "authors": ["Niklaus Wirth"],
+ "source": "DBLP"
+}

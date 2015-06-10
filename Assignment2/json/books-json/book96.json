@@ -1,0 +1,8 @@
+{"_id": "rabinovichs01",
+ "type": "Book",
+ "title": "Web Caching and Replication",
+ "year": "2001",
+ "publisher": "Addison-Wesley",
+ "authors": ["Michael Rabinovich", "Oliver Spatscheck"],
+ "source": "DBLP"
+}

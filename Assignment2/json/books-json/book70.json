@@ -1,0 +1,8 @@
+{"_id": "fieldh88",
+ "type": "Book",
+ "title": "Functional Programming",
+ "year": "1988",
+ "publisher": "Addison-Wesley",
+ "authors": ["A. J. Field", "Peter G. Harrison"],
+ "source": "DBLP"
+}

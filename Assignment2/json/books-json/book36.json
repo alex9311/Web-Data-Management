@@ -1,0 +1,8 @@
+{"_id": "stroustrup91",
+ "type": "Book",
+ "title": "The C++ Programming Language, Second Edition",
+ "year": "1991",
+ "publisher": "Addison-Wesley",
+ "authors": ["Bjarne Stroustrup"],
+ "source": "DBLP"
+}

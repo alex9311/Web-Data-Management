@@ -1,0 +1,8 @@
+{"_id": "manolopoulos1999",
+ "type": "Book",
+ "title": "Advanced Database Indexing",
+ "year": "1999",
+ "publisher": "Kluwer",
+ "authors": ["Yannis Manolopoulos", "Yannis Theodoridis", "Vassilis J. Tsotras"],
+ "source": "DBLP"
+}

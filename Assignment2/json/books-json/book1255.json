@@ -1,0 +1,8 @@
+{"_id": "kaufmanr90",
+ "type": "Book",
+ "title": "Finding Groups in Data: An Introduction to Cluster Analysis.",
+ "year": "1990",
+ "publisher": "John Wiley",
+ "authors": ["L. Kaufman", "P. J. Rousseeuw"],
+ "source": "DBLP"
+}

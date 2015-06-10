@@ -1,0 +1,8 @@
+{"_id": "pattersonh90",
+ "type": "Book",
+ "title": "Computer Architecture: A Quantitative Approach.",
+ "year": "1990",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["David A. Patterson", "John L. Hennessy"],
+ "source": "DBLP"
+}

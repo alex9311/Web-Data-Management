@@ -1,0 +1,8 @@
+{"_id": "robbinsr89",
+ "type": "Book",
+ "title": "The Cray X-MP/Model 24, A Case Study in Pipelined Architecture and Vector Processing",
+ "year": "1989",
+ "publisher": "Springer",
+ "authors": ["Kay A. Robbins", "Steven Robbins"],
+ "source": "DBLP"
+}

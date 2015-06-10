@@ -1,0 +1,8 @@
+{"_id": "morgan1998",
+ "type": "Book",
+ "title": "Building an Optimizing Compiler.",
+ "year": "1998",
+ "publisher": "Butterworth",
+ "authors": ["C. Robert Morgan"],
+ "source": "DBLP"
+}

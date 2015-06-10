@@ -1,0 +1,8 @@
+{"_id": "hasan96",
+ "type": "Book",
+ "title": "Optimization of SQL Queries for Parallel Machines",
+ "year": "1996",
+ "publisher": "Springer",
+ "authors": ["Waqar Hasan"],
+ "source": "DBLP"
+}

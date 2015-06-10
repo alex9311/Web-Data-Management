@@ -1,0 +1,8 @@
+{"_id": "menezesov96",
+ "type": "Book",
+ "title": "Handbook of Applied Cryptography",
+ "year": "1996",
+ "publisher": "CRC Press",
+ "authors": ["Alfred Menezes", "Paul C. van Oorschot", "Scott A. Vanstone"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "cannano93",
+ "type": "Book",
+ "title": "SQL - The Standard Handbook",
+ "year": "1993",
+ "publisher": "McGraw-Hill Book Company",
+ "authors": ["Stephen J. Cannan", "Gerard A. M. Otten"],
+ "source": "DBLP"
+}

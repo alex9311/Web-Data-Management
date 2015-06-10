@@ -1,0 +1,8 @@
+{"_id": "milner80",
+ "type": "Book",
+ "title": "A Calculus of Communicating Systems",
+ "year": "1980",
+ "publisher": "Springer",
+ "authors": ["Robin Milner"],
+ "source": "DBLP"
+}

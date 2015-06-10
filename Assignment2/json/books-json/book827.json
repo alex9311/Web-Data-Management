@@ -1,0 +1,8 @@
+{"_id": "jacquet91",
+ "type": "Book",
+ "title": "Conclog: A Methodological Approach to Concurrent Logic Programming",
+ "year": "1991",
+ "publisher": "Springer",
+ "authors": ["Jean-Marie Jacquet"],
+ "source": "DBLP"
+}

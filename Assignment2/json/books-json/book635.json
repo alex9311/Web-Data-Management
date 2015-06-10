@@ -1,0 +1,8 @@
+{"_id": "meyer97",
+ "type": "Book",
+ "title": "Object-Oriented Software Construction, 2nd Edition",
+ "year": "1997",
+ "publisher": "Prentice-Hall",
+ "authors": ["Bertrand Meyer"],
+ "source": "DBLP"
+}

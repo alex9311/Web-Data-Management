@@ -1,0 +1,8 @@
+{"_id": "bernsteinn96",
+ "type": "Book",
+ "title": "Principles of Transaction Processing for Systems Professionals.",
+ "year": "1996",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Philip A. Bernstein", "Eric Newcomer"],
+ "source": "DBLP"
+}

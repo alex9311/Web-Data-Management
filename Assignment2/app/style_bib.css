@@ -1,8 +1,19 @@
-.input_form {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 700px;
+.input_form, .results_table {
+	max-width: 1000px;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+}
+
+.input_column_left {
+	width: 48%;
+	float:left; /* add this */
 	clear: both;
+}
+
+.input_column_right {
+	float: right; /* add this */
+	width: 48%;
 }
 
 .input_form input {
@@ -24,7 +35,7 @@
 }
 
 .link{
-    color: #000000; /* Change this with links color*/
-    cursor: pointer;
-    text-decoration: underline;
+	color: #000000; /* Change this with links color*/
+	cursor: pointer;
+	text-decoration: underline;
 }

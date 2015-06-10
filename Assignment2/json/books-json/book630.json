@@ -1,0 +1,8 @@
+{"_id": "meyer90",
+ "type": "Book",
+ "title": "Introduction to the Theory of Programming Languages",
+ "year": "1990",
+ "publisher": "Prentice-Hall",
+ "authors": ["Bertrand Meyer"],
+ "source": "DBLP"
+}

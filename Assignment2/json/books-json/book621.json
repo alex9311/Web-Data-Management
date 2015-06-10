@@ -1,0 +1,8 @@
+{"_id": "jaind88",
+ "type": "Book",
+ "title": "Algorithms for Clustering Data",
+ "year": "1988",
+ "publisher": "Prentice-Hall",
+ "authors": ["Anil K. Jain", "Richard C. Dubes"],
+ "source": "DBLP"
+}

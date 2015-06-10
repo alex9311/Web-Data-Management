@@ -1,0 +1,8 @@
+{"_id": "buchbergerl80",
+ "type": "Book",
+ "title": "r Informatiker I: Die Methode der Mathematik",
+ "year": "1980",
+ "publisher": "Springer",
+ "authors": ["Bruno Buchberger", "Franz Lichtenberger"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "puderr00",
+ "type": "Book",
+ "title": "MICO: An Open Source CORBA Implementation",
+ "year": "2000",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Arno Puder", "mer"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "tree1984",
+ "type": "Book",
+ "title": "Tree Automata",
+ "year": "1984",
+ "publisher": ", Budapest, Hungary",
+ "authors": ["cseg", "Magnus Steinby"],
+ "source": "DBLP"
+}

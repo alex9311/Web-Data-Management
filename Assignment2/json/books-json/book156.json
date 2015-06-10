@@ -1,0 +1,8 @@
+{"_id": "ullman80",
+ "type": "Book",
+ "title": "Principles of Database Systems, 1st Edition",
+ "year": "1980",
+ "publisher": "Computer Science Press",
+ "authors": ["Jeffrey D. Ullman"],
+ "source": "DBLP"
+}

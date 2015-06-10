@@ -1,0 +1,8 @@
+{"_id": "lamport2002",
+ "type": "Book",
+ "title": "Specifying Systems, The TLA+ Language and Tools for Hardware and Software Engineers",
+ "year": "2002",
+ "publisher": "Addison-Wesley",
+ "authors": ["Leslie Lamport"],
+ "source": "DBLP"
+}

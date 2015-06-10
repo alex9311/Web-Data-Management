@@ -1,0 +1,8 @@
+{"_id": "2008simon",
+ "type": "Book",
+ "title": "Value-Range Analysis of C Programs: Towards Proving the Absence of Buffer Overflow Vulnerabilities.",
+ "year": "2008",
+ "publisher": "Springer",
+ "authors": ["Axel Simon"],
+ "source": "DBLP"
+}

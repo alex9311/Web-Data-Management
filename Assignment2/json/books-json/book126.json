@@ -1,0 +1,8 @@
+{"_id": "schneider1993",
+ "type": "Book",
+ "title": "Geo-Datenbanksysteme: Eine Speicher- und Zugriffsarchitektur",
+ "year": "1993",
+ "publisher": "Bibliographisches Institut",
+ "authors": ["Ralf Schneider"],
+ "source": "DBLP"
+}

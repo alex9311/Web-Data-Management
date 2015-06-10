@@ -1,0 +1,8 @@
+{"_id": "kernighanp99",
+ "type": "Book",
+ "title": "The Practice of Programming",
+ "year": "1999",
+ "publisher": "Addison-Wesley",
+ "authors": ["Brian W. Kernighan", "Rob Pike"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "barakgw93",
+ "type": "Book",
+ "title": "The MOSIX Distributed Operating System - Load Balancing for UNIX",
+ "year": "1993",
+ "publisher": "Springer",
+ "authors": ["Amnon Barak", "Shai Guday", "Richard G. Wheeler"],
+ "source": "DBLP"
+}

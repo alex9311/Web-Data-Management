@@ -1,0 +1,8 @@
+{"_id": "elmasrin89",
+ "type": "Book",
+ "title": "Fundamentals of Database Systems",
+ "year": "1989",
+ "publisher": "Benjamin/Cummings",
+ "authors": ["Ramez Elmasri", "Shamkant B. Navathe"],
+ "source": "DBLP"
+}

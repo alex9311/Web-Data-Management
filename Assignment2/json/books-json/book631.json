@@ -1,0 +1,8 @@
+{"_id": "meyer91",
+ "type": "Book",
+ "title": "Eiffel: The Language",
+ "year": "1991",
+ "publisher": "Prentice-Hall",
+ "authors": ["Bertrand Meyer"],
+ "source": "DBLP"
+}

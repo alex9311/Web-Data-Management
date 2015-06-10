@@ -1,0 +1,8 @@
+{"_id": "meyer78",
+ "type": "Book",
+ "title": "thodes de Programmation, 1st edition",
+ "year": "1978",
+ "publisher": "Eyrolles",
+ "authors": ["Bertrand Meyer", "Claude Baudoin"],
+ "source": "DBLP"
+}

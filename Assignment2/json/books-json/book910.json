@@ -1,0 +1,8 @@
+{"_id": "hauser86",
+ "type": "Book",
+ "title": "NEWCAT: Parsing Natural Language Using Left-Associative Grammar",
+ "year": "1986",
+ "publisher": "Springer",
+ "authors": ["Roland Hauser"],
+ "source": "DBLP"
+}

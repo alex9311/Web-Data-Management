@@ -1,0 +1,8 @@
+{"_id": "saakes00",
+ "type": "Book",
+ "title": " Java - JDBC, SQLJ und ODMG",
+ "year": "2000",
+ "publisher": "dpunkt",
+ "authors": ["Gunter Saake", "Kai-Uwe Sattler"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "abelsons85",
+ "type": "Book",
+ "title": "Structure and Interpretation of Computer Programs",
+ "year": "1985",
+ "publisher": "MIT Press",
+ "authors": ["Harold Abelson", "Gerald J. Sussman"],
+ "source": "DBLP"
+}

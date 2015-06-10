@@ -1,0 +1,8 @@
+{"_id": "datew88",
+ "type": "Book",
+ "title": "A Guide to DB2, 2nd Edition",
+ "year": "1988",
+ "publisher": "Addison-Wesley",
+ "authors": ["C. J. Date", "Colin J. White"],
+ "source": "DBLP"
+}

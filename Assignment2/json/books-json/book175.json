@@ -1,0 +1,8 @@
+{"_id": "hindleys86",
+ "type": "Book",
+ "title": "Introduction to Combinators and Lambda-Calculus.",
+ "year": "1986",
+ "publisher": "Cambridge University Press",
+ "authors": ["J. Roger Hindley", "Jonathan P. Seldin"],
+ "source": "DBLP"
+}

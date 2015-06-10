@@ -1,0 +1,8 @@
+{"_id": "2008jaeger",
+ "type": "Book",
+ "title": "Operating System Security",
+ "year": "2008",
+ "publisher": " Claypool Publishers",
+ "authors": ["Trent Jaeger"],
+ "source": "DBLP"
+}

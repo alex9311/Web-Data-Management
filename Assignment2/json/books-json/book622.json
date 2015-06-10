@@ -1,0 +1,8 @@
+{"_id": "jones87",
+ "type": "Book",
+ "title": "The Implementation of Functional Programming Languages.",
+ "year": "1987",
+ "publisher": "Prentice-Hall",
+ "authors": ["Simon L. Peyton Jones"],
+ "source": "DBLP"
+}

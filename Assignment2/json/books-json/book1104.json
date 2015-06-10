@@ -1,0 +1,8 @@
+{"_id": "smithb76",
+ "type": "Book",
+ "title": "Matrix Eigensystem Routines - EISPACK Guide, Second Edition",
+ "year": "1976",
+ "publisher": "Springer",
+ "authors": ["Brian T. Smith", "James M. Boyle", "Jack Dongarra", "Burton S. Garbow", "Yasuhiko Ikebe", "Virginia C. Klema", "Cleve B. Moler"],
+ "source": "DBLP"
+}

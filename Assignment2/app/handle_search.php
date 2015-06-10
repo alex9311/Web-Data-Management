@@ -3,21 +3,41 @@
 //http://127.0.0.1:5984/savings/_design/players/_view/average?startkey=["Yankees","male",0]&endkey=["Yankees","male",{}]
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// Get cURL resource
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+function show_search_results($search_terms){
+	$title = $search_terms["title"];
+	$author = $search_terms["author"];
+	$year = $search_terms["year"];
+	$publisher = $search_terms["publisher"];
 
-	$key_string =  build_key_string($_POST);
-	print($key_string);
+	if($title!="" && $author=="" && $year=="" && $publisher==""){
+		$view = "title";
+		$keys = $title;
+	}
+	if($title=="" && $author!="" && $year=="" && $publisher==""){
+		$view = "author";
+		$keys = $author;
+	}
+	if($title=="" && $author=="" && $year!="" && $publisher==""){
+		$view = "year";
+		$keys = $year;
+	}
+	if($title=="" && $author=="" && $year=="" && $publisher!=""){
+		$view = "publisher";
+		$keys = $publisher;
+	}
+
+	echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys;
 
 	$curl = curl_init();
-	// Set some options - we are passing in a useragent too here
+
+	
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
-    		CURLOPT_URL => 'http://127.0.0.1:5984/movies/_design/app/_view/all_keys?'.$key_string
+    		CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key="'.$keys.'"'
 	));
 	// Send the request & save response to $resp
 	$resp = curl_exec($curl);
-	echo '<a href="search_form.php">new search</a>';
 	json_to_html_table($resp);
 	// Close request to clear up some resources
 	curl_close($curl);
@@ -48,32 +68,31 @@ function build_key_string($post_array){
 
 function json_to_html_table($json){
 	echo "<br>";
-	echo "<br>";
 	$data =  json_decode($json);
-	$movies = $data -> rows;
-	echo '<table cellpadding="10"  border="1">
+	$books = $data -> rows;
+	echo '<table class="results_table" cellpadding="10"  border="1">
            <tr>
+                <td><strong>Type</strong></td>
                 <td><strong>Title</strong></td>
+                <td><strong>Author(s)</strong></td>
                 <td><strong>Year</strong></td>
-                <td><strong>Genre</strong></td>
-                <td><strong>Country</strong></td>
-                <td><strong>Director</strong></td>
-                <td><strong>Actors</strong></td>
-                <td><strong>Summary</strong></td>
+                <td><strong>Publisher or Journal</strong></td>
+                <td><strong>Source</strong></td>
+                <td><strong>Edit</strong></td>
             </tr>';
-	foreach($movies as $movie){
-		$actors = [];
-		foreach($movie->value->actors as $actor){
-			array_push($actors,$actor->first_name." ".$actor->last_name);
+	foreach($books as $book){
+		$authors = [];
+		foreach($book->value->authors as $author){
+			array_push($authors,$author);
 		}
 		echo "<tr>";	
-		echo "<td>".$movie->value->title."</td>";
-		echo "<td>".$movie->value->year."</td>";
-		echo "<td>".$movie->value->genre."</td>";
-		echo "<td>".$movie->value->country."</td>";
-		echo "<td>".$movie->value->director->first_name." ".$movie->value->director->last_name."</td>";
-		echo "<td>".implode(", ",$actors)."</td>";
-		echo "<td>".$movie->value->summary."</td>";
+		echo "<td>".$book->value->type."</td>";
+		echo "<td>".$book->value->title."</td>";
+		echo "<td>".implode(", ",$authors)."</td>";
+		echo "<td>".$book->value->year."</td>";
+		echo "<td>".$book->value->publisher."</td>";
+		echo "<td>".$book->value->source."</td>";
+		echo "<td><a href=edit_form.php?id=".$book->id.">edit</a></td>";
 		echo "</tr>";	
 	}
 	echo "</table>";

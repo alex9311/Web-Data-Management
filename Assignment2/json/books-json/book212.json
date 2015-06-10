@@ -1,0 +1,8 @@
+{"_id": "meyer84",
+ "type": "Book",
+ "title": "thodes de Programmation, 3rd edition",
+ "year": "1984",
+ "publisher": "Eyrolles",
+ "authors": ["Bertrand Meyer", "Claude Baudoin"],
+ "source": "DBLP"
+}

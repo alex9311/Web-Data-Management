@@ -1,0 +1,8 @@
+{"_id": "ousterhout94",
+ "type": "Book",
+ "title": "Tcl and the Tk Toolkit",
+ "year": "1994",
+ "publisher": "Addison-Wesley",
+ "authors": ["John K. Ousterhout"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "lamport86",
+ "type": "Book",
+ "title": " Reference Manual",
+ "year": "1986",
+ "publisher": "Addison-Wesley",
+ "authors": ["Leslie Lamport"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "heuer97",
+ "type": "Book",
+ "title": "Objektorientierte Datenbanken: Konzepte, Modelle, Systeme, 2. Auflage.",
+ "year": "1997",
+ "publisher": "Addison-Wesley",
+ "authors": ["Andreas Heuer"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "2009krivanek",
+ "type": "Book",
+ "title": "Practical Global Illumination with Irradiance Caching",
+ "year": "2009",
+ "publisher": " Claypool Publishers",
+ "authors": ["nek", "Pascal Gautron"],
+ "source": "DBLP"
+}

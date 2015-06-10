@@ -1,0 +1,8 @@
+{"_id": "liskov81",
+ "type": "Book",
+ "title": "CLU Reference Manual",
+ "year": "1981",
+ "publisher": "Springer",
+ "authors": ["Barbara Liskov", "Russell R. Atkinson", "Toby Bloom", "J. Eliot B. Moss", "Craig Schaffert", "Robert Scheifler", "Alan Snyder"],
+ "source": "DBLP"
+}

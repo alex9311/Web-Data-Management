@@ -1,0 +1,8 @@
+{"_id": "sedgewick88",
+ "type": "Book",
+ "title": "Algorithms, 2nd Edition",
+ "year": "1988",
+ "publisher": "Addison-Wesley",
+ "authors": ["Robert Sedgewick"],
+ "source": "DBLP"
+}

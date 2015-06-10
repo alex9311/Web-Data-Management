@@ -1,0 +1,8 @@
+{"_id": "gardarinv89",
+ "type": "Book",
+ "title": "Relational Databases and Knowledge Bases",
+ "year": "1989",
+ "publisher": "Addison-Wesley",
+ "authors": ["Georges Gardarin", "Patrick Valduriez"],
+ "source": "DBLP"
+}

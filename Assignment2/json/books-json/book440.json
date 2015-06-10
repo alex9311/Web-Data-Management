@@ -1,0 +1,8 @@
+{"_id": "silberschatzk91",
+ "type": "Book",
+ "title": "Database System Concepts, 2nd Edition.",
+ "year": "1991",
+ "publisher": "McGraw-Hill Book Company",
+ "authors": ["Abraham Silberschatz", "Henry F. Korth"],
+ "source": "DBLP"
+}

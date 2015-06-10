@@ -1,0 +1,8 @@
+{"_id": "klein89",
+ "type": "Book",
+ "title": "Concrete and Abstract Voronoi Diagrams",
+ "year": "1989",
+ "publisher": "Springer",
+ "authors": ["Rolf Klein"],
+ "source": "DBLP"
+}

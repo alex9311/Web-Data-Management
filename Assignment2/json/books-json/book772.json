@@ -1,0 +1,8 @@
+{"_id": "buchholz91",
+ "type": "Book",
+ "title": "Die strukturierte Analyse Markovscher Modelle",
+ "year": "1991",
+ "publisher": "Springer",
+ "authors": ["Peter Buchholz"],
+ "source": "DBLP"
+}

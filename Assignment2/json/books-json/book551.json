@@ -1,0 +1,8 @@
+{"_id": "stonebraker96",
+ "type": "Book",
+ "title": "Object-Relational DBMSs: The Next Great Wave",
+ "year": "1996",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Michael Stonebraker", "Dorothy Moore"],
+ "source": "DBLP"
+}

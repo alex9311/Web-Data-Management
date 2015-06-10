@@ -1,0 +1,8 @@
+{"_id": "daemenr02",
+ "type": "Book",
+ "title": "The Design of Rijndael: AES - The Advanced Encryption Standard",
+ "year": "2002",
+ "publisher": "Springer",
+ "authors": ["Joan Daemen", "Vincent Rijmen"],
+ "source": "DBLP"
+}

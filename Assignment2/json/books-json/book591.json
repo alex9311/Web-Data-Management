@@ -1,0 +1,8 @@
+{"_id": "mclaughlin00",
+ "type": "Book",
+ "title": "Java and XML",
+ "year": "2000",
+ "publisher": "O'Reilly",
+ "authors": ["Brett McLaughlin"],
+ "source": "DBLP"
+}

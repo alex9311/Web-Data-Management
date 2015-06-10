@@ -1,0 +1,8 @@
+{"_id": "berg93",
+ "type": "Book",
+ "title": "Ray Shooting, Depth Orders and Hidden Surface Removal",
+ "year": "1993",
+ "publisher": "Springer",
+ "authors": ["Mark de Berg"],
+ "source": "DBLP"
+}

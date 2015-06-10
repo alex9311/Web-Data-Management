@@ -1,0 +1,8 @@
+{"_id": "knuth73a",
+ "type": "Book",
+ "title": "rogramming, Volume I: Fundamental Algorithms, 2nd Edition.",
+ "year": "1973",
+ "publisher": "Addison-Wesley",
+ "authors": ["Donald E. Knuth"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "stoll89",
+ "type": "Book",
+ "title": "Test von OSI-Protokollen",
+ "year": "1989",
+ "publisher": "Springer",
+ "authors": ["Willi Stoll"],
+ "source": "DBLP"
+}

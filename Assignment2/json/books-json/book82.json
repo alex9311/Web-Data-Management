@@ -1,0 +1,8 @@
+{"_id": "jackson90",
+ "type": "Book",
+ "title": "Introduction to Expert Systems, 2nd Edition.",
+ "year": "1990",
+ "publisher": "Addison-Wesley",
+ "authors": ["Peter Jackson"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "shirazi00",
+ "type": "Book",
+ "title": "Java Performance Tuning",
+ "year": "2000",
+ "publisher": "O'Reilly",
+ "authors": ["Jack Shirazi"],
+ "source": "DBLP"
+}

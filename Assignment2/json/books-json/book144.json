@@ -1,0 +1,8 @@
+{"_id": "frost86",
+ "type": "Book",
+ "title": "Introduction to Knowledge Base Systems",
+ "year": "1986",
+ "publisher": "Collins",
+ "authors": ["Richard A. Frost"],
+ "source": "DBLP"
+}

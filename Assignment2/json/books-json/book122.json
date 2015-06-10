@@ -1,0 +1,8 @@
+{"_id": "mock1990",
+ "type": "Book",
+ "title": "C",
+ "year": "1990",
+ "publisher": "Bibliographisches Institut",
+ "authors": ["Michael Mock"],
+ "source": "DBLP"
+}

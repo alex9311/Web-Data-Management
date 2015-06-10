@@ -1,0 +1,8 @@
+{"_id": "rosenblum95",
+ "type": "Book",
+ "title": "The Design and Implementation of a Log-Structured File-System.",
+ "year": "1995",
+ "publisher": "Kluwer",
+ "authors": ["Mendel Rosenblum"],
+ "source": "DBLP"
+}

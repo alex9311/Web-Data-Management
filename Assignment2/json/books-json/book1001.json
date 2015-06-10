@@ -1,0 +1,8 @@
+{"_id": "nilsson82",
+ "type": "Book",
+ "title": "of Artificial Intelligence",
+ "year": "1982",
+ "publisher": "Springer",
+ "authors": ["Nils J. Nilsson"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "loeser01",
+ "type": "Book",
+ "title": "r Web-Informationssysteme",
+ "year": "2001",
+ "publisher": "Springer",
+ "authors": ["Henrik Loeser"],
+ "source": "DBLP"
+}

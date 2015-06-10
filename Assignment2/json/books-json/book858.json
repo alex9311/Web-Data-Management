@@ -1,0 +1,8 @@
+{"_id": "greenfield94",
+ "type": "Book",
+ "title": "Distributed Programming Paradigms with Cryptography Applications",
+ "year": "1994",
+ "publisher": "Springer",
+ "authors": ["J. S. Greenfield"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "hill78",
+ "type": "Book",
+ "title": "A Comparative Study of Very Large Data Bases",
+ "year": "1978",
+ "publisher": "Springer",
+ "authors": ["Edward Hill Jr."],
+ "source": "DBLP"
+}

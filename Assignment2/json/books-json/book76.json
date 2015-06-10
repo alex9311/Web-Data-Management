@@ -1,0 +1,8 @@
+{"_id": "hanson1995",
+ "type": "Book",
+ "title": "A Retargetable C Compiler: Design and Implementation",
+ "year": "1995",
+ "publisher": "Addison Wesley",
+ "authors": ["David R. Hanson", "Christopher W. Fraser"],
+ "source": "DBLP"
+}

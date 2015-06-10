@@ -1,0 +1,8 @@
+{"_id": "appel1998c",
+ "type": "Book",
+ "title": "Modern Compiler Implementation in C",
+ "year": "1998",
+ "publisher": "Cambridge University Press",
+ "authors": ["Andrew W. Appel"],
+ "source": "DBLP"
+}

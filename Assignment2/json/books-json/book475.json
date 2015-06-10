@@ -1,0 +1,8 @@
+{"_id": "weikumv2002",
+ "type": "Book",
+ "title": "Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery",
+ "year": "2002",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Gerhard Weikum", "Gottfried Vossen"],
+ "source": "DBLP"
+}

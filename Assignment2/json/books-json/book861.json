@@ -1,0 +1,8 @@
+{"_id": "klint85",
+ "type": "Book",
+ "title": "A Study in String Processing Languages",
+ "year": "1985",
+ "publisher": "Springer",
+ "authors": ["Paul Klint"],
+ "source": "DBLP"
+}

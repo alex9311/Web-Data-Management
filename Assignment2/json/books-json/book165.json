@@ -1,0 +1,8 @@
+{"_id": "appel1997",
+ "type": "Book",
+ "title": "Modern Compiler Implementation in Java: Basic Techniques",
+ "year": "1997",
+ "publisher": "Cambridge University Press",
+ "authors": ["Andrew W. Appel"],
+ "source": "DBLP"
+}

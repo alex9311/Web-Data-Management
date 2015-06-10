@@ -1,0 +1,8 @@
+{"_id": "kernighanr78",
+ "type": "Book",
+ "title": "The C Programming Language",
+ "year": "1978",
+ "publisher": "Prentice-Hall",
+ "authors": ["Brian W. Kernighan", "Dennis Ritchie"],
+ "source": "DBLP"
+}

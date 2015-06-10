@@ -1,0 +1,8 @@
+{"_id": "elliss90",
+ "type": "Book",
+ "title": "The Annotated C++ Reference Manual.",
+ "year": "1990",
+ "publisher": "Addison-Wesley",
+ "authors": ["Margaret A. Ellis", "Bjarne Stroustrup"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "langley94",
+ "type": "Book",
+ "title": "Elements of Machine Learning.",
+ "year": "1994",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Pat Langley"],
+ "source": "DBLP"
+}

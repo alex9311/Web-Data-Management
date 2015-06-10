@@ -1,0 +1,8 @@
+{"_id": "knuth73",
+ "type": "Book",
+ "title": "The Art of Computer Programming, Volume III: Sorting and Searching",
+ "year": "1973",
+ "publisher": "Addison-Wesley",
+ "authors": ["Donald E. Knuth"],
+ "source": "DBLP"
+}

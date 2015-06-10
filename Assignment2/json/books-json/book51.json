@@ -1,0 +1,8 @@
+{"_id": "wolfe96",
+ "type": "Book",
+ "title": "High performance compilers for parallel computing",
+ "year": "1996",
+ "publisher": "Addison-Wesley",
+ "authors": ["Michael Wolfe"],
+ "source": "DBLP"
+}

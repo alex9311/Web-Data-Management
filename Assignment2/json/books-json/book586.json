@@ -1,0 +1,8 @@
+{"_id": "flanagan99",
+ "type": "Book",
+ "title": "Java Power Reference",
+ "year": "1999",
+ "publisher": "O'Reilly",
+ "authors": ["David Flanagan"],
+ "source": "DBLP"
+}

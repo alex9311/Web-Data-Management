@@ -1,0 +1,8 @@
+{"_id": "delfsk02",
+ "type": "Book",
+ "title": "Introduction to Cryptography: Principles and Applications",
+ "year": "2002",
+ "publisher": "Springer",
+ "authors": ["Hans Delfs", "Helmut Knebl"],
+ "source": "DBLP"
+}

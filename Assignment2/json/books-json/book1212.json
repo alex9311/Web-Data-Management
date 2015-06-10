@@ -1,0 +1,8 @@
+{"_id": "loeckxmw86",
+ "type": "Book",
+ "title": "Grundlagen der Programmiersprachen",
+ "year": "1986",
+ "publisher": "Teubner",
+ "authors": ["Jacques Loeckx", "Kurt Mehlhorn", "Reinhard Wilhelm"],
+ "source": "DBLP"
+}

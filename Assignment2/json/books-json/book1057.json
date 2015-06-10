@@ -1,0 +1,8 @@
+{"_id": "revesz02",
+ "type": "Book",
+ "title": "Introduction to Constraint Databases",
+ "year": "2002",
+ "publisher": "Springer",
+ "authors": ["Peter Z. Revesz"],
+ "source": "DBLP"
+}

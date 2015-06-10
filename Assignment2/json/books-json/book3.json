@@ -1,0 +1,8 @@
+{"_id": "knuth86a",
+ "type": "Book",
+ "title": "TeX: The Program",
+ "year": "1986",
+ "publisher": "Addison-Wesley",
+ "authors": ["Donald E. Knuth"],
+ "source": "DBLP"
+}

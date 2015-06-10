@@ -1,0 +1,8 @@
+{"_id": "stephen94",
+ "type": "Book",
+ "title": "String Searching Algorithms",
+ "year": "1994",
+ "publisher": "World Scientific",
+ "authors": ["Graham A. Stephen"],
+ "source": "DBLP"
+}

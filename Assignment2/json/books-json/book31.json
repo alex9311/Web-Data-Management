@@ -1,0 +1,8 @@
+{"_id": "stevens96",
+ "type": "Book",
+ "title": "TCP/IP Illustrated, Volume 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocolls",
+ "year": "1996",
+ "publisher": "Addison-Wesley",
+ "authors": ["W. Richard Stevens"],
+ "source": "DBLP"
+}

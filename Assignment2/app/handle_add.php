@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$payload = json_encode($movie);
 
 	$new_id = get_uuid();
+
  
 	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:5984/movies/'.$new_id);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); 
@@ -50,7 +51,7 @@ function get_uuid(){
  
 	$UUID = $_response['uuids'];
 	curl_close($ch);
-	return $UUID; 
+	return $UUID[0]; 
 }
 
 ?>

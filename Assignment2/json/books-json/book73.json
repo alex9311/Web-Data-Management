@@ -1,0 +1,8 @@
+{"_id": "goldberg89",
+ "type": "Book",
+ "title": "Genetic Algorithms in Search Optimization and Machine Learning",
+ "year": "1989",
+ "publisher": "Addison-Wesley",
+ "authors": ["David E. Goldberg"],
+ "source": "DBLP"
+}

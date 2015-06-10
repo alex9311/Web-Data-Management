@@ -1,0 +1,8 @@
+{"_id": "moos2004",
+ "type": "Book",
+ "title": "Datenbank-Engineering: Analyse, Entwurf und Implementierung objektrelationaler Datenbanken mit UML, DB2-SQL und Java",
+ "year": "2004",
+ "publisher": "Vieweg",
+ "authors": ["Alfred Moos"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "grunebjl2002",
+ "type": "Book",
+ "title": "Modern Compiler Design",
+ "year": "2002",
+ "publisher": "John Wiley",
+ "authors": ["Dick Grune", "Henri E. Bal", "Ceriel J. H. Jacobs", "Koen Langendoen"],
+ "source": "DBLP"
+}

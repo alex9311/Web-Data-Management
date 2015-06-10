@@ -1,0 +1,8 @@
+{"_id": "reese97",
+ "type": "Book",
+ "title": "Database Programming with JDBC and Java",
+ "year": "1997",
+ "publisher": "O'Reilly",
+ "authors": ["George Reese"],
+ "source": "DBLP"
+}

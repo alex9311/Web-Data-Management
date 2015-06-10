@@ -1,0 +1,8 @@
+{"_id": "celko99",
+ "type": "Book",
+ "title": "SQL for Smarties: Advanced SQL Programming, Second Edition",
+ "year": "1999",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Joe Celko"],
+ "source": "DBLP"
+}

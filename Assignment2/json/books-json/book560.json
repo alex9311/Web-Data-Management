@@ -1,0 +1,8 @@
+{"_id": "nelsong1996",
+ "type": "Book",
+ "title": "The Data Compression Book, 2nd Edition",
+ "year": "1996",
+ "publisher": "T Books",
+ "authors": ["Mark Nelson", "Jean-Loup Gailly"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "hansen1985",
+ "type": "Book",
+ "title": "Brinch Hansen on Pascal Compilers",
+ "year": "1985",
+ "publisher": "Prentice-Hall",
+ "authors": ["Per Brinch Hansen"],
+ "source": "DBLP"
+}

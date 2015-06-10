@@ -1,0 +1,8 @@
+{"_id": "cormenlrs01",
+ "type": "Book",
+ "title": "Introduction to Algorithms, Second Edition",
+ "year": "2001",
+ "publisher": "The MIT Press and McGraw-Hill Book Company",
+ "authors": ["Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"],
+ "source": "DBLP"
+}

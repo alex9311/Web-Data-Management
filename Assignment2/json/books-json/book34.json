@@ -1,0 +1,8 @@
+{"_id": "stroustrup86",
+ "type": "Book",
+ "title": "The C++ Programming Language, First Edition",
+ "year": "1986",
+ "publisher": "Addison-Wesley",
+ "authors": ["Bjarne Stroustrup"],
+ "source": "DBLP"
+}

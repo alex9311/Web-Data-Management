@@ -1,0 +1,8 @@
+{"_id": "jackson99",
+ "type": "Book",
+ "title": "Introduction to Expert Systems, 3rd Edition.",
+ "year": "1999",
+ "publisher": "Addison-Wesley",
+ "authors": ["Peter Jackson"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "lynch96",
+ "type": "Book",
+ "title": "Distributed Algorithms",
+ "year": "1996",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Nancy A. Lynch"],
+ "source": "DBLP"
+}

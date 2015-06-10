@@ -1,0 +1,8 @@
+{"_id": "nareyek01",
+ "type": "Book",
+ "title": "Constraint-Based Agents",
+ "year": "2001",
+ "publisher": "Springer",
+ "authors": ["Alexander Nareyek"],
+ "source": "DBLP"
+}

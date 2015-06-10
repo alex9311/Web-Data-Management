@@ -1,0 +1,8 @@
+{"_id": "lloyd87",
+ "type": "Book",
+ "title": "Foundations of Logic Programming, 2nd Edition",
+ "year": "1987",
+ "publisher": "Springer",
+ "authors": ["John W. Lloyd"],
+ "source": "DBLP"
+}

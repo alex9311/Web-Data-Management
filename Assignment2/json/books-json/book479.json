@@ -1,0 +1,8 @@
+{"_id": "westerman00",
+ "type": "Book",
+ "title": "Data Warehousing: Using the Wal-Mart Model",
+ "year": "2000",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["Paul Westerman"],
+ "source": "DBLP"
+}

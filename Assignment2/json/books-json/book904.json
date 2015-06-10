@@ -1,0 +1,8 @@
+{"_id": "hartmann77",
+ "type": "Book",
+ "title": "A Concurrent Pascal Compiler for Minicomputers",
+ "year": "1977",
+ "publisher": "Springer",
+ "authors": ["Alfred C. Hartmann"],
+ "source": "DBLP"
+}

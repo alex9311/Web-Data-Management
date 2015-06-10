@@ -1,0 +1,8 @@
+{"_id": "lions1996",
+ "type": "Book",
+ "title": "Lions' Commentary on UNIX 6th Edition, with Source Code",
+ "year": "1996",
+ "publisher": "Peer-to-Peer Communications",
+ "authors": ["John Lions"],
+ "source": "DBLP"
+}

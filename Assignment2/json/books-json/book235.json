@@ -1,0 +1,8 @@
+{"_id": "sedgewick75",
+ "type": "Book",
+ "title": "Quicksort",
+ "year": "1975",
+ "publisher": "Garland Publishing, New York",
+ "authors": ["Robert Sedgewick"],
+ "source": "DBLP"
+}

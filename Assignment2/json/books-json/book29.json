@@ -1,0 +1,8 @@
+{"_id": "stevens94",
+ "type": "Book",
+ "title": "TCP/IP Illustrated, Volume 1: The Protocols",
+ "year": "1994",
+ "publisher": "Addison-Wesley",
+ "authors": ["W. Richard Stevens"],
+ "source": "DBLP"
+}

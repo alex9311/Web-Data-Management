@@ -1,0 +1,8 @@
+{"_id": "frank97",
+ "type": "Book",
+ "title": "r objektorientierte Datenbanken.",
+ "year": "1997",
+ "publisher": "Infix Verlag, St. Augustin, Germany",
+ "authors": ["Heinz Frank"],
+ "source": "DBLP"
+}

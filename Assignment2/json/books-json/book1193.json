@@ -1,0 +1,8 @@
+{"_id": "alonso04",
+ "type": "Book",
+ "title": "Web Services - Concepts, Architectures and Applications",
+ "year": "2004",
+ "publisher": "Springer",
+ "authors": ["Gustavo Alonso", "Fabio Casati", "Harumi A. Kuno", "Vijay Machiraju"],
+ "source": "DBLP"
+}

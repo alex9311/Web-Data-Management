@@ -1,0 +1,8 @@
+{"_id": "quinlan93",
+ "type": "Book",
+ "title": "C4.5: Programs for Machine Learning",
+ "year": "1993",
+ "publisher": "Morgan Kaufmann",
+ "authors": ["J. Ross Quinlan"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "arnoldgh00",
+ "type": "Book",
+ "title": "The Java Programming Language, Third Edition",
+ "year": "2000",
+ "publisher": "Addison-Wesley",
+ "authors": ["Ken Arnold", "James Gosling", "David Holmes"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "sedgewick83",
+ "type": "Book",
+ "title": "Algorithms",
+ "year": "1983",
+ "publisher": "Addison-Wesley",
+ "authors": ["Robert Sedgewick"],
+ "source": "DBLP"
+}

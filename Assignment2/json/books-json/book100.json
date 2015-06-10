@@ -1,0 +1,8 @@
+{"_id": "samet90",
+ "type": "Book",
+ "title": "The Design and Analysis of Spatial Data Structures",
+ "year": "1990",
+ "publisher": "Addison-Wesley",
+ "authors": ["Hanan Samet"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "knuth99",
+ "type": "Book",
+ "title": "MMIXware, A RISC Computer for the Third Millennium",
+ "year": "1999",
+ "publisher": "Springer",
+ "authors": ["Donald E. Knuth"],
+ "source": "DBLP"
+}

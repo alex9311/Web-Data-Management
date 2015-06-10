@@ -1,0 +1,8 @@
+{"_id": "paulson94",
+ "type": "Book",
+ "title": "Isabelle - A Generic Theorem Prover (with a contribution by T. Nipkow)",
+ "year": "1994",
+ "publisher": "Springer",
+ "authors": ["Lawrence C. Paulson"],
+ "source": "DBLP"
+}

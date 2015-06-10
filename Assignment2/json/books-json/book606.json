@@ -1,0 +1,8 @@
+{"_id": "battistaett99",
+ "type": "Book",
+ "title": "Graph Drawing: Algorithms for the Visualization of Graphs",
+ "year": "1999",
+ "publisher": "Prentice-Hall",
+ "authors": ["Giuseppe Di Battista", "Peter Eades", "Roberto Tamassia", "Ioannis G. Tollis"],
+ "source": "DBLP"
+}

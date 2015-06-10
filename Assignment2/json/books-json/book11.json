@@ -1,0 +1,8 @@
+{"_id": "lindholmy97",
+ "type": "Book",
+ "title": "The Java Virtual Machine Specification",
+ "year": "1997",
+ "publisher": "Addison-Wesley",
+ "authors": ["Tim Lindholm", "Frank Yellin"],
+ "source": "DBLP"
+}

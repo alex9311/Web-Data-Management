@@ -1,0 +1,8 @@
+{"_id": "kernighanr88",
+ "type": "Book",
+ "title": "The C Programming Language, Second Edition",
+ "year": "1988",
+ "publisher": "Prentice-Hall",
+ "authors": ["Brian W. Kernighan", "Dennis Ritchie"],
+ "source": "DBLP"
+}

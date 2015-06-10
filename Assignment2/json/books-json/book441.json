@@ -1,0 +1,8 @@
+{"_id": "silberschatzks01",
+ "type": "Book",
+ "title": "Database System Concepts, 4th Edition.",
+ "year": "2001",
+ "publisher": "McGraw-Hill Book Company",
+ "authors": ["Abraham Silberschatz", "nry F. Korth", "S. Sudarshan"],
+ "source": "DBLP"
+}

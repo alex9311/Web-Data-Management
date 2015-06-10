@@ -1,0 +1,8 @@
+{"_id": "storer88",
+ "type": "Book",
+ "title": "Data Compression: Methods and Theory.",
+ "year": "1988",
+ "publisher": "Computer Science Press",
+ "authors": ["James A. Storer"],
+ "source": "DBLP"
+}

@@ -1,0 +1,8 @@
+{"_id": "salton89",
+ "type": "Book",
+ "title": "Automatic Text Processing: The Transformation, Analysis, and Retrieval of Information by Computer.",
+ "year": "1989",
+ "publisher": "Addison-Wesley",
+ "authors": ["Gerard Salton"],
+ "source": "DBLP"
+}
