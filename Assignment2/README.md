@@ -34,7 +34,7 @@ function(doc) {
 }
 ```
 
-publishers function: publisher
+publishers view function: publisher
 ```
 function(doc) {
   emit(doc.publisher.trim(), doc);
@@ -42,6 +42,19 @@ function(doc) {
     for each (word in words) {
         if(word!="-"&&word!=""&&word!=":"&&word!="."){
         emit(word,doc);}
+    }
+}
+```
+
+title and year function: title_year
+```
+function(doc) {
+  year = doc.year.trim()
+  emit([doc.title.trim(), year], doc);
+    words = doc.title.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
+    for each (word in words) {
+        if(word!="-"&&word!=""&&word!=":"&&word!="."){
+        emit([word, year],doc);}
     }
 }
 ```
