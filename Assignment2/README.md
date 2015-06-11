@@ -1,6 +1,6 @@
 useful webpage: http://inchoo.net/dev-talk/couchdb-for-php-developers-crud/
 
-actors view function
+titles view function
 ```
 function(doc) {
   emit(doc.title.trim(), doc);
