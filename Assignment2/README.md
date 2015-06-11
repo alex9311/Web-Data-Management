@@ -46,7 +46,7 @@ function(doc) {
 }
 ```
 
-title and year function: title_year
+title and year view function: title_year
 ```
 function(doc) {
   year = doc.year.trim()
@@ -56,5 +56,20 @@ function(doc) {
         if(word!="-"&&word!=""&&word!=":"&&word!="."){
         emit([word, year],doc);}
     }
+}
+```
+author and year view function: author_year
+```
+function(doc) {
+  year = doc.year.trim()
+  for each(author in doc.authors) {
+    emit([author.trim(), year], doc);
+      words = author.replace(/[!.,;]+/g,"").split(" ")
+      for each (word in words) {
+        if(word!="-"&&word!=""&&word!=":"&&word!="."){
+        emit([word, year],doc);
+      }
+    }
+  }
 }
 ```
