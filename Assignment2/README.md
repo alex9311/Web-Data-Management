@@ -33,3 +33,15 @@ function(doc) {
   emit(doc.year.trim(), doc);
 }
 ```
+
+publishers function: publisher
+```
+function(doc) {
+  emit(doc.publisher.trim(), doc);
+    words = doc.publisher.replace(/[!.,;]+/g,"").split(" ")
+    for each (word in words) {
+        if(word!="-"&&word!=""&&word!=":"&&word!="."){
+        emit(word,doc);}
+    }
+}
+```
