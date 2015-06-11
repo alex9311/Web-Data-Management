@@ -30,6 +30,10 @@ function show_search_results($search_terms) {
 		$view = "title_year";
 		$keys = '["'.$title.'","'.$year.'"]';
 	}
+	if($title=="" && $author!="" && $year!="" && $publisher=="") {
+		$view = "author_year";
+		$keys = '["'.$author.'","'.$year.'"]';
+	}
 
 	$curl = curl_init();
 
