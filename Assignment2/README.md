@@ -31,10 +31,5 @@ year view function: view
 ```
 function(doc) {
   emit(doc.year.trim(), doc);
-    words = doc.year.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
-    for each (word in words) {
-        if(word!="-"&&word!=""&&word!=":"&&word!="."){
-        emit(word,doc);}
-    }
 }
 ```
