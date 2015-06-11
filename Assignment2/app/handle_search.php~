@@ -6,9 +6,9 @@
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function show_search_results($search_terms) {
 	$title = strtolower($search_terms["title"]);
-	$author = $search_terms["author"];
+	$author = strtolower($search_terms["author"]);
 	$year = $search_terms["year"];
-	$publisher = $search_terms["publisher"];
+	$publisher = strtolower($search_terms["publisher"]);
 
 	if($title!="" && $author=="" && $year=="" && $publisher=="") {
 		$view = "title";
@@ -33,6 +33,14 @@ function show_search_results($search_terms) {
 	if($title=="" && $author!="" && $year!="" && $publisher=="") {
 		$view = "author_year";
 		$keys = '["'.$author.'","'.$year.'"]';
+	}
+	if($title=="" && $author=="" && $year!="" && $publisher!="") {
+		$view = "publisher_year";
+		$keys = '["'.$publisher.'","'.$year.'"]';
+	}
+	if($title!="" && $author!="" && $year=="" && $publisher=="") {
+		$view = "title_actor";
+		$keys = '["'.$title.'","'.$actor.'"]';
 	}
 
 	$curl = curl_init();

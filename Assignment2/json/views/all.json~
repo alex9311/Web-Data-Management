@@ -33,7 +33,7 @@
     },
     "publisher": {
       "map": "function(doc){
-        emit(doc.publisher.trim(.toLowerCase(), doc);
+        emit(doc.publisher.trim().toLowerCase(), doc);
         words = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
         for each (word in words) {
           if(word!='-'&&word!=''&&word!=':'&&word!='.'){
@@ -66,6 +66,35 @@
             }
           }
         }      
+      }"
+    },
+    "publisher_year": {
+      "map": "function(doc){
+        year = doc.year.trim();
+        emit([doc.publisher.trim().toLowerCase(), year], doc);
+        words = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+        for each (word in words) {
+          if(word!='-'&&word!=''&&word!=':'&&word!='.'){
+          emit([word, year],doc);
+          }
+        }
+      }"
+    },
+    "title_actor": {
+      "map": "function(doc){
+        for each(author in doc.authors) {
+          emit([doc.title.trim().toLowerCase(), author.trim().toLowerCase()], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (title in titles) {
+            if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+              if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                emit([title, actor],doc);
+              }
+            }
+          }
+        }
       }"
     }
   }
