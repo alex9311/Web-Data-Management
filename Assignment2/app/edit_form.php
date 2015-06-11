@@ -18,7 +18,7 @@
 			<fieldset>
 			Type: 	<input type="text" name="type" 		value="<?php print($book["type"]);?>"/>
 			Tile: 	<input type="text" name="title" 	value="<?php print($book["title"]);?>"/>
-			Author: <input type="text" name="author"	value="<?php print($book["author"]);?>"/>
+			Author: <input type="text" name="author"	value="<?php print(implode(", ",$book["authors"]));?>"/>
 			Publisher or Journal: <input type="text" name="publisher" value="<?php print($book["publisher"]);?>"/>
 			Year: 	<input type="text" name="year" 		value="<?php print($book["year"]);?>"/>
 			Source: <input type="text" name="source" 	value="<?php print($book["source"]);?>"/>

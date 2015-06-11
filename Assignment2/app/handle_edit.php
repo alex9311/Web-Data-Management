@@ -1,16 +1,16 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	print_r($_POST);
 	$title = $_POST["title"];
 	$type = $_POST["type"];
 	$year = $_POST["year"];
 	$publisher = $_POST["publisher"];
 	$source = $_POST["source"];
-	$author = $_POST["author"];
 	$id = $_POST["id"];
 	$rev = $_POST["rev"];
-	
+	$author = explode(", ",$_POST["author"]);
+	print_r($author);
+	exit();	
 	$ch = curl_init();
  
 	$customer = array(
