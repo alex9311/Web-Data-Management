@@ -30,9 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	curl_setopt($ch, CURLOPT_USERPWD, 'admin:admin');
  
 	$response = curl_exec($ch);
-	print($response);
  
 	curl_close($ch);
+
+	header("Location: index.php");
+	die();
 }
 
 function get_uuid(){

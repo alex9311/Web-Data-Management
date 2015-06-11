@@ -79,6 +79,7 @@ function json_to_html_table($json){
                 <td><strong>Publisher or Journal</strong></td>
                 <td><strong>Source</strong></td>
                 <td><strong>Edit</strong></td>
+                <td><strong>Delete</strong></td>
             </tr>';
 	foreach($books as $book){
 		$authors = [];
@@ -93,6 +94,7 @@ function json_to_html_table($json){
 		echo "<td>".$book->value->publisher."</td>";
 		echo "<td>".$book->value->source."</td>";
 		echo "<td><a href=edit_form.php?id=".$book->id.">edit</a></td>";
+		echo "<td><a href=handle_delete.php?id=".$book->id.">delete</a></td>";
 		echo "</tr>";	
 	}
 	echo "</table>";

@@ -9,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$id = $_POST["id"];
 	$rev = $_POST["rev"];
 	$author = explode(", ",$_POST["author"]);
-	print_r($author);
-	exit();	
 	$ch = curl_init();
  
 	$customer = array(
@@ -19,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		'year' => $year,
 		'publisher' => $publisher,
 		'source' => $source,
-		'author' => $author,
+		'authors' => $author,
 	);
 	 
 	$customer['_rev'] = $rev;
@@ -40,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$response = curl_exec($ch);
  
 	curl_close($ch); 
+	header("Location: index.php");
+	die();
 }
 
 ?>
