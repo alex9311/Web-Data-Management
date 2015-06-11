@@ -33,7 +33,7 @@
     },
     "publisher": {
       "map": "function(doc){
-        emit(doc.publisher.trim().toLowerCase(), doc);
+        emit(doc.publisher.trim(.toLowerCase(), doc);
         words = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
         for each (word in words) {
           if(word!='-'&&word!=''&&word!=':'&&word!='.'){
