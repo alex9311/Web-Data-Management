@@ -17,7 +17,7 @@ actors view function: actor
 function(doc) {
   for each(author in doc.authors) {
     emit(author.trim(), doc);
-      words = author.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
+      words = author.replace(/[!.,;]+/g,"").split(" ")
       for each (word in words) {
         if(word!="-"&&word!=""&&word!=":"&&word!="."){
         emit(word,doc);
