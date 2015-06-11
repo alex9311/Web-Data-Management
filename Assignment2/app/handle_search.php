@@ -27,7 +27,7 @@ function show_search_results($search_terms){
 		$keys = $publisher;
 	}
 
-	echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys;
+	echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key="'.$keys.'"';
 
 	$curl = curl_init();
 
