@@ -4,19 +4,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
 	$ch = curl_init();
  
-	$movie = array(
+	$book = array(
+		'type' => $_POST["type"],
 		'title' => $_POST["title"],
-		'genre' => $_POST["genre"],
+		'publisher' => $_POST["publisher"],
+		'source' => $_POST["source"],
 		'year' => $_POST["year"],
-		'summary' => $_POST["summary"]
+		'authors' => explode(",",$_POST["authors"])
 	);
  
-	$payload = json_encode($movie);
+	$payload = json_encode($book);
 
 	$new_id = get_uuid();
 
  
-	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:5984/movies/'.$new_id);
+	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:5984/books/'.$new_id);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

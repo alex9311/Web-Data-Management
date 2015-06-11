@@ -8,9 +8,11 @@
 	<div class="input_form">
 		<form action="handle_add.php" method="post">
 			<fieldset>
+			Type: <input type="text" name="type"/>
 			Tile: <input type="text" name="title"/>
-			Genre:	<input type="text" name="genre"/>
-			Summary: 		<input type="text" name="summary"/>
+			Author(s): <input type="text" name="authors"/>
+			Publisher: <input type="text" name="publisher"/>
+			Source: <input type="text" name="source"/>
 			Year: 	<input type="text" name="year"/>
 			<input type="submit"/>
 			</fieldset>
