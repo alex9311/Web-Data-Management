@@ -88,9 +88,10 @@
           for each (actor in actors) {
 	    titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
             for each (title in titles) {
-            if(title!='-'&&title!=''&&title!=':'&&title!='.'){
-              if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
-                emit([title, actor],doc);
+              if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  emit([title, actor],doc);
+		}
               }
             }
           }

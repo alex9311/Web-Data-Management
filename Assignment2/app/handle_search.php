@@ -42,6 +42,10 @@ function show_search_results($search_terms) {
 		$view = "title_actor";
 		$keys = '["'.$title.'","'.$author.'"]';
 	}
+	if($title!="" && $author=="" && $year=="" && $publisher!="") {
+		$view = "title_publisher";
+		$keys = '["'.$title.'","'.$publisher.'"]';
+	}
 
 	$curl = curl_init();
 

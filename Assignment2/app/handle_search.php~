@@ -40,7 +40,7 @@ function show_search_results($search_terms) {
 	}
 	if($title!="" && $author!="" && $year=="" && $publisher=="") {
 		$view = "title_actor";
-		$keys = '["'.$title.'","'.$actor.'"]';
+		$keys = '["'.$title.'","'.$author.'"]';
 	}
 
 	$curl = curl_init();

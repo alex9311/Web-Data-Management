@@ -97,6 +97,22 @@
           }
         }
       }"
+    },
+    "title_publisher": {
+      "map": "function(doc){
+        emit([doc.title.trim().toLowerCase(), doc.publisher.trim().toLowerCase()], doc);
+        publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+        for each (publisher in publishers) {
+	  titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (title in titles) {
+            if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                emit([title, publisher],doc);
+              }
+            }
+          }
+        }
+      }"
     }
   }
 }
