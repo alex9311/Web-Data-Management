@@ -4,11 +4,17 @@ titles view function: title
 ```
 function(doc) {
   emit(doc.title.trim(), doc);
-	words = doc.title.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
-	for each (word in words) {
-		if(word!="-"&&word!=""&&word!=":"&&word!="."){
-		emit(word,doc);}
-	}
+    words = doc.title.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
+    for each (word in words) {
+	word = word.charAt(0).toUpperCase() + word.slice(1)
+        if(word!="-"&&word!=""&&word!=":"&&word!="."){
+        emit(word,doc);}
+    }
+    words = doc.title.replace(/[!.,;]+/g,"").toLowerCase().split(" ")
+    for each (word in words) {
+        if(word!="-"&&word!=""&&word!=":"&&word!="."){
+        emit(word,doc);}
+    }
 }
 ```
 
