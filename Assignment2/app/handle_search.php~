@@ -9,22 +9,27 @@ function show_search_results($search_terms) {
 	$author = $search_terms["author"];
 	$year = $search_terms["year"];
 	$publisher = $search_terms["publisher"];
+	$multikey = true;
 
 	if($title!="" && $author=="" && $year=="" && $publisher=="") {
 		$view = "title";
-		$keys = '"'.$title.'"';
+		$keys = $title;
+		$multikey = false;
 	}
 	if($title=="" && $author!="" && $year=="" && $publisher=="") {
 		$view = "author";
-		$keys = '"'.$author.'"';
+		$keys = $author;
+		$multikey = false;
 	}
 	if($title=="" && $author=="" && $year!="" && $publisher=="") {
 		$view = "year";
-		$keys = '"'.$year.'"';
+		$keys = $year;
+		$multikey = false;
 	}
 	if($title=="" && $author=="" && $year=="" && $publisher!="") {
 		$view = "publisher";
-		$keys = '"'.$publisher.'"';
+		$keys = $publisher;
+		$multikey = false;
 	}
 	if($title!="" && $author=="" && $year!="" && $publisher=="") {
 		$view = "title_year";
@@ -33,13 +38,22 @@ function show_search_results($search_terms) {
 
 	$curl = curl_init();
 
-	echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys.'';
+	if ($multikey != true) {
+		echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key="'.$keys.'"';
 	
-	curl_setopt_array($curl, array(
-		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys.''
-	));
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+	    		CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key="'.$keys.'"'
+		));
+	}
+	else {
+		echo 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?keys='.$keys.'';
 	
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+	    		CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?keys='.$keys.''
+		));
+	}
 	// Send the request & save response to $resp
 	$resp = curl_exec($curl);
 	json_to_html_table($resp);
@@ -84,7 +98,6 @@ function json_to_html_table($json){
                 <td><strong>Publisher or Journal</strong></td>
                 <td><strong>Source</strong></td>
                 <td><strong>Edit</strong></td>
-                <td><strong>Delete</strong></td>
             </tr>';
 	foreach($books as $book){
 		$authors = [];
@@ -99,7 +112,6 @@ function json_to_html_table($json){
 		echo "<td>".$book->value->publisher."</td>";
 		echo "<td>".$book->value->source."</td>";
 		echo "<td><a href=edit_form.php?id=".$book->id.">edit</a></td>";
-		echo "<td><a href=handle_delete.php?id=".$book->id.">delete</a></td>";
 		echo "</tr>";	
 	}
 	echo "</table>";
