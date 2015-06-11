@@ -5,10 +5,10 @@
 
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function show_search_results($search_terms) {
-	$title = $search_terms["title"];
-	$author = $search_terms["author"];
+	$title = strtolower($search_terms["title"]);
+	$author = strtolower($search_terms["author"]);
 	$year = $search_terms["year"];
-	$publisher = $search_terms["publisher"];
+	$publisher = strtolower($search_terms["publisher"]);
 
 	if($title!="" && $author=="" && $year=="" && $publisher=="") {
 		$view = "title";

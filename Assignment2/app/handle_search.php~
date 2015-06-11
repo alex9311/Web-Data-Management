@@ -5,7 +5,7 @@
 
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function show_search_results($search_terms) {
-	$title = $search_terms["title"];
+	$title = strtolower($search_terms["title"]);
 	$author = $search_terms["author"];
 	$year = $search_terms["year"];
 	$publisher = $search_terms["publisher"];
@@ -32,7 +32,7 @@ function show_search_results($search_terms) {
 	}
 	if($title=="" && $author!="" && $year!="" && $publisher=="") {
 		$view = "author_year";
-		$keys = '["'.$auther.'","'.$year.'"]';
+		$keys = '["'.$author.'","'.$year.'"]';
 	}
 
 	$curl = curl_init();
@@ -88,6 +88,7 @@ function json_to_html_table($json){
                 <td><strong>Publisher or Journal</strong></td>
                 <td><strong>Source</strong></td>
                 <td><strong>Edit</strong></td>
+                <td><strong>Delete</strong></td>
             </tr>';
 	foreach($books as $book){
 		$authors = [];
@@ -102,6 +103,7 @@ function json_to_html_table($json){
 		echo "<td>".$book->value->publisher."</td>";
 		echo "<td>".$book->value->source."</td>";
 		echo "<td><a href=edit_form.php?id=".$book->id.">edit</a></td>";
+		echo "<td><a href=handle_delete.php?id=".$book->id.">delete</a></td>";
 		echo "</tr>";	
 	}
 	echo "</table>";
