@@ -48,7 +48,27 @@ function show_search_results($search_terms) {
 	}
 	if($title=="" && $author!="" && $year=="" && $publisher!="") {
 		$view = "publisher_author";
-		$keys = '["'.$title.'","'.$publisher.'"]';
+		$keys = '["'.$publisher.'","'.$author.'"]';
+	}
+	if($title=="" && $author!="" && $year!="" && $publisher!="") {
+		$view = "publisher_author_year";
+		$keys = '["'.$publisher.'","'.$author.'","'.$year.'"]';
+	}
+	if($title!="" && $author=="" && $year!="" && $publisher!="") {
+		$view = "title_publisher_year";
+		$keys = '["'.$title.'","'.$publisher.'","'.$year.'"]';
+	}
+	if($title!="" && $author!="" && $year!="" && $publisher=="") {
+		$view = "title_author_year";
+		$keys = '["'.$title.'","'.$author.'","'.$year.'"]';
+	}
+	if($title!="" && $author!="" && $year=="" && $publisher!="") {
+		$view = "title_publisher_author";
+		$keys = '["'.$title.'","'.$publisher.'","'.$author.'"]';
+	}
+	if($title!="" && $author!="" && $year!="" && $publisher!="") {
+		$view = "title_publisher_author_year";
+		$keys = '["'.$title.'","'.$publisher.'","'.$author.'","'.$year.'"]';
 	}
 
 	$curl = curl_init();

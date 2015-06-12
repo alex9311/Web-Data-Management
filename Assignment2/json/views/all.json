@@ -131,6 +131,108 @@
           }
         }
       }"
+    },
+    "publisher_author_year": {
+      "map": "function(doc){
+        year = doc.year.trim();
+        for each(author in doc.authors) {
+          emit([doc.publisher.trim().toLowerCase(), author.trim().toLowerCase(), year], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (publisher in publishers) {
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  emit([publisher, actor, year],doc);
+		}
+              }
+            }
+          }
+        }
+      }"
+    },
+    "title_publisher_year": {
+      "map": "function(doc){
+        year = doc.year.trim();
+        emit([doc.title.trim().toLowerCase(), doc.publisher.trim().toLowerCase(), year], doc);
+        publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+        for each (publisher in publishers) {
+	  titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (title in titles) {
+            if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                emit([title, publisher, year ],doc);
+              }
+            }
+          }
+        }
+      }"
+    },
+    "title_author_year": {
+      "map": "function(doc){
+        year = doc.year.trim();
+        for each(author in doc.authors) {
+          emit([doc.title.trim().toLowerCase(), author.trim().toLowerCase(), year], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (title in titles) {
+              if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  emit([title, actor, year],doc);
+		}
+              }
+            }
+          }
+        }
+      }"
+    },
+    "title_publisher_author": {
+      "map": "function(doc){
+        for each(author in doc.authors) {
+          emit([doc.title.trim().toLowerCase(), doc.publisher.trim().toLowerCase(), author.trim().toLowerCase()], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (publisher in publishers) {
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+                  for each (title in titles) {
+                    if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+                      emit([title, publisher, actor],doc);
+                    }
+                  }
+		}
+              }
+            }
+          }
+        }
+      }"
+    },
+    "title_publisher_author_year": {
+      "map": "function(doc){
+        year = doc.year.trim();
+        for each(author in doc.authors) {
+          emit([doc.title.trim().toLowerCase(), doc.publisher.trim().toLowerCase(), author.trim().toLowerCase(), year], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (publisher in publishers) {
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+                  for each (title in titles) {
+                    if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+                      emit([title, publisher, actor, year],doc);
+                    }
+                  }
+		}
+              }
+            }
+          }
+        }
+      }"
     }
   }
 }
