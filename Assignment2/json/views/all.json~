@@ -13,7 +13,7 @@
       	} 
       }"
     },
-    "actor": {
+    "author": {
       "map": "function(doc){
         for each(author in doc.authors) {
           emit(author.trim().toLowerCase(), doc);
@@ -91,6 +91,40 @@
               if(title!='-'&&title!=''&&title!=':'&&title!='.'){
                 if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
                   emit([title, actor],doc);
+		}
+              }
+            }
+          }
+        }
+      }"
+    },
+    "title_publisher": {
+      "map": "function(doc){
+        emit([doc.title.trim().toLowerCase(), doc.publisher.trim().toLowerCase()], doc);
+        publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+        for each (publisher in publishers) {
+	  titles = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (title in titles) {
+            if(title!='-'&&title!=''&&title!=':'&&title!='.'){
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                emit([title, publisher],doc);
+              }
+            }
+          }
+        }
+      }"
+    },
+    "publisher_author": {
+      "map": "function(doc){
+        for each(author in doc.authors) {
+          emit([doc.publisher.trim().toLowerCase(), author.trim().toLowerCase()], doc);
+          actors = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+          for each (actor in actors) {
+	    publishers = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
+            for each (publisher in publishers) {
+              if(publisher!='-'&&publisher!=''&&publisher!=':'&&publisher!='.'){
+                if(actor!='-'&&actor!=''&&actor!=':'&&actor!='.'){
+                  emit([publisher, actor],doc);
 		}
               }
             }

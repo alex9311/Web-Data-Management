@@ -39,11 +39,15 @@ function show_search_results($search_terms) {
 		$keys = '["'.$publisher.'","'.$year.'"]';
 	}
 	if($title!="" && $author!="" && $year=="" && $publisher=="") {
-		$view = "title_actor";
+		$view = "title_author";
 		$keys = '["'.$title.'","'.$author.'"]';
 	}
 	if($title!="" && $author=="" && $year=="" && $publisher!="") {
 		$view = "title_publisher";
+		$keys = '["'.$title.'","'.$publisher.'"]';
+	}
+	if($title=="" && $author!="" && $year=="" && $publisher!="") {
+		$view = "publisher_author";
 		$keys = '["'.$title.'","'.$publisher.'"]';
 	}
 
