@@ -1,8 +1,0 @@
-{"_id": "rust05",
- "type": "Book",
- "title": "Operational Semantics for Timed Systems: A Non-standard Approach to Uniform Modeling of Timed and Hybrid Systems",
- "year": "2005",
- "publisher": "Springer",
- "authors": ["Heinrich Rust"],
- "source": "DBLP"
-}

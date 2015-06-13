@@ -1,8 +1,0 @@
-{"_id": "mendling2008",
- "type": "Book",
- "title": "Metrics for Process Models: Empirical Foundations of Verification, Error Prediction, and Guidelines for Correctness.",
- "year": "2008",
- "publisher": "Springer",
- "authors": ["Jan Mendling"],
- "source": "DBLP"
-}

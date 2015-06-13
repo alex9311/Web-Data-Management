@@ -1,8 +1,0 @@
-{"_id": "lind01",
- "type": "Book",
- "title": "Iterative Software Engineering for Multiagent Systems: The MASSIVE Method",
- "year": "2001",
- "publisher": "Springer",
- "authors": ["rgen Lind"],
- "source": "DBLP"
-}

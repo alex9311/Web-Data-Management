@@ -1,8 +1,0 @@
-{"_id": "fahringers03",
- "type": "Book",
- "title": "Advanced Symbolic Analysis for Compilers: New Techniques and Algorithms for Symbolic Program Analysis and Optimization",
- "year": "2003",
- "publisher": "Springer",
- "authors": ["Thomas Fahringer", "Bernhard Scholz"],
- "source": "DBLP"
-}

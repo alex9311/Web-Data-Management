@@ -1,8 +1,0 @@
-{"_id": "goslingjs96",
- "type": "Book",
- "title": " Language Specification.",
- "year": "1996",
- "publisher": "Addison-Wesley",
- "authors": ["James Gosling", "William N. Joy", "Guy L. Steele Jr."],
- "source": "DBLP"
-}

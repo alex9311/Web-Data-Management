@@ -1,8 +1,0 @@
-{"_id": "wittenf99",
- "type": "Book",
- "title": "Data Mining: Practical Machine Learning Tools and Techniques with Java Implementations",
- "year": "1999",
- "publisher": "Morgan Kaufmann",
- "authors": ["Ian H. Witten", "Eibe Frank"],
- "source": "DBLP"
-}

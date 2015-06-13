@@ -1,8 +1,0 @@
-{"_id": "lippman96",
- "type": "Book",
- "title": "Inside the C++ Object Model",
- "year": "1996",
- "publisher": "Addison-Wesley",
- "authors": ["Stanley B. Lippman"],
- "source": "DBLP"
-}

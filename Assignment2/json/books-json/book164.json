@@ -1,8 +1,0 @@
-{"_id": "appel1992",
- "type": "Book",
- "title": "Compiling with Continuations",
- "year": "1992",
- "publisher": "Cambridge University Press",
- "authors": ["Andrew W. Appel"],
- "source": "DBLP"
-}

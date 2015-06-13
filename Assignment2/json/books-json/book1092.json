@@ -1,8 +1,0 @@
-{"_id": "schneider97",
- "type": "Book",
- "title": "Spatial Data Types for Database Systems, Finite Resolution Geometry for Geographic Information Systems",
- "year": "1997",
- "publisher": "Springer",
- "authors": ["Markus Schneider"],
- "source": "DBLP"
-}

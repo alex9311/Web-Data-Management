@@ -1,0 +1,27 @@
+
+<script src="http://admin:admin@127.0.0.1:5984/_utils/script/json2.js"></script>
+<script src="http://admin:admin@127.0.0.1:5984/_utils/script/jquery.js?1.2.6"></script>
+<script src="http://admin:admin@127.0.0.1:5984/_utils/script/jquery.couch.js?0.8.0"></script>
+<script src="http://admin:admin@127.0.0.1:5984/_utils/script/jquery.form.js?0.9.0"></script>
+
+
+
+<form id="upload" method="post"
+      enctype="multipart/form-data">
+    <input type="hidden" id="revision" type="text" name="_rev" value=""/>
+    <input id="attachment" type="file" name="_attachments"/><br/>
+    <br/>
+    <input type="submit"/>
+</form>
+
+<script>
+var $_GET=[];
+window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(a,name,value){$_GET[name]=value;});
+
+var id = $_GET["doc_id"];
+var rev = $_GET["doc_rev"];
+
+document.getElementsByTagName("input")[0].setAttribute("value", rev);
+document.getElementById('upload').action = "/books/".concat(id); 
+
+</script>

@@ -1,8 +1,0 @@
-{"_id": "cattell00",
- "type": "Book",
- "title": "The Object Data Standard: ODMG 3.0",
- "year": "2000",
- "publisher": "Morgan Kaufmann",
- "authors": ["R. G. G. Cattell", "Douglas K. Barry"],
- "source": "DBLP"
-}

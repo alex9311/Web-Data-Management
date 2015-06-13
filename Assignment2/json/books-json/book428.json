@@ -1,8 +1,0 @@
-{"_id": "wangzl01",
- "type": "Book",
- "title": "Data Quality",
- "year": "2001",
- "publisher": "Kluwer",
- "authors": ["Richard Y. Wang", "Mostapha Ziad", "Yang W. Lee"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "sherman85",
- "type": "Book",
- "title": "Paragon: A Language Using Type Hierarchies for the Specification, Implementation and Selection of Abstract Data Types",
- "year": "1985",
- "publisher": "Springer",
- "authors": ["Mark Sherman"],
- "source": "DBLP"
-}

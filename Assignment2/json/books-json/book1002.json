@@ -1,8 +1,0 @@
-{"_id": "nipkowpw02",
- "type": "Book",
- "title": "Isabelle/HOL - A Proof Assistant for Higher-Order Logic",
- "year": "2002",
- "publisher": "Springer",
- "authors": ["Tobias Nipkow", "Lawrence C. Paulson", "Markus Wenzel"],
- "source": "DBLP"
-}

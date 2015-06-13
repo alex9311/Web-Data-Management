@@ -1,8 +1,0 @@
-{"_id": "buchmann02",
- "type": "Book",
- "title": "Introduction to Cryptography",
- "year": "2002",
- "publisher": "Springer",
- "authors": ["Johannes Buchmann"],
- "source": "DBLP"
-}

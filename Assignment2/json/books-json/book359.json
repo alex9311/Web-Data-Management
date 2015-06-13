@@ -1,8 +1,0 @@
-{"_id": "thomas96",
- "type": "Book",
- "title": "An Approach to Query Processing in Advanced Database Systems.",
- "year": "1996",
- "publisher": "Infix Verlag, St. Augustin, Germany",
- "authors": ["Joachim Thomas"],
- "source": "DBLP"
-}

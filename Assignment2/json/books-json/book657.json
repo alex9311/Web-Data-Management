@@ -1,8 +1,0 @@
-{"_id": "wegener02",
- "type": "Book",
- "title": "Branching Programs and Binary Decision Diagrams",
- "year": "2000",
- "publisher": "SIAM",
- "authors": ["Ingo Wegener"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "silberschatzgg02",
- "type": "Book",
- "title": "Operating System Concepts, Sixth Edition",
- "year": "2002",
- "publisher": "John Wiley",
- "authors": ["Abraham Silberschatz", "Peter Galvin", "Greg Gagne"],
- "source": "DBLP"
-}

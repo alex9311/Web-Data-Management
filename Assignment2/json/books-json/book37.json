@@ -1,8 +1,0 @@
-{"_id": "chan99",
- "type": "Book",
- "title": "The Java Developers Almanac 1999",
- "year": "1999",
- "publisher": "Addison-Wesley",
- "authors": ["Patrick Chan"],
- "source": "DBLP"
-}

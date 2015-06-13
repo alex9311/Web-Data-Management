@@ -1,8 +1,0 @@
-{"_id": "kim90",
- "type": "Book",
- "title": "Introduction to Object-Oriented Databases",
- "year": "1990",
- "publisher": "MIT Press",
- "authors": ["Won Kim"],
- "source": "DBLP"
-}

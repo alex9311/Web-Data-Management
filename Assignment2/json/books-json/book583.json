@@ -1,8 +1,0 @@
-{"_id": "darwin01",
- "type": "Book",
- "title": "Java Cookbook",
- "year": "2001",
- "publisher": "O'Reilly",
- "authors": ["Ian F. Darwin"],
- "source": "DBLP"
-}

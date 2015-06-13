@@ -1,8 +1,0 @@
-{"_id": "jacobnw2008",
- "type": "Book",
- "title": "Memory Systems: Cache, DRAM, Disk",
- "year": "2008",
- "publisher": "Morgan Kaufmann",
- "authors": ["Bruce L. Jacob", "Spencer W. Ng", "David T. Wang"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "bernsteinhg87",
- "type": "Book",
- "title": "Concurrency Control and Recovery in Database Systems.",
- "year": "1987",
- "publisher": "Addison-Wesley",
- "authors": ["Philip A. Bernstein", "Vassos Hadzilacos", "Nathan Goodman"],
- "source": "DBLP"
-}

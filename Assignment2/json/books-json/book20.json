@@ -1,8 +1,0 @@
-{"_id": "baeza-yatesr99",
- "type": "Book",
- "title": "Modern Information Retrieval",
- "year": "1999",
- "publisher": "ACM Press / Addison-Wesley",
- "authors": ["Ricardo A. Baeza-Yates", "Berthier A. Ribeiro-Neto"],
- "source": "DBLP"
-}

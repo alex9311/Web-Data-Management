@@ -1,8 +1,0 @@
-{"_id": "pauli01",
- "type": "Book",
- "title": "Learning-Based Robot Vision, Principles and Applications",
- "year": "2001",
- "publisher": "Springer",
- "authors": ["Josef Pauli"],
- "source": "DBLP"
-}

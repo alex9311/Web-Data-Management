@@ -1,8 +1,0 @@
-{"_id": "estersander00",
- "type": "Book",
- "title": "Knowledge Discovery in Databases - Techniken und Anwendungen",
- "year": "2000",
- "publisher": "Springer",
- "authors": ["Martin Ester", "rg Sander"],
- "source": "DBLP"
-}

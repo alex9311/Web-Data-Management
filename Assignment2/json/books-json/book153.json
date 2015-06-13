@@ -1,8 +1,0 @@
-{"_id": "papadimitriou86",
- "type": "Book",
- "title": "The Theory of Database Concurrency Control",
- "year": "1986",
- "publisher": "Computer Science Press",
- "authors": ["Christos H. Papadimitriou"],
- "source": "DBLP"
-}

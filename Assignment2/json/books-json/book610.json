@@ -1,8 +1,0 @@
-{"_id": "coffmand73",
- "type": "Book",
- "title": "Operating Systems Theory",
- "year": "1973",
- "publisher": "Prentice-Hall",
- "authors": ["Edward G. Coffman Jr.", "Peter J. Denning"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "bertino97",
- "type": "Book",
- "title": "Indexing Techniques for Advanced Database Systems",
- "year": "1997",
- "publisher": "Kluwer",
- "authors": ["Elisa Bertino", "Beng Chin Ooi", "Ron Sacks-Davis", "Kian-Lee Tan", "Justin Zobel", "Boris Shidlovsky", "Barbara Catania"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "wirth85",
- "type": "Book",
- "title": "Programmieren in Modula-2",
- "year": "1985",
- "publisher": "Springer",
- "authors": ["Niklaus Wirth"],
- "source": "DBLP"
-}

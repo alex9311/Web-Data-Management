@@ -1,8 +1,0 @@
-{"_id": "gordon79",
- "type": "Book",
- "title": "Edinburgh LCF",
- "year": "1979",
- "publisher": "Springer",
- "authors": ["Michael J. C. Gordon", "Robin Milner", "Christopher P. Wadsworth"],
- "source": "DBLP"
-}

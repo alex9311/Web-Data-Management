@@ -1,8 +1,0 @@
-{"_id": "yum97",
- "type": "Book",
- "title": "Priniples of Database Query Processing for Advanced Applications",
- "year": "1997",
- "publisher": "Morgan Kaufmann",
- "authors": ["Clement T. Yu", "Weiyi Meng"],
- "source": "DBLP"
-}

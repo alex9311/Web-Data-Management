@@ -1,8 +1,0 @@
-{"_id": "klotz93",
- "type": "Book",
- "title": "Eine mehrschichtige Architektur zur Fehlerdiagnose und Fehlerbehebung bei der Entwicklung logischer Programme.",
- "year": "1993",
- "publisher": "Infix Verlag, St. Augustin, Germany",
- "authors": ["Karlhorst Klotz"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "ada2008",
- "type": "Book",
- "title": "Ada 2005 Rationale: The Language, The Standard Libraries",
- "year": "2008",
- "publisher": "Springer",
- "authors": ["John Barnes"],
- "source": "DBLP"
-}

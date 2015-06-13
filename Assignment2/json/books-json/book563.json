@@ -1,8 +1,0 @@
-{"_id": "dieterich01",
- "type": "Book",
- "title": "Java 2, Von den Grundlagen bis zu Threads und Netzen, 2. Auflage",
- "year": "2001",
- "publisher": "Oldenbourg",
- "authors": ["Ernst-Wolfgang Dieterich"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "vossen90",
- "type": "Book",
- "title": "Datenmodelle, Datenbanksprachen und Datenbank-Management-Systeme",
- "year": "1990",
- "publisher": "Addison-Wesley",
- "authors": ["Gottfried Vossen"],
- "source": "DBLP"
-}

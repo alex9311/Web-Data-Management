@@ -1,8 +1,0 @@
-{"_id": "codd90",
- "type": "Book",
- "title": "The Relational Model for Database Management, Version 2",
- "year": "1990",
- "publisher": "Addison-Wesley",
- "authors": ["E. F. Codd"],
- "source": "DBLP"
-}

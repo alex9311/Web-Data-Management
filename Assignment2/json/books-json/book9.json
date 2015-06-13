@@ -1,8 +1,0 @@
-{"_id": "lewisbk01",
- "type": "Book",
- "title": "Databases and Transaction Processing: An Application-Oriented Approach",
- "year": "2001",
- "publisher": "Addison-Wesley",
- "authors": ["Philip M. Lewis", "Arthur J. Bernstein", "Michael Kifer"],
- "source": "DBLP"
-}

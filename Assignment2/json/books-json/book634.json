@@ -1,8 +1,0 @@
-{"_id": "meyer95",
- "type": "Book",
- "title": "Object Success",
- "year": "1995",
- "publisher": "Prentice-Hall",
- "authors": ["Bertrand Meyer"],
- "source": "DBLP"
-}

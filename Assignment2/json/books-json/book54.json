@@ -1,8 +1,0 @@
-{"_id": "date77",
- "type": "Book",
- "title": "An Introduction to Database Systems, 2nd Edition",
- "year": "1977",
- "publisher": "Addison-Wesley",
- "authors": ["C. J. Date"],
- "source": "DBLP"
-}

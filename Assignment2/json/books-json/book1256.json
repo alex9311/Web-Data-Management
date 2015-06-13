@@ -1,8 +1,0 @@
-{"_id": "kimball96",
- "type": "Book",
- "title": "The Data Warehouse Toolkit: Practical Techniques for Building Dimensional Data Warehouses.",
- "year": "1996",
- "publisher": "John Wiley",
- "authors": ["Ralph Kimball"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "pasetti02",
- "type": "Book",
- "title": "Software Frameworks and Embedded Control Systems",
- "year": "2002",
- "publisher": "Springer",
- "authors": ["Alessandro Pasetti"],
- "source": "DBLP"
-}

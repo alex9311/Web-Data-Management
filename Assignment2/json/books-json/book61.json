@@ -1,8 +1,0 @@
-{"_id": "date90",
- "type": "Book",
- "title": "An Introduction to Database Systems, Volume I, 5th Edition.",
- "year": "1990",
- "publisher": "Addison-Wesley",
- "authors": ["C. J. Date"],
- "source": "DBLP"
-}

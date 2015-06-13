@@ -1,8 +1,0 @@
-{"_id": "durbinek98",
- "type": "Book",
- "title": "Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids",
- "year": "1998",
- "publisher": "Cambridge University Press",
- "authors": ["Richard Durbin", "Sean R. Eddy", "Anders Krogh", "Graeme J. Mitchison"],
- "source": "DBLP"
-}

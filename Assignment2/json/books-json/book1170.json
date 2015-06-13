@@ -1,8 +1,0 @@
-{"_id": "zhangz02",
- "type": "Book",
- "title": "Association Rule Mining, Models and Algorithms",
- "year": "2002",
- "publisher": "Springer",
- "authors": ["Chengqi Zhang", "Shichao Zhang"],
- "source": "DBLP"
-}

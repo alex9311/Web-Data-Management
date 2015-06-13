@@ -1,8 +1,0 @@
-{"_id": "silberschatzgg00",
- "type": "Book",
- "title": "dition",
- "year": "2000",
- "publisher": "John Wiley",
- "authors": ["Abraham Silberschatz", "Peter Galvin", "Greg Gagne"],
- "source": "DBLP"
-}

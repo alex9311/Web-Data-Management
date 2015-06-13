@@ -1,8 +1,0 @@
-{"_id": "lang03",
- "type": "Book",
- "title": "Algorithmen in Java",
- "year": "2003",
- "publisher": "Oldenbourg",
- "authors": ["Hans-Werner Lang"],
- "source": "DBLP"
-}

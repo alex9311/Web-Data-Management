@@ -1,8 +1,0 @@
-{"_id": "schmidts89",
- "type": "Book",
- "title": "Relationen und Graphen",
- "year": "1989",
- "publisher": "Springer",
- "authors": ["Gunther Schmidt", "hlein"],
- "source": "DBLP"
-}

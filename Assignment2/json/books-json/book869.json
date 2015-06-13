@@ -1,8 +1,0 @@
-{"_id": "knuth92",
- "type": "Book",
- "title": "Axioms and Hulls",
- "year": "1992",
- "publisher": "Springer",
- "authors": ["Donald E. Knuth"],
- "source": "DBLP"
-}

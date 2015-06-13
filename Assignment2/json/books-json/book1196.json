@@ -1,8 +1,0 @@
-{"_id": "ada2006",
- "type": "Book",
- "title": "Ada 2005 Reference Manual. Language and Standard Libraries - International Standard ISO/IEC 8652/1995 (E) with Technical Corrigendum 1 and Amendment 1",
- "year": "2006",
- "publisher": "Springer",
- "authors": ["S. Tucker Taft", "Robert A. Duff", "Randall Brukardt", "dereder", "Pascal Leroy"],
- "source": "DBLP"
-}

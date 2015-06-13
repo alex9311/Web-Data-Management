@@ -1,8 +1,0 @@
-{"_id": "dijkstra76",
- "type": "Book",
- "title": "A Discipline of Programming.",
- "year": "1976",
- "publisher": "Prentice-Hall",
- "authors": ["Edsger W. Dijkstra"],
- "source": "DBLP"
-}

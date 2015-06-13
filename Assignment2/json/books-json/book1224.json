@@ -1,8 +1,0 @@
-{"_id": "walther2001",
- "type": "Book",
- "title": "Semantik und Programmverifikation",
- "year": "2001",
- "publisher": "Teubner",
- "authors": ["Christoph Walther"],
- "source": "DBLP"
-}

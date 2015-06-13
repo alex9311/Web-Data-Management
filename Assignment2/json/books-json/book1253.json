@@ -1,8 +1,0 @@
-{"_id": "james85",
- "type": "Book",
- "title": "Classification Algorithms",
- "year": "1985",
- "publisher": "John Wiley",
- "authors": ["Mike James"],
- "source": "DBLP"
-}

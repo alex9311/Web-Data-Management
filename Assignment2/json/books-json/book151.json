@@ -1,8 +1,0 @@
-{"_id": "maier83",
- "type": "Book",
- "title": "The Theory of Relational Databases.",
- "year": "1983",
- "publisher": "Computer Science Press",
- "authors": ["David Maier"],
- "source": "DBLP"
-}

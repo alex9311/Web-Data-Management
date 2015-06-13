@@ -1,8 +1,0 @@
-{"_id": "stevens92",
- "type": "Book",
- "title": "Advanced Programming in the UNIX Environment",
- "year": "1992",
- "publisher": "Addison-Wesley",
- "authors": ["W. Richard Stevens"],
- "source": "DBLP"
-}

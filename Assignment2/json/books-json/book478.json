@@ -1,8 +1,0 @@
-{"_id": "brodies95",
- "type": "Book",
- "title": "Migrating Legacy Systems: Gateways, Interfaces, and the Incremental Approach",
- "year": "1995",
- "publisher": "Morgan Kaufmann",
- "authors": ["Michael L. Brodie", "Michael Stonebraker"],
- "source": "DBLP"
-}

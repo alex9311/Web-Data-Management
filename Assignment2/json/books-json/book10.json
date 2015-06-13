@@ -1,8 +1,0 @@
-{"_id": "ahokw88",
- "type": "Book",
- "title": "The AWK Programming Language",
- "year": "1988",
- "publisher": "Addison-Wesley",
- "authors": ["Alfred V. Aho", "Brian W. Kernighan", "Peter J. Weinberger"],
- "source": "DBLP"
-}

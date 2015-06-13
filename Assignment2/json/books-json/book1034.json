@@ -1,8 +1,0 @@
-{"_id": "polak81",
- "type": "Book",
- "title": "Compiler Specification and Verification",
- "year": "1981",
- "publisher": "Springer",
- "authors": ["Wolfgang Pollak"],
- "source": "DBLP"
-}

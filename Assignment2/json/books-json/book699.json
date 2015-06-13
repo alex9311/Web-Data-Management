@@ -1,8 +1,0 @@
-{"_id": "casanova81",
- "type": "Book",
- "title": "The Concurrency Control Problem for Database Systems",
- "year": "1981",
- "publisher": "Springer",
- "authors": ["Marco A. Casanova"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "hahn90",
- "type": "Book",
- "title": "Lexikalisch verteiltes Text-Parsing: Eine objektorientierte Spezifikation eines Wortexpertensystems auf der Grundlage des Aktorenmodells",
- "year": "1990",
- "publisher": "Springer",
- "authors": ["Udo Hahn"],
- "source": "DBLP"
-}

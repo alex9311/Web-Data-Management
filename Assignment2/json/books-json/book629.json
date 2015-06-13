@@ -1,8 +1,0 @@
-{"_id": "meyer88",
- "type": "Book",
- "title": "Object-Oriented Software Construction, 1st editon",
- "year": "1988",
- "publisher": "Prentice-Hall",
- "authors": ["Bertrand Meyer"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "meyer90",
- "type": "Book",
- "title": "Objektorientierte Softwareentwicklung",
- "year": "1990",
- "publisher": "Prentice Hall",
- "authors": ["Bertrand Meyer"],
- "source": "DBLP"
-}

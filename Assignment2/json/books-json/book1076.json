@@ -1,8 +1,0 @@
-{"_id": "sanderson80",
- "type": "Book",
- "title": "A Relational Theory of Computing",
- "year": "1980",
- "publisher": "Springer",
- "authors": ["John G. Sanderson"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "wittenb03",
- "type": "Book",
- "title": "How to Build a Digital Libary",
- "year": "2003",
- "publisher": "Morgan Kaufmann",
- "authors": ["Ian H. Witten", "David Bainbridge"],
- "source": "DBLP"
-}

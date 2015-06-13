@@ -1,8 +1,0 @@
-{"_id": "ahohu83",
- "type": "Book",
- "title": "Data Structures and Algorithms.",
- "year": "1983",
- "publisher": "Addison-Wesley",
- "authors": ["Alfred V. Aho", "John E. Hopcroft", "Jeffrey D. Ullman"],
- "source": "DBLP"
-}

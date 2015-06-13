@@ -1,8 +1,0 @@
-{"_id": "demeyerdn02",
- "type": "Book",
- "title": "Object-Oriented Reengineering Patterns",
- "year": "2002",
- "publisher": "Morgan Kaufmann",
- "authors": ["Serge Demeyer", "phane Ducasse", "Oscar Nierstrasz"],
- "source": "DBLP"
-}

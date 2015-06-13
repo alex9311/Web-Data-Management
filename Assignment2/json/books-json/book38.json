@@ -1,8 +1,0 @@
-{"_id": "tansk2005",
- "type": "Book",
- "title": "Introduction to Data Mining",
- "year": "2005",
- "publisher": "Addison-Wesley",
- "authors": ["Pang-Ning Tan", "Michael Steinbach", "Vipin Kumar"],
- "source": "DBLP"
-}

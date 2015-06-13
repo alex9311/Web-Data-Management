@@ -1,8 +1,0 @@
-{"_id": "bergsten01",
- "type": "Book",
- "title": "JavaServer Pages",
- "year": "2001",
- "publisher": "O'Reilly",
- "authors": ["Hans Bergsten"],
- "source": "DBLP"
-}

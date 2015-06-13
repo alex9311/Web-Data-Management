@@ -1,8 +1,0 @@
-{"_id": "klein01",
- "type": "Book",
- "title": "Linux Sicherheit: Security mit Open-Source-Software, Grundlagen und Praxis",
- "year": "2001",
- "publisher": "dpunkt",
- "authors": ["Tobias Klein"],
- "source": "DBLP"
-}

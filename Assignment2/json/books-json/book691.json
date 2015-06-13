@@ -1,8 +1,0 @@
-{"_id": "bussler03",
- "type": "Book",
- "title": "B2B Integration: Concepts and Architecture",
- "year": "2003",
- "publisher": "Springer",
- "authors": ["Christoph Bussler"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "wrights95",
- "type": "Book",
- "title": "TCP/IP Illustrated, Volume 2: The Implementation",
- "year": "1995",
- "publisher": "Addison-Wesley",
- "authors": ["Gary R. Wright", "W. Richard Stevens"],
- "source": "DBLP"
-}

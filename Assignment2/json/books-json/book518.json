@@ -1,8 +1,0 @@
-{"_id": "hank2000",
- "type": "Book",
- "title": "Data Mining: Concepts and Techniques",
- "year": "2000",
- "publisher": "Morgan Kaufmann",
- "authors": ["Jiawei Han", "Micheline Kamber"],
- "source": "DBLP"
-}

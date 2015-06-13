@@ -1,8 +1,0 @@
-{"_id": "melton98",
- "type": "Book",
- "title": "Understanding SQL Stored Procedures: A Complete Guide to SQL/PSM",
- "year": "1998",
- "publisher": "Morgan Kaufmann",
- "authors": ["Jim Melton"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "bramer2005",
- "type": "Book",
- "title": "Logic Programming with Prolog",
- "year": "2005",
- "publisher": "Springer",
- "authors": ["Max Bramer"],
- "source": "DBLP"
-}

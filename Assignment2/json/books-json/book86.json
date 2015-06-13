@@ -1,8 +1,0 @@
-{"_id": "knuth68",
- "type": "Book",
- "title": "The Art of Computer Programming, Volume I: Fundamental Algorithms",
- "year": "1968",
- "publisher": "Addison-Wesley",
- "authors": ["Donald E. Knuth"],
- "source": "DBLP"
-}

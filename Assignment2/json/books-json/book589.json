@@ -1,8 +1,0 @@
-{"_id": "haroldm01",
- "type": "Book",
- "title": "XML in a Nutshell",
- "year": "2001",
- "publisher": "O'Reilly",
- "authors": ["Elliotte Rusty Harold", "W. Scott Means"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "16",
- "type": "Book",
- "title": "A System Engineer's Guide to Host Configuration and Maintenance Using Cfengine",
- "year": "2007",
- "publisher": "USENIX Association",
- "authors": ["Mark Burgess", "leen Frisch"],
- "source": "DBLP"
-}

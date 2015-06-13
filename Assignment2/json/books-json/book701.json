@@ -1,8 +1,0 @@
-{"_id": "cerigt90",
- "type": "Book",
- "title": "Logic Programming and Databases",
- "year": "1990",
- "publisher": "Springer",
- "authors": ["Stefano Ceri", "Georg Gottlob", "Letizia Tanca"],
- "source": "DBLP"
-}

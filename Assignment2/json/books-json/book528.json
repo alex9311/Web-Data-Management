@@ -1,8 +1,0 @@
-{"_id": "melton00",
- "type": "Book",
- "title": "Understanding SQL and Java Together: A Guide to SGLJ, JDBC, and Related Technologies",
- "year": "2000",
- "publisher": "Morgan Kaufmann",
- "authors": ["Jim Melton"],
- "source": "DBLP"
-}

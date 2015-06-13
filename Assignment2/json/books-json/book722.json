@@ -1,8 +1,0 @@
-{"_id": "beer89",
- "type": "Book",
- "title": "Concepts, Design, and Performance Analysis of a Parallel Prolog Machine",
- "year": "1989",
- "publisher": "Springer",
- "authors": ["Joachim Beer"],
- "source": "DBLP"
-}

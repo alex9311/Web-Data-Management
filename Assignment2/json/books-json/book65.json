@@ -1,8 +1,0 @@
-{"_id": "dated97",
- "type": "Book",
- "title": "A Guide to SQL Standard, 4th Edition",
- "year": "1997",
- "publisher": "Addison-Wesley",
- "authors": ["C. J. Date", "Hugh Darwen"],
- "source": "DBLP"
-}

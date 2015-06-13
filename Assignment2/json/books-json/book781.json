@@ -1,8 +1,0 @@
-{"_id": "donald89",
- "type": "Book",
- "title": "Error Detection and Recovery in Robotics",
- "year": "1989",
- "publisher": "Springer",
- "authors": ["Bruce Randall Donald"],
- "source": "DBLP"
-}

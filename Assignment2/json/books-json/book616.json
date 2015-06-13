@@ -1,8 +1,0 @@
-{"_id": "garcia-molinauw99",
- "type": "Book",
- "title": "Database System Implementation",
- "year": "2000",
- "publisher": "Prentice-Hall",
- "authors": ["Hector Garcia-Molina", "Jeffrey D. Ullman", "Jennifer Widom"],
- "source": "DBLP"
-}

@@ -1,8 +1,0 @@
-{"_id": "klass95",
- "type": "Book",
- "title": "Metaclasses and Their Applications, Data Model Tailoring and Database Integration",
- "year": "1995",
- "publisher": "Springer",
- "authors": ["Wolfgang Klas", "Michael Schrefl"],
- "source": "DBLP"
-}

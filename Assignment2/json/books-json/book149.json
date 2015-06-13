@@ -1,8 +1,0 @@
-{"_id": "compiler02",
- "type": "Book",
- "title": "The Compiler Design Handbook: Optimizations and Machine Code Generation",
- "year": "2002",
- "publisher": "CRC Press",
- "authors": [],
- "source": "DBLP"
-}

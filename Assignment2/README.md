@@ -1,1 +1,23 @@
 useful webpage: http://inchoo.net/dev-talk/couchdb-for-php-developers-crud/
+
+
+bibtex example:
+
+```
+@article{ahu61,
+       author={Arrow, Kenneth J. and Leonid Hurwicz and Hirofumi Uzawa},
+       title={Constraint qualifications in maximization problems},
+       journal={Naval Research Logistics Quarterly},
+       volume={8},
+       year = 1961,
+       pages = {175-191}
+     }
+
+@book{ab94,
+       author = {Charalambos D. Aliprantis and Kim C. Border},
+       year = {1994},
+       title = {Infinite Dimensional Analysis},
+       publisher = {Springer},
+       address = {Berlin}
+     }
+```
