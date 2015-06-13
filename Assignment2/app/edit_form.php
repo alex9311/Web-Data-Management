@@ -27,11 +27,6 @@
 			<input type="submit"/>
 			</fieldset>
 		</form>
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-		    Select pdf file to upload:
-		    <input type="file" name="fileToUpload" id="fileToUpload">
-		    <input type="submit" value="Upload pdf" name="submit">
-		</form>
 	</div>
 	<a href="index.php">Back to App home</a>
 	<br>
