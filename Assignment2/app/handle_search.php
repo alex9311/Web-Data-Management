@@ -1,3 +1,4 @@
+<script type="text/javascript" src="createBibtex.js"></script>
 <?php
 
 function show_search_results($search_terms) {
@@ -24,23 +25,29 @@ function show_search_results($search_terms) {
 function json_to_html_table($json){
 	echo "<br>";
 	$data =  json_decode($json);
-	$books = $data -> rows;
+	$json_books = $data -> rows;
+	
+	//removes duplicate results
+	$books=[];
+	foreach($json_books as $book){
+		$books[$book->id] = $book->value;
+	}
+
 	print_table_headers();
-	foreach($books as $book){
+	foreach($books as $id=>$book){
 		$attachment_list = get_attachment_list($book);
 		$authors = get_author_array($book);
 
 		echo "<tr>";	
-		echo "<td>".$book->value->type."</td>";
-		echo "<td>".$book->value->title."</td>";
+		$book_safe_json = str_replace('"',"'",json_encode($book));
+		echo '<td><a onclick="return createBibtex('.$book_safe_json.');" href="javascript:void(0)">'.$book->title."</a></td>";
 		echo "<td>".implode(", ",$authors)."</td>";
-		echo "<td>".$book->value->year."</td>";
-		echo "<td>".$book->value->publisher."</td>";
-		echo "<td>".$book->value->source."</td>";
+		echo "<td>".$book->year."</td>";
+		echo "<td>".$book->source."</td>";
 		echo "<td>".$attachment_list."</td>";
-		echo "<td><a href=edit_form.php?id=".$book->id.">edit</a></td>";
-		echo "<td><a href=handle_delete.php?id=".$book->id.">delete</a></td>";
-		echo "<td><a href=http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?doc_id=".urlencode($book->id)."&doc_rev=".urlencode($book->value->_rev).' target="_blank">add PDF</a></td>';
+		echo "<td><a href=edit_form.php?id=".$id.">edit</a></td>";
+		echo "<td><a href=handle_delete.php?id=".$id.">delete</a></td>";
+		echo "<td><a href=http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?doc_id=".urlencode($id)."&doc_rev=".urlencode($book->_rev).' target="_blank">add PDF</a></td>';
 		echo "</tr>";	
 	}
 	echo "</table>";
@@ -49,11 +56,9 @@ function json_to_html_table($json){
 function print_table_headers(){
 	echo '<table class="results_table" cellpadding="10"  border="1">
        <tr>
-            <td><strong>Type</strong></td>
             <td><strong>Title</strong></td>
             <td><strong>Author(s)</strong></td>
             <td><strong>Year</strong></td>
-            <td><strong>Publisher or Journal</strong></td>
             <td><strong>Source</strong></td>
             <td><strong>View PDF</strong></td>
             <td><strong>Edit</strong></td>
@@ -63,10 +68,10 @@ function print_table_headers(){
 }
 
 function get_attachment_list($book){
-	$attachments = ($book->value->_attachments);
+	$attachments = ($book->_attachments);
 		$attachment_list = "";
 		foreach ($attachments as $key => $value) {
-			$link = '<a href="http://127.0.0.1:5984/books/'.$book->id.'/'.$key.'" target="_blank">'.$key.'</a>';
+			$link = '<a href="http://127.0.0.1:5984/books/'.$book->_id.'/'.$key.'" target="_blank">'.$key.'</a>';
 			$attachment_list .= $link;
 		}
 	return $attachment_list;
@@ -74,7 +79,7 @@ function get_attachment_list($book){
 
 function get_author_array($book){
 	$authors = [];
-	foreach($book->value->authors as $author){
+	foreach($book->authors as $author){
 		array_push($authors,$author);
 	}
 	return $authors;
