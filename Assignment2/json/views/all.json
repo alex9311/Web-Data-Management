@@ -4,7 +4,7 @@
   "views": {
     "title": {
       "map": "function(doc) { 
-      	emit(doc.title.trim(), doc); 
+      	emit(doc.title.trim().toLowerCase(), doc); 
       	words = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' '); 
       	for each (word in words){
       		if(word!='-'&&word!=''&&word!=':'&&word!='.'){ 
@@ -16,8 +16,8 @@
     "actor": {
       "map": "function(doc){
         for each(author in doc.authors) {
-          emit(author.trim(), doc);
-          words = author.replace(/[!.,;]+/g,'').split(' ');
+          emit(author.trim().toLowerCase(), doc);
+          words = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
           for each (word in words) {
             if(word!='-'&&word!=''&&word!=':'&&word!='.'){
               emit(word,doc);
@@ -33,8 +33,8 @@
     },
     "publisher": {
       "map": "function(doc){
-        emit(doc.publisher.trim(), doc);
-        words = doc.publisher.replace(/[!.,;]+/g,'').split(' ');
+        emit(doc.publisher.trim(.toLowerCase(), doc);
+        words = doc.publisher.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
         for each (word in words) {
           if(word!='-'&&word!=''&&word!=':'&&word!='.'){
           emit(word,doc);
@@ -45,7 +45,7 @@
     "title_year": {
       "map": "function(doc){
         year = doc.year.trim();
-        emit([doc.title.trim(), year], doc);
+        emit([doc.title.trim().toLowerCase(), year], doc);
         words = doc.title.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
         for each (word in words) {
           if(word!='-'&&word!=''&&word!=':'&&word!='.'){
@@ -58,8 +58,8 @@
       "map": "function(doc){
         year = doc.year.trim();
         for each(author in doc.authors) {
-          emit([author.trim(), year], doc);
-          words = author.replace(/[!.,;]+/g,'').split(' ');
+          emit([author.trim().toLowerCase(), year], doc);
+          words = author.replace(/[!.,;]+/g,'').toLowerCase().split(' ');
           for each (word in words) {
             if(word!='-'&&word!=''&&word!=':'&&word!='.'){
               emit([word, year],doc);
