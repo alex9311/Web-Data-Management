@@ -62,9 +62,20 @@ And finally, we unzip the books-json package, insert all books, and clean up the
 ######Using the Log to see Modifications
 We ran into a lot of problems trying to implement this last part of the assignment. While we were able to see the logs on our local filesystem, we did not find a way to query CouchDB for the logs and get them back in a format to present to the user. The one thing we found was doing a GET request on `http://127.0.0.1:5984/_log` which dumps out the last few items in the log. However, this was not enough to build the functionality requested.
 
-After some further investigation, we found the 'http://127.0.0.1:5984/books/_changes' that can be used to query the changes made to the books database. By adding the decending=true parameter and selecting the top 10 we had an initial implementation for browsing the changes that where made recently. Lastly, we selected the last 10 changes and show those to the user as shown below.
+After some further investigation, we found the 'http://127.0.0.1:5984/books/_changes' that can be used to query the changes made to the books database. By adding the decending=true parameter and selecting the top 10 we had an initial implementation for browsing the changes that where made recently. Lastly, we selected the last 10 changes and show those to the user.
 
-<img src="resources/report_images/changelog.png" style="width:3.5in"></img>
+The next part of the changelog was to enable users to specify from which documents they want to see the changes. For this, we first had to add a filter to the database, this filter is added along with the views in the reset script. The code for the filter can be seen [here](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/json/config_files/all.json) or below:
 
+```
+function(doc, req) {
+	var values=JSON.parse(req.query.ids); 
+	if(values.indexOf(doc._id) > -1) { 
+		return true; 
+	}else {
+		return false; 
+	}
+}
+```
+As you can see, the filter we created works by comparing ids. We took the user search parameters and reused our 15 views to get a list of ids that match. This way we could show changes in only those matching ids. Our final GUI for the changelog is shown below.
+<img src="resources/report_images/changelog.png" style="width:4.5in"></img>
 
-The next part of the changelog was to enable users to specify from which documents they want to see the changes. For this, we first had to add an filter to the database, this filter has been included in the database reset script. The filter we created works by comparing id's. This ment that we had to get the id's based on the user's input. For this we could reuse the views we had created for the search to get the id's of the selected documents. Based on the id's that are gathered from the search the changes for those documents are requested on the server.

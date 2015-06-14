@@ -128,7 +128,7 @@ function json_to_html_table_change($json,$table_length){
 		echo '<td><a onclick="return createBibtex('.$book_safe_json.');" href="javascript:void(0)">'.$book->title."</a></td>";
 		echo "<td>".implode(", ",$authors)."</td>";
 		echo "<td>".$book->year."</td>";
-		echo "<td>".$book->_id."</td>";
+		echo "<td>".$book->source."</td>";
 		echo "<td>".$attachment_list."</td>";
 		echo '<td align="center"><a href="edit_form.php?id='.$id.'"><img src="icons/edit.png"></a></td>';
 		echo '<td align="center"><a href=handle_delete.php?id='.$id.'><img src="icons/delete.png"></a></td>';
