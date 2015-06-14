@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 <head>
+<?php include "handle_search.php";?>
 <link rel="stylesheet" type="text/css" href="style_bib.css"/>
 </head>
 <body>
@@ -21,46 +22,26 @@ function show_changelog() {
 
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes?descending(true)'
+		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes?descending(false)'
 	));
 	
 	// Send the request & save response to $resp
 	$resp = curl_exec($curl);
-	json_to_html_table($resp);
 	// Close request to clear up some resources
 	curl_close($curl);
+	json_to_html_table_change($resp);
 
 }
 
-function json_to_html_table($json){
+function json_to_html_table_change($json){
 	echo "<br>";
 	$data =  json_decode($json);
 	$json_books = $data -> results;
-	
-	for ($i = 0; $i <= 10; $i++) {
-		$curl = curl_init();
-
-		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://127.0.0.1:5984/books/'. $json_books[$i]->id
-		));
-	
-		// Send the request & save response to $resp
-		$resp = curl_exec($curl);
-		json_to_html_table($resp);
-		// Close request to clear up some resources
-		curl_close($curl);
-    		print_r($resp);
-	} 
-
-	//removes duplicate results
-	$books=[];
-	foreach($json_books as $book){
-		$books[$book->id] = $book->value;
-	}
 
 	print_table_headers();
-	foreach($books as $id=>$book){
+	for ($i = 0; $i <= 10; $i++) {
+		$book = get_document_by_id($json_books[$i]->id);
+
 		$attachment_list = get_attachment_list($book);
 		$authors = get_author_array($book);
 
@@ -75,8 +56,29 @@ function json_to_html_table($json){
 		echo '<td align="center"><a href=handle_delete.php?id='.$id.'><img src="icons/delete.png"></a></td>';
 		echo '<td align="center"><a href=http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?doc_id='.urlencode($id)."&doc_rev=".urlencode($book->_rev).' target="_blank"><img src="icons/pdf.png"></a></td>';
 		echo "</tr>";	
-	}
+	} 
 	echo "</table>";
+}
+
+
+function get_document_by_id($id){
+
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:5984/books/'.$id);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Content-type: application/json',
+		'Accept: */*'
+	));
+ 
+	curl_setopt($ch, CURLOPT_USERPWD, 'admin:admin');
+ 
+	$response = curl_exec($ch);
+
+	curl_close($ch);
+	return json_decode($response);
 }
 
 ?>
