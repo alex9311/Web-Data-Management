@@ -22,7 +22,7 @@
 ?>
 	<h2 style="text-align:center;">Distributed Bibliographic Database</h2>
 	<h4 style="margin-bottom: 0; margin-top: 0; ">Add Entry:</h4><a href="add_form.php">Click here to add new entry</a>
-	<h4 style="margin-bottom: 0; margin-top: 0; ">View change log:</h4><a href="changelog.php">Click here to view the change log</a>
+	<h4 style="margin-bottom: 0; margin-top: 0; ">View change log:</h4><a href="add_form.php">Click here to view the change log</a>
 	<h4>Search Existing Entries</h4>
 	<div class="input_form">
 		<form action="index.php" method="post">
