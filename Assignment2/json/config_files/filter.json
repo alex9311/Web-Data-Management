@@ -1,1 +1,0 @@
-{"_id": "_de","_rev": "1-b20db05077a51944afd11dcb3a6f18f1","filters": {"important": "function(doc, req) { if(doc.priority == 'high') { return true; }else { return false; }}"}}

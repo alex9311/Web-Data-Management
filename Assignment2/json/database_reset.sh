@@ -22,9 +22,6 @@ rm temp.json
 rev="$(curl -X PUT http://127.0.0.1:5984/books_app/handle_upload -d '{"id":"handle_upload"}' | rev | cut -c 3- | rev | cut -c 40-)"
 curl -X PUT http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?rev=$rev -d @config_files/handle_attachment.html   -H "Content-Type: text"
 
-#add the filter
-curl -X PUT http://admin:admin@127.0.0.1:5984/books/_design/apps --data-binary @config_files/filter.json
-
 
 #add all books to the books db, these will automatically be replicated in books2
 unzip books-json/zipped-books-json.zip -d books-json/
