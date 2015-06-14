@@ -37,27 +37,29 @@
 		$view_keys = get_view_and_keys($_POST);
 		$view = $view_keys[0];
 		$keys = $view_keys[1];
+		if($view==""){
+			show_changelog();
+		} else {
+			$curl = curl_init();
 
-		$curl = curl_init();
-
-		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys.''
-		));
+			curl_setopt_array($curl, array(
+				CURLOPT_RETURNTRANSFER => 1,
+				CURLOPT_URL => 'http://127.0.0.1:5984/books/_design/app/_view/'.$view.'?key='.$keys.''
+			));
 	
-		// Send the request & save response to $resp
-		$resp = curl_exec($curl);
+			// Send the request & save response to $resp
+			$resp = curl_exec($curl);
 
-		$data =  json_decode($resp);
-		$json_books = $data -> rows;
-	
-		//removes duplicate results
-		$books=[];
-		foreach($json_books as $book){
-			$books[$book->id] = $book->value;
+			$data =  json_decode($resp);
+			$json_books = $data -> rows;
+		
+			//removes duplicate results
+			$books=[];
+			foreach($json_books as $book){
+				$books[$book->id] = $book->value;
+			}
+			show_changelog_filtered(array_keys($books));
 		}
-
-		show_changelog_filtered(array_keys($books));
 	}else{
 		show_changelog();
 	}
