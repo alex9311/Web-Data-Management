@@ -19,10 +19,16 @@ Having this many views made CouchDB take a few minutes to sort itself out after 
 
 
 ####Meeting Application Requirements 
-######Searching the Bibliographic CollectionThe first thing we tackled was searching through the bibliographic database. We needed to allow searching by any combination of four fields. We provide the user with the search form shown below, in which he can fill in however many fields he likes.<img src="resources/report_images/search_form.png" style="width:4.5in"></img>
-Upon hitting submit, the form contents are sent off to a [PHP script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/handle_search.php). This script starts by detecting which fields the user filled in. From this knowledge, it knows which of our pre-made views to query and with what keys. This query is formatted and sent off in our PHP code. 
-Upon being returned, we needed to do a small massaging step in our data. The way our views are structured, we sometimes had duplicate entries returned. We converted the return JSON to a PHP associative array to squash all duplicates into single rows. After this step, we print the result in an HTML table as shown below. 
-<img src="resources/report_images/search_result.png" style="width:4.5in"></img>
+######Searching the Bibliographic Collection
+The first thing we tackled was searching through the bibliographic database. We needed to allow searching by any combination of four fields. We provide the user with the search form shown below, in which he can fill in however many fields he likes.
+<img src="resources/report_images/search_form.png" style="width:4.5in"></img>
+
+Upon hitting submit, the form contents are sent off to a [PHP script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/handle_search.php). This script starts by detecting which fields the user filled in. From this knowledge, it knows which of our pre-made views to query and with what keys. This query is formatted and sent off in our PHP code. 
+
+
+Upon being returned, we needed to do a small massaging step in our data. The way our views are structured, we sometimes had duplicate entries returned. We converted the return JSON to a PHP associative array to squash all duplicates into single rows. After this step, we print the result in an HTML table as shown below. 
+
+<img src="resources/report_images/search_result.png" style="width:4.5in"></img>
 
 
 ######Create/Update/Delete Bibliographical Entries
@@ -32,8 +38,10 @@ Next, we needed to create a way to add/update/remove entries. You'll notice in t
 To add new entries, we used an [HTML form](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/add_form.php). This form submits to a [PHP script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/handle_add.php) to process the new data. We used curl requests to query CouchDB at `http://127.0.0.1:5984/_uuids` for a unique ID rather than generate our own. 
 
 ######Producing Bibtex Entries
-You'll also notice that the titles in our search results view are clickable. The title can be clicked to provide the user with a Bibtex entry of the document. This Bibtex entry is generated with a short [javascript function](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/createBibtex.js) and shown to the user in an alert box, as shown below.
-<img src="resources/report_images/bibtex.png" style="width:3.5in"></img>
+You'll also notice that the titles in our search results view are clickable. The title can be clicked to provide the user with a Bibtex entry of the document. 
+This Bibtex entry is generated with a short [javascript function](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/app/createBibtex.js) and shown to the user in an alert box, as shown below.
+
+<img src="resources/report_images/bibtex.png" style="width:3.5in"></img>
 
 ######Uploading PDFs as Attachments
 Creating an interface for the user to upload PDFs initially gave us some problems. We wanted a way to avoid the server permission issues we struggled with in the first assignment and to simply pass the attachment directly to CouchDB. We came up with an interesting way to do this. We created a [HTML page](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment2/json/config_files/handle_attachment.html) which we loaded into CouchDB as an attachment. This PHP page is a file upload form and looks for GET params for an ID and revision number. Once the user selects a file and submits, the form POSTS to the correct document in our books database with the form data. This solution is simple and clean, especially considering we add the upload form page to our CouchDB setup in the reset script.
@@ -50,4 +58,10 @@ From this point on, we only need add to books and it automatically replicates on
 Next, we add the PDF upload form to the books_app database. This takes two steps. First we create the handle_upload document, then add the attachment PHP page to it. The reason this was a bit tricky was that when adding an attachment to a document, CouchDB requires the revision number. With some hacky shell scripting we were able to pull the revision number of the handle_upload doc from the curl response to the insertion. 
 
 And finally, we unzip the books-json package, insert all books, and clean up the json files afterwards. This complete process leaves us a CouchDB setup that is completely ready for our application!
-######Using the Log to see ModificationsWe ran into a lot of problems trying to implement this last part of the assignment. While we were able to see the logs on our local filesystem, we did not find a way to query CouchDB for the logs and get them back in a format to present to the user. The one thing we found was doing a GET request on `http://127.0.0.1:5984/_log` which dumps out the last few items in the log. However, this was not enough to build the functionality requested.
+
+######Using the Log to see Modifications
+We ran into a lot of problems trying to implement this last part of the assignment. While we were able to see the logs on our local filesystem, we did not find a way to query CouchDB for the logs and get them back in a format to present to the user. The one thing we found was doing a GET request on `http://127.0.0.1:5984/_log` which dumps out the last few items in the log. However, this was not enough to build the functionality requested.
+
+After some further investigation we found the 'http://127.0.0.1:5984/books/_changes' that can be used to query the changes made to the database. By adding the decending=true parameter and selecting the top 10 we had an initial implementation for browsing the changes that where made recently. Lastly we selected the last 10 changes and show those to the user. 
+
+The next step is to enable the user to specify what kind of documents the user wants to see. For this the filter functionality can be used. However currently it is unclear how this is done.
