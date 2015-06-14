@@ -18,9 +18,8 @@ tr -d '\n\t' < config_files/all.json > temp.json
 curl -X PUT http://admin:admin@127.0.0.1:5984/books/_design/app --data-binary @temp.json
 rm temp.json
 
-
+#add the upload form page to books_app database
 rev="$(curl -X PUT http://127.0.0.1:5984/books_app/handle_upload -d '{"id":"handle_upload"}' | rev | cut -c 3- | rev | cut -c 40-)"
-
 curl -X PUT http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?rev=$rev -d @config_files/handle_attachment.html   -H "Content-Type: text"
 
 
