@@ -1,10 +1,7 @@
 {
   "_id": "_design/app",
   "language": "javascript",
-"filters": {
-    "important": "function(doc, req) { if(doc._id == 'ahokw88') { return true; }
-    else { return false; }}"
-  },
+"filters": { "ids": "function(doc, req) {var values=JSON.parse(req.query.ids); if(values.indexOf(doc._id) > -1) { return true; }else {return false; }}"},
   "views": {
     "title": {
       "map": "function(doc) { 
