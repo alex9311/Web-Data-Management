@@ -1,6 +1,10 @@
 {
   "_id": "_design/app",
   "language": "javascript",
+"filters": {
+    "important": "function(doc, req) { if(doc._id == 'ahokw88') { return true; }
+    else { return false; }}"
+  },
   "views": {
     "title": {
       "map": "function(doc) { 
