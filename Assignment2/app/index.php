@@ -7,7 +7,7 @@
 <body>
 <?php
 	session_start();
-        if(isset($_SESSION["message"])){      	
+        if(($_SESSION["message"])){      	
 		echo '<p style="background-color: rgb(51, 204, 255)">'.$_SESSION["message"].'</p>'; 
             	unset($_SESSION['message']);
       	}
