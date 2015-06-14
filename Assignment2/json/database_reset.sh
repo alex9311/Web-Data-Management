@@ -7,6 +7,7 @@ curl -X PUT http://admin:admin@127.0.0.1:5984/books
 curl -X PUT http://admin:admin@127.0.0.1:5984/books2
 curl -X PUT http://admin:admin@127.0.0.1:5984/books_app
 
+
 #set up each to replicate onto the other
 curl -X POST http://admin:admin@127.0.0.1:5984/_replicate  -d '{"source": "books",  "target": "books2", "continuous": true}' -H "Content-Type: application/json"
 curl -X POST http://admin:admin@127.0.0.1:5984/_replicate  -d '{"source": "books2",  "target": "books", "continuous": true}' -H "Content-Type: application/json"
