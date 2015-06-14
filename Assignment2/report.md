@@ -67,4 +67,4 @@ After some further investigation, we found the 'http://127.0.0.1:5984/books/_cha
 <img src="resources/report_images/changelog.png" style="width:3.5in"></img>
 
 
-The next step is to enable the user to specify what kind of documents the user wants to see. For this the filter functionality can be used. However,it is currently unclear how this is done.
+The next part of the changelog was to enable users to specify from which documents they want to see the changes. For this, we first had to add an filter to the database, this filter has been included in the database reset script. The filter we created works by comparing id's. This ment that we had to get the id's based on the user's input. For this we could reuse the views we had created for the search to get the id's of the selected documents. Based on the id's that are gathered from the search the changes for those documents are requested on the server.
