@@ -32,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$response = curl_exec($ch);
  
 	curl_close($ch);
+	
+	session_start();
+	$_SESSION["POST"] = "Successfully added ".$_POST["title"]."!";
 
 	header("Location: index.php");
 	die();

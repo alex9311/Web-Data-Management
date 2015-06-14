@@ -6,6 +6,12 @@
 </head>
 <body>
 <?php
+            session_start();
+            if($_SESSION['POST']){
+              echo '<p style="background-color: rgb(51, 204, 255)">'.$_SESSION["POST"].'</p>'; 
+            }
+            unset($_SESSION['POST']);
+
 	$title=""; $author=""; $publisher="";$year="";
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$title = $_POST["title"];

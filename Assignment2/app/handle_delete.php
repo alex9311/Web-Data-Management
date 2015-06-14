@@ -4,9 +4,6 @@
 		exit();
 	}
 	$book = get_document_by_id($_GET["id"]);
-	print_r($book);
-
-
  
 	$ch = curl_init();
  
@@ -28,6 +25,9 @@
 
  
 	curl_close($ch);
+
+	session_start();
+	$_SESSION["POST"] = "Successfully deleted ".$book["title"]."!";
 
 	header("Location: index.php");
 	die();

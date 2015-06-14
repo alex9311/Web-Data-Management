@@ -10,7 +10,6 @@
 			exit();
 		}
 		$book = get_document_by_id($_GET["id"]);
-		print_r($book);
 	?>
 	<h2 style="text-align:center;">Edit Entry in DB</h2>
 	<div class="input_form">

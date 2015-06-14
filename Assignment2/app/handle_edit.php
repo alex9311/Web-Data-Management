@@ -38,6 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$response = curl_exec($ch);
  
 	curl_close($ch); 
+
+	session_start();
+	$_SESSION["POST"] = "Successfully edited ".$title."!";
+
 	header("Location: index.php");
 	die();
 }
