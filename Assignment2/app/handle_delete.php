@@ -27,7 +27,7 @@
 	curl_close($ch);
 
 	session_start();
-	$_SESSION["POST"] = "Successfully deleted ".$book["title"]."!";
+	$_SESSION["message"] = "Successfully deleted ".$book["title"]."!";
 
 	header("Location: index.php");
 	die();

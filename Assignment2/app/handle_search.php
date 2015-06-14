@@ -45,9 +45,9 @@ function json_to_html_table($json){
 		echo "<td>".$book->year."</td>";
 		echo "<td>".$book->source."</td>";
 		echo "<td>".$attachment_list."</td>";
-		echo "<td><a href=edit_form.php?id=".$id.">edit</a></td>";
-		echo "<td><a href=handle_delete.php?id=".$id.">delete</a></td>";
-		echo "<td><a href=http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?doc_id=".urlencode($id)."&doc_rev=".urlencode($book->_rev).' target="_blank">add PDF</a></td>';
+		echo '<td align="center"><a href="edit_form.php?id='.$id.'"><img src="icons/edit.png"></a></td>';
+		echo '<td align="center"><a href=handle_delete.php?id='.$id.'><img src="icons/delete.png"></a></td>';
+		echo '<td align="center"><a href=http://127.0.0.1:5984/books_app/handle_upload/handle_upload.html?doc_id='.urlencode($id)."&doc_rev=".urlencode($book->_rev).' target="_blank"><img src="icons/pdf.png"></a></td>';
 		echo "</tr>";	
 	}
 	echo "</table>";

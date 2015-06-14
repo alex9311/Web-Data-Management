@@ -6,11 +6,11 @@
 </head>
 <body>
 <?php
-            session_start();
-            if($_SESSION['POST']){
-              echo '<p style="background-color: rgb(51, 204, 255)">'.$_SESSION["POST"].'</p>'; 
-            }
-            unset($_SESSION['POST']);
+	session_start();
+        if(isset($_SESSION["message"])){      	
+		echo '<p style="background-color: rgb(51, 204, 255)">'.$_SESSION["message"].'</p>'; 
+            	unset($_SESSION['message']);
+      	}
 
 	$title=""; $author=""; $publisher="";$year="";
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,6 +39,7 @@
 		</form>
 	</div>
 	<br>
+<?php get_log();?>
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,6 +47,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+<?php
+function get_log(){
+	$ch = curl_init();
+ 
+	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:5984/_log 10000');
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Content-type: application/json',
+		'Accept: */*'
+	));
+ 
+	curl_setopt($ch, CURLOPT_USERPWD, 'admin:admin');
+ 
+	$response = curl_exec($ch);
+	print_r(str_replace("- -","<br>- -",$response));
 
+	curl_close($ch);
+}
+?>
 </body>
 </html>
