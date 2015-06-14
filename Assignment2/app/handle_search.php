@@ -1,3 +1,4 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="createBibtex.js"></script>
 <?php
 
@@ -71,7 +72,7 @@ function get_attachment_list($book){
 	$attachments = ($book->_attachments);
 		$attachment_list = "";
 		foreach ($attachments as $key => $value) {
-			$link = '<a href="http://127.0.0.1:5984/books/'.$book->_id.'/'.$key.'" target="_blank">'.$key.'</a>';
+			$link = '<a href="http://127.0.0.1:5984/books/'.$book->_id.'/'.$key.'" target="_blank">'.$key.'</a><br>';
 			$attachment_list .= $link;
 		}
 	return $attachment_list;
