@@ -62,6 +62,9 @@ And finally, we unzip the books-json package, insert all books, and clean up the
 ######Using the Log to see Modifications
 We ran into a lot of problems trying to implement this last part of the assignment. While we were able to see the logs on our local filesystem, we did not find a way to query CouchDB for the logs and get them back in a format to present to the user. The one thing we found was doing a GET request on `http://127.0.0.1:5984/_log` which dumps out the last few items in the log. However, this was not enough to build the functionality requested.
 
-After some further investigation, we found the 'http://127.0.0.1:5984/books/_changes' that can be used to query the changes made to the books database. By adding the decending=true parameter and selecting the top 10 we had an initial implementation for browsing the changes that where made recently. Lastly, we selected the last 10 changes and show those to the user. 
+After some further investigation, we found the 'http://127.0.0.1:5984/books/_changes' that can be used to query the changes made to the books database. By adding the decending=true parameter and selecting the top 10 we had an initial implementation for browsing the changes that where made recently. Lastly, we selected the last 10 changes and show those to the user as shown below.
+
+<img src="resources/report_images/changelog.png" style="width:3.5in"></img>
+
 
 The next step is to enable the user to specify what kind of documents the user wants to see. For this the filter functionality can be used. However,it is currently unclear how this is done.
