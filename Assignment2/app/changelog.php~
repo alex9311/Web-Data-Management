@@ -22,7 +22,7 @@ function show_changelog() {
 
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes?descending(false)'
+		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes?descending=true'
 	));
 	
 	// Send the request & save response to $resp

@@ -22,7 +22,7 @@ function show_changelog() {
 
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes'
+		CURLOPT_URL => 'http://127.0.0.1:5984/books/_changes?descending=true'
 	));
 	
 	// Send the request & save response to $resp
@@ -40,7 +40,8 @@ function json_to_html_table_change($json){
 
 	print_table_headers();
 	for ($i = 0; $i <= 10; $i++) {
-		$book = get_document_by_id($json_books[$i]->id);
+		$id = $json_books[$i]->id;
+		$book = get_document_by_id($id);
 
 		$attachment_list = get_attachment_list($book);
 		$authors = get_author_array($book);
