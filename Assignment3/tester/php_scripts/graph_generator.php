@@ -13,10 +13,7 @@ $num_nodes = $argv[1];
 $nodes = range(0,$num_nodes-1);
 
 for ($x = 0; $x < $num_nodes; $x++) {
-	echo "for node number $x\n";
-	generate_edges($x,$nodes);
-	echo "\n";
-
+	echo "$x ".generate_edges($x,$nodes);
 } 
 
 function generate_edges($node_num,$nodes){
@@ -27,8 +24,7 @@ function generate_edges($node_num,$nodes){
 	shuffle($possible_connections);
 	$connected_nodes = array_slice($possible_connections,0,$num_connections);
 
-	echo "connections:\n";
-	print_r(implode(" ",$connected_nodes));echo "\n";
+	return implode(" ",$connected_nodes)."\n";
 }
 
 ?>

@@ -14,7 +14,9 @@ function count_result_triangles($filename){
 	while(!feof($myfile)) {
 		$result_line = fgets($myfile);
 		if($result_line!=""){
-			$triangle_count = $triangle_count + (explode("\t",$result_line)[1]);
+			if(is_numeric(substr($result_line,0,1))){
+				$triangle_count = $triangle_count + (explode("\t",$result_line)[1]);
+			}
 		}
 	}
 	fclose($myfile);
