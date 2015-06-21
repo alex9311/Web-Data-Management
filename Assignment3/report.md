@@ -2,7 +2,7 @@
 Alex Simes (4415299)  and Peter van Buul (1512269)
 
 ####Introduction
-For this assignment, we built two solutions to the problem of finding triangles inside graphs, one with Hadoop and one with Apache Giraph. For the first sollution we used Apache Giraph (which uses Hadoop) to count triangles. Next, we used regular Hadoop map-reduce to solve the problem. Both the solutions are written in Java using maven to handle dependancies, with maven both sollutions can be packaged in a single jar file. This file is used to call eiher solution. 
+For this assignment, we built two solutions to the problem of finding triangles inside graphs, one with Hadoop and one with Apache Giraph. For the first solution we used Apache Giraph (which uses Hadoop) to count triangles. Next, we used regular Hadoop map-reduce to solve the problem. Both the solutions are written in Java using maven to handle dependancies, with maven both solutions can be packaged in a single jar file. This file is used to call either solution. 
 
 In addition to these two solutions, we also built a script that automates the running of both solutions on a generated graph. The script also runs a brute-force php solution we implemented to check the output. 
 
@@ -12,8 +12,8 @@ In addition to these two solutions, we also built a script that automates the ru
 
 The Apache Giraph solution works in four steps during which messages are sent along the edges of a triangle. 
 
-1. In the first step, a message containing the ID of the sending vertex is sent along all edges where the neigboring vertex has a higher ID. If this vertex is part of a triangle, then this step is sending a message along the AB edge of the ABC triangle. 
-2. In the second step, this message is forwarded to again to all edges of which the neigboring vertex has an higher ID. If this vertex is part of the ABC triangle it now forwards this message along the BC edge. 
+1. In the first step, a message containing the ID of the sending vertex is sent along all edges where the neighboring vertex has a higher ID. If this vertex is part of a triangle, then this step is sending a message along the AB edge of the ABC triangle. 
+2. In the second step, this message is forwarded to again to all edges of which the neighboring vertex has an higher ID. If this vertex is part of the ABC triangle it now forwards this message along the BC edge. 
 3. In the third step the message is forwarded to all neighbors, if this vertex is part of the ABC triangle it now forwards this message along the BC edge. 
 4. In the last step, the IDs of the messages are compared with the ID of the current vertex. If the message ID matches the ID of the vertex, the message in this message has traveled along three edges in a triangle. Thus, a triangle is counted.
 
@@ -58,7 +58,7 @@ ownValue = numberOfTriangles
 
 ##### Brief Explanation
 
-The second algorithm that was implemented is a 3-way join using the map-reduce algorithm presented in the lecture series. The algorithm first sends the edges corresponding reducers, to determine which reducers a edge should be send to a hash is created based on the id's of the verteces in the edge and the number of buckets (in our case 3), this way triangles are stored in the same reducer. The reducers now determines for the recieved vertices if they can form triangles, if so a triangle is counted.
+The second algorithm that was implemented is a 3-way join using the map-reduce algorithm presented in the lecture series. The algorithm first sends the edges corresponding reducers, to determine which reducers a edge should be send to a hash is created based on the id's of the vertices in the edge and the number of buckets (in our case 3), this way triangles are stored in the same reducer. The reducers now determines for the received vertices if they can form triangles, if so a triangle is counted.
 
 ##### Pseudo Code
 
@@ -107,6 +107,6 @@ We built a [graph generating php script](https://github.com/alex9311/Web-Data-Ma
 The [brute force solver](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment3/tester/php_scripts/graph_solver.php) was also implemented in PHP. This was used to check our solutions in map-reduce and Giraph. The script simply takes each edge in the graph (A,B) and sees if it can find any node C with edges (C,A) and (C,B). 
 
 ######Automation Script
-The [automation script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment3/tester/run.sh) takes a graph as input. The script resets the hadoop filesystem and puts the given graph in the correct directories. It then calls both the Map-Reduce solution and the Giraph solution in turn through our jar file. Since these two programs don't output a plain number of triangles found, we used a [simple php script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment3/tester/php_scripts/parse_hadoop_output.php) to get a single number of triangles found out of the output. Finally, the script runs our brute force algorithm so we can be sure of the correctness.
+The [automation script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment3/tester/run.sh) takes a graph as input. The script resets the Hadoop filesystem and puts the given graph in the correct directories. It then calls both the Map-Reduce solution and the Giraph solution in turn through our jar file. Since these two programs don't output a plain number of triangles found, we used a [simple php script](https://github.com/alex9311/Web-Data-Management/blob/master/Assignment3/tester/php_scripts/parse_hadoop_output.php) to get a single number of triangles found out of the output. Finally, the script runs our brute force algorithm so we can be sure of the correctness.
 
 
