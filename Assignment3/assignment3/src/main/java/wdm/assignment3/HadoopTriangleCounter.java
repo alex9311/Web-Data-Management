@@ -50,18 +50,18 @@ public class HadoopTriangleCounter {
         		LOG.info("Neighbor Vertex: " + neighborVertex);
         		
         		if (startVertex < neighborVertex) {
-        			int startVertexModifier = calculateModifier(startVertex);
-        			int neighborVertexModifier = calculateModifier(neighborVertex);
+        			int startVertexModulo = calculateModulo(startVertex);
+        			int neighborVertexModulo = calculateModulo(neighborVertex);
         			int reducerNumber;
 
         			for (int j = 0; j < NUMBER_OF_BUCKETS; j++) {
-        				reducerNumber = startVertexModifier * NUMBER_OF_BUCKETS ^ 2 + neighborVertexModifier * NUMBER_OF_BUCKETS + j;
+        				reducerNumber = startVertexModulo * NUMBER_OF_BUCKETS ^ 2 + neighborVertexModulo * NUMBER_OF_BUCKETS + j;
         				LOG.info("Send edge AB to reducer with hash(A, B, j): " + reducerNumber);
         				context.write(new LongWritable(reducerNumber), new EdgeWritable(startVertex, neighborVertex, EdgeWritable.TYPE.AB));
-        				reducerNumber = j * NUMBER_OF_BUCKETS ^ 2 + startVertexModifier * NUMBER_OF_BUCKETS + neighborVertexModifier;
+        				reducerNumber = j * NUMBER_OF_BUCKETS ^ 2 + startVertexModulo * NUMBER_OF_BUCKETS + neighborVertexModulo;
         				LOG.info("Send edge BC to reducer with hash(j, B, C): " + reducerNumber);
         				context.write(new LongWritable(reducerNumber), new EdgeWritable(startVertex, neighborVertex, EdgeWritable.TYPE.BC));
-        				reducerNumber = startVertexModifier * NUMBER_OF_BUCKETS ^ 2 + j * NUMBER_OF_BUCKETS + neighborVertexModifier;
+        				reducerNumber = startVertexModulo * NUMBER_OF_BUCKETS ^ 2 + j * NUMBER_OF_BUCKETS + neighborVertexModulo;
         				LOG.info("Send edge AC to reducer with hash(A, j, C): " + reducerNumber);
         				context.write(new LongWritable(reducerNumber), new EdgeWritable(startVertex, neighborVertex, EdgeWritable.TYPE.AC));
         			}
@@ -69,7 +69,7 @@ public class HadoopTriangleCounter {
         	}
         }
 
-		private int calculateModifier(int vertex) {
+		private int calculateModulo(int vertex) {
 			return vertex % NUMBER_OF_BUCKETS;
 		}
     }
