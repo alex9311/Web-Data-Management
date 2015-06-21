@@ -58,7 +58,7 @@ ownValue = numberOfTriangles
 
 ##### Brief Explanation
 
-The second algorithm that was implemented is a 3-way join using the map-reduce algorithm presented in the lecture series. The algorithm first sends the each edge to a reducers, to determine which reducer a hash is created based on the id's of the verteces in the edge and the number of buckets (in our case 3), this way triangles are stored in the same reducer. The reducers now determines for the recieved vertices if they can form triangles, if so a triangle is counted.
+The second algorithm that was implemented is a 3-way join using the map-reduce algorithm presented in the lecture series. The algorithm first sends the edges corresponding reducers, to determine which reducers a edge should be send to a hash is created based on the id's of the verteces in the edge and the number of buckets (in our case 3), this way triangles are stored in the same reducer. The reducers now determines for the recieved vertices if they can form triangles, if so a triangle is counted.
 
 ##### Pseudo Code
 
