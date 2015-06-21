@@ -30,7 +30,7 @@ import com.google.common.collect.Sets;
  */
 public class HadoopTriangleCounter {
 
-    private static int NUMBER_OF_BUCKETS = 3;
+    private static final int NUMBER_OF_BUCKETS = 3;
     
     private static final Log LOG = LogFactory.getLog(HadoopTriangleCounter.class);
 
