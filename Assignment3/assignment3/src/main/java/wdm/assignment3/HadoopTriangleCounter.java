@@ -90,11 +90,12 @@ public class HadoopTriangleCounter {
             long numberOfTriangles = 0;
             for (EdgeWritable edgeAB: edgeTypeMap.get(EdgeWritable.TYPE.AB)) {
                 for(EdgeWritable edgeBC: edgeTypeMap.get(EdgeWritable.TYPE.BC)){
-                    if(edgeAB.getTargetVertex() == edgeBC.getSourceVertex())
+                    if(edgeAB.getTargetVertex() == edgeBC.getSourceVertex()) {
                         if(edgeTypeMap.get(EdgeWritable.TYPE.AC).contains(new EdgeWritable(edgeAB.getSourceVertex(), edgeBC.getTargetVertex()))) {
                         	numberOfTriangles++;
                         	LOG.info("Adding triangle to reducer: " + reducerNumber);
                         }
+                    }
                 }
             }
 
