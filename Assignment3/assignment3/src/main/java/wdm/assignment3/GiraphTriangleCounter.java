@@ -22,7 +22,7 @@ public class GiraphTriangleCounter extends BasicComputation<
     @Override
     public void compute(
             Vertex<IntWritable, IntWritable, NullWritable> vertex,
-            Iterable<IntWritable> messages) throws IOException {
+            Iterable<IntWritable> recievedMessages) throws IOException {
 
     	LOG.info("Started computation for vertex: " + vertex.getId().get());
     	
@@ -34,15 +34,15 @@ public class GiraphTriangleCounter extends BasicComputation<
         }
 
         if (superstep == 1) {
-        	forwardBCMessage(vertex.getEdges(), messages, vertexId);
+        	forwardBCMessage(vertex.getEdges(), recievedMessages, vertexId);
         }
 
         if (superstep == 2) {
-        	forwardCAMessage(vertex.getEdges(), messages);
+        	forwardCAMessage(vertex.getEdges(), recievedMessages);
         }
 
         if (superstep == 3) {
-        	countIncommingMessages(vertex, messages);
+        	countIncommingMessages(vertex, recievedMessages);
         }
 
         vertex.voteToHalt();
@@ -58,8 +58,8 @@ public class GiraphTriangleCounter extends BasicComputation<
         }
 	}
 
-	private void forwardBCMessage(Iterable<Edge<IntWritable, NullWritable>> edges, Iterable<IntWritable> messages, IntWritable vertexId) {
-        for (IntWritable message: messages) {
+	private void forwardBCMessage(Iterable<Edge<IntWritable, NullWritable>> edges, Iterable<IntWritable> recievedMessages, IntWritable vertexId) {
+        for (IntWritable message: recievedMessages) {
             for (Edge<IntWritable, NullWritable> edge : edges) {
                 IntWritable targetVertexId = edge.getTargetVertexId();
 				if (targetVertexId.get() > vertexId.get()) {
@@ -69,17 +69,17 @@ public class GiraphTriangleCounter extends BasicComputation<
         }
 	}
 
-	private void forwardCAMessage(Iterable<Edge<IntWritable, NullWritable>> edges, Iterable<IntWritable> messages) {
-        for (IntWritable message: messages) {
+	private void forwardCAMessage(Iterable<Edge<IntWritable, NullWritable>> edges, Iterable<IntWritable> recievedMessages) {
+        for (IntWritable message: recievedMessages) {
             for (Edge<IntWritable, NullWritable> edge : edges) {
                 sendMessage(edge.getTargetVertexId(), message);
             }
         }
 	}
 
-	private void countIncommingMessages(Vertex<IntWritable, IntWritable, NullWritable> vertex, Iterable<IntWritable> messages) {
+	private void countIncommingMessages(Vertex<IntWritable, IntWritable, NullWritable> vertex, Iterable<IntWritable> recievedMessages) {
         int numberOfTriangles = 0;
-        for (IntWritable message: messages) {
+        for (IntWritable message: recievedMessages) {
             if(message.get() == vertex.getId().get()){
                 numberOfTriangles ++;
             }
