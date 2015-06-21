@@ -85,7 +85,7 @@ reduce {
   numberOfTriangles = 0
   foreach edgeAB from recievedEdges {
     foreach edgeBC from recievedEdges {
-      if (recievedEdges.contains(edge(edgeAB.A, edgeBC.C, type.AC))) {
+      if (recievedACEdges.contains(edge(edgeAB.A, edgeBC.C))) {
         numberOfTriangles++
       }
     }
