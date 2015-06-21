@@ -15,14 +15,14 @@ The Apache Giraph solution works in four steps during which messages are send al
 ##### Pseudo Code
 
 ```
-//step1
+//step 1 send message over AB edge
 foreach neighbor {
   if (neighborId > ownId) {
     send selfId to neighbor
   }
 }
 
-//step 2
+//step 2 forward message over BC edge
 foreach message {
   foreach neighbor {
     if (neighborId > ownId) {
@@ -31,14 +31,14 @@ foreach message {
   }
 }
 
-//step 3
+//step 3 forward message over CA edge
 foreach message {
   foreach neighbor {
     send message to neighbor
   }
 }
 
-//step 4
+//step 4 count number of triangles
 numberOfTriangles = 0
 foreach message {
   if (messagePayload == ownId) {
@@ -51,6 +51,49 @@ ownValue = numberOfTriangles
 
 ####Hadoop Map-Reduce	
 
+##### Brief Explanation
+
+The second algorithm that was implemented is a 3-way join using the map-reduce algorithm presented during the lecture series. The algorithm first sends the each edge to a reducers, to determine which reducer a hash is created based on the id's of the verteces in the edge and the number of buckets (in our case 3), this way triangles are stored in the same reducer. The reducers now determine for the recieved vertices if they can form triangles, if so a triangle is counted.
+
+##### Pseudo Code
+
+```
+map {
+  foreach edge startingFrom startVertex {
+    if (startVertexId < neighborVertexId) {
+      startVertexModulo = mod(startVertexId)
+      neighborVertexModulo = mod(neighborVertexId)
+      
+      foreach bucketNumber from buckets {
+        // send edge AB to reducer with hash(A, B, j)
+        reducerNumber = hash(startVertexModulo) + hash(neighborVertexModulo) + bucketNumber
+        send(reducerNumber, edge(startVertexId, neighborVertexId, AB)
+        
+        // send edge BC to reducer with hash(j, B, C)
+        reducerNumber = hash(bucketNumber) + hash(startVertexModulo) + neighborVertexModulo
+        send(reducerNumber, edge(startVertexId, neighborVertexId, BC)
+        
+        // send edge AC to reducer with hash(A, j, C)
+        reducerNumber = hash(startVertexModulo) + hash(bucketNumber) + neighborVertexModulo
+        send(reducerNumber, edge(startVertexId, neighborVertexId, AC)
+      }
+    }
+  }
+}
+
+reduce {
+  numberOfTriangles = 0
+  foreach edgeAB from recievedEdges {
+    foreach edgeBC from recievedEdges {
+      if (recievedEdges.contains(edge(edgeAB.A, edgeBC.C, type.AC))) {
+        numberOfTriangles++
+      }
+    }
+  }
+  
+  reducerValue = numberOfTriangles
+}
+```
 
 ####Testing Script
 
