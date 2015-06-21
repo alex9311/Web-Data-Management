@@ -14,6 +14,41 @@ The Apache Giraph solution works in four steps during which messages are send al
 
 ##### Pseudo Code
 
+```
+//step1
+foreach neighbor {
+  if (neighborId > ownId) {
+    send selfId to neighbor
+  }
+}
+
+//step 2
+foreach message {
+  foreach neighbor {
+    if (neighborId > ownId) {
+      send message to neighbor
+    }
+  }
+}
+
+//step 3
+foreach message {
+  foreach neighbor {
+    send message to neighbor
+  }
+}
+
+//step 4
+numberOfTriangles = 0
+foreach message {
+  if (messagePayload == ownId) {
+    numberOfTriangles++
+  }
+}
+
+ownValue = numberOfTriangles
+```
+
 ####Hadoop Map-Reduce	
 
 
