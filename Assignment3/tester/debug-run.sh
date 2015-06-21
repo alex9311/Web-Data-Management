@@ -16,18 +16,18 @@ fi
 
 
 echo "setting up directories on hdfs"
-$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /input >&- 2>&-
-$HADOOP_HOME/bin/hdfs dfs -mkdir /input >&- 2>&-
-$HADOOP_HOME/bin/hdfs dfs -put "$graph_file" /input >&- 2>&-
+$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /input
+$HADOOP_HOME/bin/hdfs dfs -mkdir /input
+$HADOOP_HOME/bin/hdfs dfs -put "$graph_file" /input
 
-$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /hadoop_output >&- 2>&-
-$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /giraph_output >&- 2>&-
+$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /hadoop_output
+$HADOOP_HOME/bin/hdfs dfs -rm -r -skipTrash /giraph_output
 
 jar_file="/home/peter/workspace/assignment3/target/assignment3-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
 
 echo "running hadoop solution"
-rm hadoop_output.txt >&- 2>&-
-$HADOOP_HOME/bin/hadoop jar "$jar_file" wdm.assignment3.HadoopTriangleCounter "$filename" /hadoop_output >&- 2>&-
+rm hadoop_output.txt
+$HADOOP_HOME/bin/hadoop jar "$jar_file" wdm.assignment3.HadoopTriangleCounter "$filename" /hadoop_output
 $HADOOP_HOME/bin/hdfs dfs -cat /hadoop_output/p* > hadoop_output.txt 
 
 echo "hadoop solution complete:"
@@ -35,8 +35,8 @@ php php_scripts/parse_hadoop_output.php hadoop_output.txt
 rm hadoop_output.txt
 
 echo "running giraph solution"
-rm giraph_output.txt>&- 2>&-
-$HADOOP_HOME/bin/hadoop jar "$jar_file" org.apache.giraph.GiraphRunner wdm.assignment3.GiraphTriangleCounter -vif org.apache.giraph.io.formats.IntIntNullTextInputFormat -vip "$filename" -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /giraph_output/ -w 1 -ca giraph.SplitMasterWorker=false >&- 2>&-
+rm giraph_output.tx
+$HADOOP_HOME/bin/hadoop jar "$jar_file" org.apache.giraph.GiraphRunner wdm.assignment3.GiraphTriangleCounter -vif org.apache.giraph.io.formats.IntIntNullTextInputFormat -vip "$filename" -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /giraph_output/ -w 1 -ca giraph.SplitMasterWorker=false
 $HADOOP_HOME/bin/hdfs dfs -cat /giraph_output/p* > giraph_output.txt
 
 echo "giraph solution complete:"
